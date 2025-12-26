@@ -1,0 +1,14 @@
+{
+    "id": 2,
+    "period_id": 2,
+    "batch_no": "YCCQPCH0000002",
+    "period_name": "第2期",
+    "draw_date": "2025-12-23",
+    "total_applied": 1711,
+    "quota_total": 2100,
+    "total_won": 1711,
+    "total_lost": 0,
+    "win_rate": "100%",
+    "pdf_url": "https://ycnx.singlewindow.gd.cn/api/ycnx-approval/draw-lots-notarization/view-publicly-file/YCCQPCH0000002",
+    "updated_at": "2025-12-26 08:38:40"
+}
