@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>粤车南下抽签助手</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        :root { --wx-green: #07c160; --bg-gray: #f7f7f7; }
+        body { background: var(--bg-gray); margin: 0; padding: 15px; font-family: -apple-system, system-ui, sans-serif; }
+        .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .title { font-size: 14px; color: #888; margin-bottom: 10px; }
+        .latest-val { font-size: 32px; font-weight: bold; color: var(--wx-green); }
+        #chart { width: 100%; height: 240px; }
+        .list-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #eee; }
+        .list-item:last-child { border-bottom: none; }
+        .p-id { font-weight: bold; font-size: 16px; }
+        .p-batch { font-size: 12px; color: #999; margin-top: 4px; }
+        .p-rate { color: var(--wx-green); font-weight: 500; }
+        .badge { font-size: 10px; background: #e1f5fe; color: #03a9f4; padding: 2px 6px; border-radius: 4px; margin-left: 5px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="title" id="latest-title">加载中...</div>
+        <div class="latest-val" id="latest-rate">--%</div>
+        <div style="font-size: 13px; color: #666; margin-top: 8px;">
+            申请人数: <span id="latest-applied">--</span> | 中签数: <span id="latest-won">--</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="title">中签率走势</div>
+        <div id="chart"></div>
+    </div>
+
+    <div class="card">
+        <div class="title">历史记录</div>
+        <div id="history-list"></div>
+    </div>
+
+    <script>
+        // 关键：为了稳定，这里建议使用 Vercel 的路径或 CDN 路径
+        const dataUrl = './history_data.json'; 
+
+        fetch(dataUrl + '?t=' + new Date().getTime())
+            .then(res => res.json())
+            .then(data => {
+                const latest = data[0];
+                document.getElementById('latest-title').innerText = `最新：${latest.period_name} (${latest.draw_date})`;
+                document.getElementById('latest-rate').innerText = latest.win_rate;
+                document.getElementById('latest-applied').innerText = latest.total_applied;
+                document.getElementById('latest-won').innerText = latest.total_won;
+                
+                initChart(data);
+                initList(data);
+            });
+
+        function initChart(data) {
+            const chart = echarts.init(document.getElementById('chart'));
+            const source = [...data].reverse();
+            chart.setOption({
+                grid: { left: '10%', right: '5%', top: '10%', bottom: '15%' },
+                xAxis: { type: 'category', data: source.map(d => d.period_name), axisLine: { lineStyle: { color: '#ccc' } } },
+                yAxis: { type: 'value', splitLine: { lineStyle: { type: 'dashed' } } },
+                series: [{
+                    data: source.map(d => parseFloat(d.win_rate)),
+                    type: 'line', smooth: true, symbolSize: 8,
+                    color: '#07c160', areaStyle: { color: 'rgba(7, 193, 96, 0.1)' },
+                    label: { show: true, position: 'top', formatter: '{c}%', fontSize: 10 }
+                }]
+            });
+        }
+
+        function initList(data) {
+            const list = document.getElementById('history-list');
+            list.innerHTML = data.map(item => `
+                <div class="list-item">
+                    <div>
+                        <div class="p-id">${item.period_name}<span class="badge">已完成</span></div>
+                        <div class="p-batch">${item.batch_no}</div>
+                    </div>
+                    <div style="text-align: right">
+                        <div class="p-rate">${item.win_rate}</div>
+                        <div style="font-size: 11px; color: #999;">${item.total_applied}人申请</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

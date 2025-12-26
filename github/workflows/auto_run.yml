@@ -1,0 +1,31 @@
+name: Ycnx Data Auto Crawler
+
+on:
+  schedule:
+    # 每天北京时间 12:00 运行 (UTC 4:00)
+    # 我们让它每天跑，但 main.py 会判断是否需要真正执行采集
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+    - uses: setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install dependencies
+      run: pip install requests pdfplumber groq
+    - name: Run Crawler
+      env:
+        GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      run: python main.py
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update" && git push)
