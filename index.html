@@ -19,67 +19,70 @@
 
         body { 
             background: var(--bg-gray); 
-            margin: 0; 
-            padding: 0; 
-            font-family: -apple-system, "SF Pro Display", "PingFang SC", sans-serif; 
+            margin: 0; padding: 0; 
+            font-family: -apple-system, "SF Pro Display", sans-serif; 
             color: var(--text-main);
         }
 
         .header {
             background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-radius: 0 0 24px 24px;
+            color: white; padding: 40px 20px; text-align: center; border-radius: 0 0 24px 24px;
         }
-        .header h1 { margin: 0; font-size: 22px; font-weight: 700; }
-        .header p { margin: 8px 0 0; font-size: 13px; opacity: 0.8; }
+        .header h1 { margin: 0; font-size: 22px; }
 
         .container { padding: 0 16px; margin-top: -20px; }
 
         .card { 
-            background: white; 
-            border-radius: 16px; 
-            padding: 20px; 
-            margin-bottom: 16px; 
+            background: white; border-radius: 16px; 
+            padding: 20px; margin-bottom: 16px; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.04);
         }
 
-        .section-title { font-size: 14px; color: var(--text-sub); margin-bottom: 15px; font-weight: 600; display: flex; align-items: center; }
-        .section-title::before { content: ""; width: 3px; height: 12px; background: var(--primary-blue); border-radius: 2px; margin-right: 6px; }
-
-        /* 历史列表样式优化 */
-        .list-item { padding: 18px 0; border-bottom: 1px solid #F2F2F7; }
-        .list-item:last-child { border-bottom: none; }
-
-        /* 第一行：期数 + 中签率靠右 */
-        .item-row-1 { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-        .p-name { font-size: 17px; font-weight: 700; }
-        .p-batch { font-size: 11px; color: var(--text-sub); font-weight: normal; margin-left: 4px; }
-        .p-rate-wrapper { text-align: right; }
-        .p-rate-label { font-size: 12px; color: var(--text-sub); margin-right: 2px; }
-        .p-rate-val { font-size: 18px; font-weight: 800; color: var(--primary-blue); }
-
-        /* 第二行：日期 */
-        .item-row-2 { font-size: 12px; color: var(--text-sub); margin-bottom: 12px; }
-
-        /* 第三行：统计看板 */
-        .item-row-3 { 
-            display: flex; 
-            justify-content: space-between; 
-            background: var(--light-blue); 
-            padding: 10px 12px; 
-            border-radius: 10px; 
+        .section-title { 
+            font-size: 14px; color: var(--text-sub); margin-bottom: 15px; 
+            font-weight: 600; display: flex; justify-content: space-between; align-items: center; 
         }
-        .data-block { flex: 1; text-align: left; }
-        .data-block:not(:last-child) { border-right: 1px solid rgba(0,122,255,0.1); }
-        .data-block:not(:first-child) { padding-left: 10px; }
-        
-        .data-label { display: block; font-size: 10px; color: var(--primary-blue); opacity: 0.7; margin-bottom: 2px; }
-        .data-val { font-size: 13px; font-weight: 600; color: var(--primary-blue); }
-        .lost-val { color: #FF3B30; } /* 未中签用红色强调 */
+        .section-title span::before { content: ""; width: 3px; height: 12px; background: var(--primary-blue); border-radius: 2px; margin-right: 6px; display: inline-block; vertical-align: middle;}
 
-        .footer { text-align: center; font-size: 12px; color: #BBB; padding: 30px 0; }
+        /* 最新概览增强 */
+        .latest-top { display: flex; justify-content: space-between; align-items: flex-start; }
+        .latest-rate-big { font-size: 42px; font-weight: 800; color: var(--primary-blue); line-height: 1; }
+        .latest-period-info { text-align: right; }
+        .latest-p-name { font-size: 18px; font-weight: 700; }
+        .latest-p-batch { font-size: 11px; color: var(--text-sub); display: block; }
+        .latest-grid { 
+            display: grid; grid-template-columns: repeat(3, 1fr); 
+            gap: 10px; margin-top: 20px; padding: 15px; background: var(--light-blue); border-radius: 12px; 
+        }
+        .grid-item span { display: block; font-size: 10px; color: var(--primary-blue); opacity: 0.7; }
+        .grid-item b { font-size: 14px; color: var(--primary-blue); }
+
+        /* 折叠历史列表 */
+        .list-item { border-bottom: 1px solid #F2F2F7; }
+        .list-summary { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 18px 0; cursor: pointer; transition: 0.2s;
+        }
+        .list-summary:active { opacity: 0.6; }
+        .summary-left { display: flex; flex-direction: column; }
+        .summary-rate { font-size: 18px; font-weight: 700; color: var(--primary-blue); }
+        .arrow-icon { color: var(--text-sub); font-size: 18px; transition: transform 0.3s; font-family: serif; }
+        
+        /* 展开内容 */
+        .list-details { 
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; 
+            background: #FAFAFB; border-radius: 10px; margin-bottom: 0;
+        }
+        .list-item.active .list-details { max-height: 200px; margin-bottom: 15px; padding: 12px; }
+        .list-item.active .arrow-icon { transform: rotate(90deg); }
+
+        .detail-row { font-size: 12px; color: var(--text-sub); margin-bottom: 8px; border-bottom: 1px dashed #EEE; padding-bottom: 4px; }
+        .detail-stats { display: flex; justify-content: space-between; }
+        .stat-group { display: flex; flex-direction: column; }
+        .stat-label { font-size: 10px; color: var(--text-sub); }
+        .stat-val { font-size: 13px; font-weight: 600; }
+
+        .footer { text-align: center; font-size: 11px; color: #BBB; padding: 30px 0; }
     </style>
 </head>
 <body>
@@ -89,96 +92,111 @@
     </div>
 
     <div class="container">
-        <div class="card">
-            <div class="section-title">最新概览</div>
-            <div style="font-size: 32px; font-weight: 800; color: var(--primary-blue);" id="latest-rate">--%</div>
-            <div id="latest-info" style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">加载中...</div>
+        <div class="card" id="latest-card">
+            <div class="section-title"><span>最新概览</span></div>
+            <div class="latest-top">
+                <div class="latest-rate-big" id="latest-rate">--%</div>
+                <div class="latest-period-info">
+                    <span class="latest-p-name" id="latest-period">--</span>
+                    <span class="latest-p-batch" id="latest-batch">--</span>
+                    <span style="font-size:11px; color:var(--text-sub)" id="latest-date">--</span>
+                </div>
+            </div>
+            <div class="latest-grid">
+                <div class="grid-item"><span>有效申请</span><b id="latest-applied">--</b></div>
+                <div class="grid-item"><span>中签人数</span><b id="latest-won">--</b></div>
+                <div class="grid-item"><span>未中签</span><b id="latest-lost" style="color:#FF3B30">--</b></div>
+            </div>
         </div>
 
         <div class="card">
-            <div class="section-title">中签走势图</div>
-            <div id="chart" style="width:100%; height:240px;"></div>
+            <div class="section-title"><span>中签概率走势</span></div>
+            <div id="chart" style="width:100%; height:200px;"></div>
         </div>
 
         <div class="card">
-            <div class="section-title">历史记录详情</div>
+            <div class="section-title">
+                <span>历史记录详情</span>
+                <small id="history-count" style="font-weight:normal; color:#BBB;"></small>
+            </div>
             <div id="history-list"></div>
         </div>
 
-        <div class="footer">
-            Created by MSON 2025</br>
-            Data from the Official Website.
-        </div>
+        <div class="footer">Created by MSON | Data from the Official Website.</div>
     </div>
 
     <script>
-        // 使用 window 对象挂载变量，解决 VS Code 变量重复声明报错
         window.dataUrl = './history_data.json'; 
 
         fetch(window.dataUrl + '?t=' + new Date().getTime())
             .then(res => res.json())
             .then(data => {
-                const latest = data[0];
-                document.getElementById('latest-rate').innerText = latest.win_rate;
-                document.getElementById('latest-info').innerText = `${latest.period_name} (${latest.draw_date}) | 有效申请: ${latest.total_applied}`;
-                
+                renderLatest(data[0]);
+                document.getElementById('history-count').innerText = `(共累计 ${data.length} 期记录)`;
                 initChart(data);
                 initList(data);
             });
+
+        function renderLatest(item) {
+            document.getElementById('latest-rate').innerText = item.win_rate;
+            document.getElementById('latest-period').innerText = item.period_name;
+            document.getElementById('latest-batch').innerText = item.batch_no;
+            document.getElementById('latest-date').innerText = `抽签日期: ${item.draw_date}`;
+            document.getElementById('latest-applied').innerText = parseInt(item.total_applied).toLocaleString();
+            document.getElementById('latest-won').innerText = parseInt(item.total_won).toLocaleString();
+            document.getElementById('latest-lost').innerText = (parseInt(item.total_applied) - parseInt(item.total_won)).toLocaleString();
+        }
 
         function initChart(data) {
             const chart = echarts.init(document.getElementById('chart'));
             const source = [...data].reverse();
             chart.setOption({
-                grid: { left: '10%', right: '5%', top: '15%', bottom: '15%' },
+                grid: { left: '8%', right: '4%', top: '15%', bottom: '15%' },
                 xAxis: { type: 'category', data: source.map(d => d.period_name), axisLabel: { fontSize: 10 } },
-                yAxis: { type: 'value', axisLabel: { fontSize: 10, formatter: '{value}%' } },
+                yAxis: { type: 'value', axisLabel: { fontSize: 10 } },
                 series: [{
                     data: source.map(d => parseFloat(d.win_rate)),
-                    type: 'line', smooth: 0.4, symbolSize: 8,
-                    color: '#007AFF',
-                    areaStyle: { color: 'rgba(0,122,255,0.1)' },
-                    label: { show: true, position: 'top', formatter: '{c}%', fontSize: 10, color: '#007AFF' }
+                    type: 'line', smooth: 0.4, symbolSize: 6, color: '#007AFF',
+                    areaStyle: { color: 'rgba(0,122,255,0.05)' },
+                    label: { show: true, position: 'top', formatter: '{c}%', fontSize: 9 }
                 }]
             });
         }
 
         function initList(data) {
             const list = document.getElementById('history-list');
-            list.innerHTML = data.map(item => {
+            list.innerHTML = data.map((item, index) => {
                 const total = parseInt(item.total_applied).toLocaleString();
                 const won = parseInt(item.total_won).toLocaleString();
                 const lost = (parseInt(item.total_applied) - parseInt(item.total_won)).toLocaleString();
 
                 return `
-                <div class="list-item">
-                    <div class="item-row-1">
-                        <div class="p-name">${item.period_name}<span class="p-batch">(${item.batch_no})</span></div>
-                        <div class="p-rate-wrapper">
-                            <span class="p-rate-label">中签率</span>
-                            <span class="p-rate-val">${item.win_rate}</span>
+                <div class="list-item" onclick="toggleItem(this)">
+                    <div class="list-summary">
+                        <div class="summary-left">
+                            <span style="font-weight:600;">${item.period_name}</span>
+                            <span style="font-size:11px; color:#AAA;">${item.draw_date}</span>
+                        </div>
+                        <div style="display:flex; align-items:center;">
+                            <span class="summary-rate">${item.win_rate}</span>
+                            <span class="arrow-icon" style="margin-left:12px;">&gt;</span>
                         </div>
                     </div>
-
-                    <div class="item-row-2">抽签日期：${item.draw_date}</div>
-
-                    <div class="item-row-3">
-                        <div class="data-block">
-                            <span class="data-label">有效申请</span>
-                            <span class="data-val">${total}</span>
-                        </div>
-                        <div class="data-block">
-                            <span class="data-label">中签人数</span>
-                            <span class="data-val">${won}</span>
-                        </div>
-                        <div class="data-block">
-                            <span class="data-label">未中签数</span>
-                            <span class="data-val lost-val">${lost}</span>
+                    <div class="list-details">
+                        <div class="detail-row">批次号: ${item.batch_no}</div>
+                        <div class="detail-stats">
+                            <div class="stat-group"><span class="stat-label">申请数</span><span class="stat-val">${total}</span></div>
+                            <div class="stat-group"><span class="stat-label">中签数</span><span class="stat-val">${won}</span></div>
+                            <div class="stat-group"><span class="stat-label">未中签</span><span class="stat-val" style="color:#FF3B30">${lost}</span></div>
                         </div>
                     </div>
                 </div>
                 `;
             }).join('');
+        }
+
+        function toggleItem(el) {
+            el.classList.toggle('active');
         }
     </script>
 </body>
