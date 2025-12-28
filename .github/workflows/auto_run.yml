@@ -36,3 +36,35 @@ jobs:
         git config --local user.name "GitHub Action"
         git add .
         git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update data" && git push)
+
+# ================= 新增：同步数据到微信云开发 =================
+    - name: Sync Data to WeChat Cloud
+      env:
+        APPID: ${{ secrets.WX_APPID }}
+        APPSECRET: ${{ secrets.WX_APPSECRET }}
+        ENV_ID: ${{ secrets.WX_ENV_ID }}
+      run: |
+        # 1. 获取微信 Access Token
+        TOKEN=$(curl -s "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$APPID&secret=$APPSECRET" | jq -r .access_token)
+        
+        if [ "$TOKEN" == "null" ] || [ -z "$TOKEN" ]; then
+          echo "获取微信Token失败，请检查 Secret 配置"
+          exit 1
+        fi
+
+        # 2. 格式化数据：将 history_data.json 转换为微信数据库要求的 JSONL 格式
+        # 即使 JSON 只有一条数据，也会被正确处理
+        cat history_data.json | jq -c '.[]' > sync_data.jsonl
+        
+        # 3. 清空云数据库旧数据 (确保 lottery_history 集合已创建)
+        # 使用 database-delete 接口
+        curl -X POST "https://api.weixin.qq.com/tcb/databasedelete?access_token=$TOKEN" \
+        -d "{\"env\":\"$ENV_ID\",\"query\":\"db.collection('lottery_history').where({_id: /.*/}).remove()\"}"
+
+        # 4. 循环插入最新数据
+        while read line; do
+          curl -X POST "https://api.weixin.qq.com/tcb/databaseadd?access_token=$TOKEN" \
+          -d "{\"env\":\"$ENV_ID\",\"query\":\"db.collection('lottery_history').add({data: $line})\"}"
+        done < sync_data.jsonl
+        
+        echo "微信云数据库同步完成！"    
