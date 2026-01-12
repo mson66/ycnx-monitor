@@ -92,7 +92,7 @@ def extract_json_from_text(text):
 
 def process_single_item(item):
     """
-    處理單個停車場數據
+    處理單個停車場數據 - Tx4 (v6.8.4) 最終修復版
     """
     park_id = item.get('park_Id', 'N/A')
     description = item.get('description', '')
@@ -114,34 +114,36 @@ def process_single_item(item):
             stream=False
         )
         
-        # === 核心修復：萬能提取邏輯 ===
+        # 1. 獲取 API 回覆文本 (兼容多種 SDK 版本)
         response_text = ""
         try:
-            # 1. 嘗試物件格式 (本地常用)
             response_text = completion.choices[0].message.content
         except (AttributeError, TypeError):
             try:
-                # 2. 嘗試字典格式 (Actions 環境可能出現)
-                # 報錯 "list indices must be integers" 通常發生在對列表使用了 ['message']
-                # 這裡確保我們先定位到 choices[0]
-                choice = completion.choices[0]
-                if isinstance(choice, dict):
-                    response_text = choice['message']['content']
-                else:
-                    # 如果 choices[0] 是對象但沒有 .message 屬性
-                    response_text = choice.get('message', {}).get('content', '')
-            except Exception as e:
-                print(f"⚠️ 解析結構失敗 {park_id}: {e}")
+                # 兼容字典訪問模式
+                choice = completion['choices'][0]
+                response_text = choice['message']['content']
+            except Exception:
+                print(f"⚠️ 無法提取 API 内容: {park_id}")
                 return None
 
-        if not response_text:
-            return None
-            
+        # 2. 解析 JSON
         json_data = extract_json_from_text(response_text)
         
         if json_data:
+            # === 核心修復開始 ===
+            # 如果 AI 很聽話地返回了數組 [ {...} ]，我們需要解包取出裡面的對象
+            if isinstance(json_data, list):
+                if len(json_data) > 0:
+                    json_data = json_data[0] # 取出第一個元素
+                else:
+                    return None # 空數組，視為失敗
+
+            # 現在 json_data 肯定是字典 (Dict) 了，可以安全操作
             json_data['park_Id'] = park_id
             return json_data
+            # === 核心修復結束 ===
+            
         return None
 
     except Exception as e:
