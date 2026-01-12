@@ -8,11 +8,11 @@ from datetime import datetime
 
 # === 配置部分 ===
 # 注意：如果你使用的是 Moonshot 官方 API，BASE_URL 應設為 https://api.moonshot.cn/v1
-API_KEY = os.environ.get("LLM_API_KEY")
+API_KEY = os.environ.get("GROQ_API_KEY")
 MODEL_NAME = os.environ.get("LLM_MODEL", "moonshotai/kimi-k2-instruct-0905")
 
 if not API_KEY:
-    print("錯誤: 未找到環境變量 LLM_API_KEY")
+    print("錯誤: 未找到環境變量 GROQ_API_KEY")
     sys.exit(1)
 
 # 初始化客戶端
