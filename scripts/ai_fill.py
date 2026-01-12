@@ -178,7 +178,6 @@ def main():
 
         # 2. --- 新增日誌記錄 (追加模式 'a') ---
         # 這裡動態顯示輸入文件名，方便區分 S1 和 S2
-        from datetime import datetime
         log_path = os.path.join("data", "step_status.log")
         with open(log_path, "a", encoding="utf-8") as log_f:
             log_f.write(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] STEP 5 ({input_file}): AI 提取完成，成功 {len(results)}/{total} 條。\n")
