@@ -1,0 +1,83 @@
+name: Auto Update HK Carpark Data Pipeline
+
+on:
+  schedule:
+    # 每週日凌晨運行 UTC 時間 00:00 對應香港/北京時間早上 08:00
+    - cron: '0 0 * * 0'
+  workflow_dispatch: # 允許手動點擊執行
+
+# 顯式聲明寫入權限，確保 git push 不會報 403 錯誤
+permissions:
+  contents: write
+
+jobs:
+  build-and-process:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests groq
+
+    - name: Step 1 & 2 - Fetch API & Clean Data
+      run: python scripts/get_json.py
+
+    - name: Step 3 - Extract Descriptions
+      run: python scripts/get_des.py
+
+    - name: Step 4 - Split Descriptions
+      run: python scripts/divide_des.py
+
+    - name: Step 5a - AI Fill S1 (Kimi via Groq)
+      env:
+        GROQ_API_KEY: ${{ secrets.GROQHKP_API_KEY }}
+        LLM_MODEL: "moonshotai/kimi-k2-instruct-0905"
+      run: python scripts/ai_fill.py data/description-s1.json data/rules-s1.json
+
+    - name: Step 5b - AI Fill S2 (Kimi via Groq)
+      env:
+        GROQ_API_KEY: ${{ secrets.GROQHKP_API_KEY }}
+        LLM_MODEL: "moonshotai/kimi-k2-instruct-0905"
+      run: python scripts/ai_fill.py data/description-s2.json data/rules-s2.json
+
+    - name: Step 6 - Combine Rules
+      run: python scripts/combine_des.py
+
+    - name: Step 7 - Final Merge
+      run: python scripts/cleaned_price_combiner.py
+
+    - name: Step 8 - Push to WeChat Cloud DB
+      env:
+        WECHAT_APPID: ${{ secrets.WX_APPID }}
+        WECHAT_APPSECRET: ${{ secrets.WX_APPSECRET }}
+        WECHAT_ENV_ID: ${{ secrets.WX_ENV_ID }}
+        WECHAT_COLLECTION: "carpark_data"
+      run: python scripts/upload_wechat.py
+
+    - name: Display Step Log
+      if: always() # 即使前面步驟出錯，也會打印出目前的 log
+      run: |
+        if [ -f data/step_status.log ]; then
+          echo "=== 執行日誌摘要 ==="
+          cat data/step_status.log
+        else
+          echo "日誌文件尚未生成"
+        fi
+
+    - name: Commit and Push Data & Logs
+      if: success() # 僅在所有處理成功後才提交回倉庫
+      run: |
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Action Bot"
+        git add data/
+        git commit -m "chore: auto-update HK carpark data [$(date +'%Y-%m-%d')]" || echo "No changes to commit"
+        git push
