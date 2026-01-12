@@ -1,81 +1,70 @@
-import requests
 import json
 import os
-from datetime import datetime
+import requests
+import sys
 
-# 微信雲開發配置
-APPID = os.environ.get("WECHAT_APPID")
-APPSECRET = os.environ.get("WECHAT_APPSECRET")
-ENV_ID = os.environ.get("WECHAT_ENV_ID")
-COLLECTION_NAME = "carpark_data" # 你的集合名稱 告訴 Python 腳本：「請把這份 JSON 數據存進名為 carpark_data 的這個分類裡」。
+def upload_to_wechat():
+    # 1. 環境變量讀取
+    env_id = os.environ.get("WECHAT_ENV_ID")
+    app_id = os.environ.get("WECHAT_APP_ID")
+    app_secret = os.environ.get("WECHAT_APP_SECRET")
+    collection_name = "carpark_data"  # 請確保與微信雲開發後台集合名稱一致
+    
+    input_file = "data/liberay_merged.json"
+    
+    if not os.path.exists(input_file):
+        print(f"❌ 找不到數據文件: {input_file}")
+        return
 
-def get_access_token():
-    url = f"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={APPID}&secret={APPSECRET}"
-    resp = requests.get(url)
-    data = resp.json()
-    if 'access_token' in data:
-        return data['access_token']
-    else:
-        raise Exception(f"獲取 Access Token 失敗: {data}")
+    try:
+        # 2. 獲取 Access Token
+        token_url = f"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={app_id}&secret={app_secret}"
+        token_res = requests.get(token_url).json()
+        access_token = token_res.get("access_token")
+        
+        if not access_token:
+            print(f"❌ 獲取 Token 失敗: {token_res}")
+            return
 
-    # 微信數據庫單次寫入有限制，建議循環寫入或根據實際需求調整
-    # 這裡演示上傳整個 JSON 作為一條記錄或更新某條記錄
-    # 實際場景通常是遍歷 results 上傳
-    
-    # 這裡假設上傳 metadata 和 results 列表
+        # 3. 讀取並轉換數據格式 (JSON -> JSON Lines)
+        with open(input_file, "r", encoding="utf-8") as f:
+            full_data = json.load(f)
+        
+        results = full_data.get("results", [])
+        if not results:
+            print("⚠️ 沒有發現需要上傳的數據 (results 為空)")
+            return
 
-def upload_json_to_db(file_path):
-    token = get_access_token()
-    upload_url = f"https://api.weixin.qq.com/tcb/databaseadd?access_token={token}"
-    
-    with open(file_path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    
-    # 這裡保持你原有的 query 邏輯
-    query = f"""
-    db.collection("{COLLECTION_NAME}").add({{
-        data: {{
-            updated_at: db.serverDate(),
-            content: {json.dumps(data, ensure_ascii=False)}
-        }}
-    }})
-    """
-    
-    payload = {
-        "env": ENV_ID,
-        "query": query
-    }
-    
-    resp = requests.post(upload_url, json=payload)
-    result_text = resp.text
-    print(f"上傳結果: {result_text}")
+        # 將數據轉換為微信導入所需的 NDJSON 格式字符串
+        # 每行一條 JSON，不加逗號
+        ndjson_content = ""
+        for item in results:
+            ndjson_content += json.dumps(item, ensure_ascii=False) + "\n"
 
-    # --- 新增日誌記錄 (追加模式 'a') ---
-    log_path = os.path.join("data", "step_status.log")
-    
-    # 解析微信返回，判斷是否真的成功（通常 errcode 為 0 是成功）
-    is_success = '"errcode":0' in result_text
-    status_msg = "成功" if is_success else "失敗"
-    
-    with open(log_path, "a", encoding="utf-8") as log_f:
-        log_f.write(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] STEP 8: 雲端同步{status_msg}。返回: {result_text[:50]}...\n")
-    # -----------------------------------
+        # 4. 調用微信雲開發數據庫導入 API (使用 databaseImport)
+        # 注意：這裡示範的是直接通過 HTTP API 插入數據的簡化邏輯
+        # 為了穩定性，我們循環使用 databaseAdd 確保數據準確寫入
+        import_url = f"https://api.weixin.qq.com/tcb/databaseadd?access_token={access_token}"
+        
+        success_count = 0
+        for item in results:
+            # 微信 databaseAdd 每次支持單條或多條，這裡採用逐條或小批量確保語法正確
+            query = f"db.collection('{collection_name}').add({{ data: {json.dumps(item, ensure_ascii=False)} }})"
+            payload = {
+                "env": env_id,
+                "query": query
+            }
+            res = requests.post(import_url, json=payload).json()
+            
+            if res.get("errcode") == 0:
+                success_count += 1
+            else:
+                print(f"⚠️ ID {item.get('park_Id')} 上傳失敗: {res}")
 
-def main():
-    file_path = os.path.join("data", "liberay_merged.json")
-    if os.path.exists(file_path):
-        print("開始上傳至微信雲開發...")
-        try:
-            upload_json_to_db(file_path)
-            # 也可以在 main 這裡補一條流程結束的標記
-            with open("data/step_status.log", "a", encoding="utf-8") as log_f:
-                log_f.write("-" * 50 + "\n") # 畫一條分隔線表示本次月更結束
-        except Exception as e:
-            print(f"上傳失敗: {e}")
-            with open("data/step_status.log", "a", encoding="utf-8") as log_f:
-                log_f.write(f"[{datetime.now().strftime('%H:%M:%S')}] STEP 8 ERROR: {str(e)}\n")
-    else:
-        print("未找到合併後的文件")
+        print(f"✅ 同步完成！成功寫入 {success_count}/{len(results)} 條數據到集合 '{collection_name}'")
+
+    except Exception as e:
+        print(f"❌ 運行時出錯: {str(e)}")
 
 if __name__ == "__main__":
-    main()
+    upload_to_wechat()

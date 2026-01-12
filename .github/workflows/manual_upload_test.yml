@@ -1,0 +1,26 @@
+name: Manual Upload Test
+
+on:
+  workflow_dispatch: # 允許手動點擊按鈕觸發
+
+jobs:
+  upload_only:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run Upload Script
+        env:
+          WECHAT_APP_ID: ${{ secrets.WX_APP_ID }}
+          WECHAT_APP_SECRET: ${{ secrets.WX_SECRET }}
+          WECHAT_ENV_ID: ${{ secrets.WX_ENV_ID }}
+        run: python scripts/upload_to_wechat.py
