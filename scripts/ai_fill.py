@@ -100,39 +100,49 @@ def process_single_item(item):
     if not description:
         return None
 
-    user_msg = f"""
-    停車場 ID: {park_id}
-    原始描述: {description}
-    
-    請提取規則並輸出 JSON。
-    """
+    user_msg = f"停車場 ID: {park_id}\n原始描述: {description}\n請提取規則並輸出 JSON。"
 
     try:
-        # 使用 Groq 庫調用 (非流式，確保 JSON 完整性)
         completion = client.chat.completions.create(
             model=MODEL_NAME,
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": user_msg}
             ],
-            temperature=0.1, # 降低溫度以保證格式穩定
+            temperature=0.1,
             max_completion_tokens=4096,
-            top_p=1,
-            stream=False, # 關閉流式傳輸以便於 JSON 解析
-            stop=None
+            stream=False
         )
         
-        response_text = completion.choices[0].message.content
+        # === 核心修復：萬能提取邏輯 ===
+        response_text = ""
+        try:
+            # 1. 嘗試物件格式 (本地常用)
+            response_text = completion.choices[0].message.content
+        except (AttributeError, TypeError):
+            try:
+                # 2. 嘗試字典格式 (Actions 環境可能出現)
+                # 報錯 "list indices must be integers" 通常發生在對列表使用了 ['message']
+                # 這裡確保我們先定位到 choices[0]
+                choice = completion.choices[0]
+                if isinstance(choice, dict):
+                    response_text = choice['message']['content']
+                else:
+                    # 如果 choices[0] 是對象但沒有 .message 屬性
+                    response_text = choice.get('message', {}).get('content', '')
+            except Exception as e:
+                print(f"⚠️ 解析結構失敗 {park_id}: {e}")
+                return None
+
+        if not response_text:
+            return None
+            
         json_data = extract_json_from_text(response_text)
         
         if json_data:
-            # 強制確保 park_Id 存在
             json_data['park_Id'] = park_id
             return json_data
-        else:
-            print(f"⚠️ 無法解析 JSON: {park_id}")
-            # print(f"原始返回: {response_text[:100]}...") # 調試用
-            return None
+        return None
 
     except Exception as e:
         print(f"❌ API 調用失敗 {park_id}: {str(e)}")
