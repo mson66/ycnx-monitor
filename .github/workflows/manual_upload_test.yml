@@ -20,7 +20,7 @@ jobs:
 
       - name: Run Upload Script
         env:
-          WECHAT_APP_ID: ${{ secrets.WX_APP_ID }}
-          WECHAT_APP_SECRET: ${{ secrets.WX_SECRET }}
+          WECHAT_APP_ID: ${{ secrets.WX_APPID }}
+          WECHAT_APP_SECRET: ${{ secrets.WX_APPSECRET }}
           WECHAT_ENV_ID: ${{ secrets.WX_ENV_ID }}
         run: python scripts/upload_to_wechat.py
