@@ -57,10 +57,9 @@ jobs:
 
     - name: Step 8 - Push to WeChat Cloud DB
       env:
-        WECHAT_APPID: ${{ secrets.WX_APPID }}
-        WECHAT_APPSECRET: ${{ secrets.WX_APPSECRET }}
+        WECHAT_APP_ID: ${{ secrets.WX_APPID }}
+        WECHAT_APP_SECRET: ${{ secrets.WX_APPSECRET }}
         WECHAT_ENV_ID: ${{ secrets.WX_ENV_ID }}
-        WECHAT_COLLECTION: "carpark_data"
       run: python scripts/upload_wechat.py
 
     - name: Display Step Log
