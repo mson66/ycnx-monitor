@@ -475,7 +475,7 @@ def main():
     try:
         # 設置超時防止掛起
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
-        response = requests.get(api_url, headers=headers, timeout=60)
+        response = requests.get(API_URL, headers=headers, timeout=60)
         response.raise_for_status()  # 檢查 HTTP 狀態碼
         
         raw_json = response.json()
