@@ -1,32 +1,5 @@
 [
   {
-    "park_Id": "12",
-    "name": "",
-    "description": "顧客於商場內消費滿港幣$300，可享1小時免費泊車優惠；滿港幣$500，則享最多2小時免費泊車優惠。\n\n*只接受最多二張即日電子消費單據及電子簽賬存根。\n*每張泊車票最多可享2小時免費泊車優惠。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
-    "privateCar": {
-      "hourlyCharges": [],
-      "dayNightParks": []
-    }
-  },
-  {
-    "park_Id": "12",
-    "name": "",
-    "description": "凡於星期一至星期五(公眾假期除外)下午12時至2時進入停車場，並於食肆消費滿港幣$200，均可享最多2小時免費泊車優惠。\n\n*只接受最多兩張食肆發出之即日電子消費單據及簽賬存根。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
-    "privateCar": {
-      "hourlyCharges": [],
-      "dayNightParks": []
-    }
-  },
-  {
-    "park_Id": "12",
-    "name": "",
-    "description": "顧客於商場內消費滿港幣$400，可享1小時免費泊車優惠；滿港幣$600，則享最多2小時免費泊車優惠。 *只接受最多二張即日電子消費單據及電子簽賬存根。 *每張泊車票最多可享2小時免費泊車優惠。 *以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
-    "privateCar": {
-      "hourlyCharges": [],
-      "dayNightParks": []
-    }
-  },
-  {
     "park_Id": "27",
     "name": "",
     "description": "星期一至星期五於油麗商場及大本型購物滿港幣100元或以上，即可享有一小時泊車優惠\n星期一至星期五於油麗商場及大本型購物滿港幣200元或以上，即可享有兩小時泊車優惠\n星期一至星期五於油麗商場及大本型購物滿港幣300元或以上，即可享有三小時泊車優惠",
@@ -84,7 +57,7 @@
           "price": 20,
           "periodStart": "00:00",
           "periodEnd": "24:00",
-          "remark": "每日每小時 $20",
+          "remark": "每日每小時$20",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -115,7 +88,7 @@
           "price": 20,
           "periodStart": "00:00",
           "periodEnd": "24:00",
-          "remark": "每日每小時$20",
+          "remark": "每日每小時 $20",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -434,8 +407,8 @@
           "periodEnd": "19:00",
           "remark": "星期一至六(公眾假期除外) 07:00-19:00 日泊 $200",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "covered": "",
+          "validUntil": ""
         },
         {
           "type": "day-park",
@@ -449,8 +422,8 @@
           "periodEnd": "00:00",
           "remark": "星期日及公眾假期 08:00-00:00 日泊 $140",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "covered": "",
+          "validUntil": ""
         },
         {
           "type": "night-park",
@@ -468,8 +441,8 @@
           "periodEnd": "07:00",
           "remark": "星期一至六(公眾假期除外) 19:00-07:00 夜泊 $75",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "covered": "",
+          "validUntil": ""
         }
       ]
     }
@@ -633,8 +606,7 @@
           "periodEnd": "19:00",
           "remark": "星期一至六 07:00-19:00 日泊 $200",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "validUntil": ""
         },
         {
           "type": "day-park",
@@ -648,8 +620,7 @@
           "periodEnd": "00:00",
           "remark": "星期日及公眾假期 08:00-00:00 日泊 $140",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "validUntil": ""
         },
         {
           "type": "night-park",
@@ -667,8 +638,7 @@
           "periodEnd": "07:00",
           "remark": "星期一至六 19:00-07:00 夜泊 $75",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "validUntil": ""
         }
       ]
     }
@@ -789,7 +759,7 @@
           "type": "hourly",
           "price": 15,
           "periodStart": "00:00",
-          "periodEnd": "23:59",
+          "periodEnd": "24:00",
           "remark": "每日每小時 $15",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
@@ -865,8 +835,8 @@
           "periodEnd": "19:00",
           "remark": "星期一至六 07:00-19:00 日泊 $200",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "covered": "",
+          "validUntil": ""
         },
         {
           "type": "day-park",
@@ -880,8 +850,8 @@
           "periodEnd": "00:00",
           "remark": "星期日及公眾假期 08:00-00:00 日泊 $140",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "covered": "",
+          "validUntil": ""
         },
         {
           "type": "night-park",
@@ -899,8 +869,8 @@
           "periodEnd": "07:00",
           "remark": "星期一至六 19:00-07:00 夜泊 $75",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "covered": "",
+          "validUntil": ""
         }
       ]
     }
@@ -973,6 +943,7 @@
           "periodEnd": "19:00",
           "remark": "每日 07:00-19:00 日泊 $100",
           "add_source": "py-ai-fill-rule",
+          "covered": "",
           "validUntil": ""
         }
       ]
@@ -1033,10 +1004,9 @@
           "price": 150,
           "periodStart": "07:00",
           "periodEnd": "17:59",
+          "validUntil": "",
           "remark": "日泊：星期一至五（公眾假期除外）每節$150（07:00-17:59）",
-          "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "add_source": "py-ai-fill-rule"
         },
         {
           "type": "night-park",
@@ -1050,10 +1020,9 @@
           "price": 80,
           "periodStart": "19:00",
           "periodEnd": "06:59",
+          "validUntil": "",
           "remark": "夜泊：星期一至四（公眾假期除外）每節$80（19:00-06:59）",
-          "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "add_source": "py-ai-fill-rule"
         },
         {
           "type": "night-park",
@@ -1067,10 +1036,9 @@
           "price": 100,
           "periodStart": "19:00",
           "periodEnd": "06:59",
+          "validUntil": "",
           "remark": "夜泊：星期五至日及公眾假期每節$100（19:00-06:59）",
-          "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "add_source": "py-ai-fill-rule"
         }
       ]
     }
@@ -1096,8 +1064,8 @@
           "type": "half-hourly",
           "price": 8,
           "periodStart": "00:00",
-          "periodEnd": "24:00",
-          "remark": "每日每半小時$8",
+          "periodEnd": "23:59",
+          "remark": "每日 00:00-23:59 每半小時 $8",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1170,9 +1138,9 @@
           "price": 150,
           "periodStart": "07:00",
           "periodEnd": "18:59",
+          "validUntil": "",
           "remark": "星期一至五（公眾假期除外）日泊每節$150（07:00-18:59）",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
           "covered": ""
         },
         {
@@ -1187,9 +1155,9 @@
           "price": 80,
           "periodStart": "19:00",
           "periodEnd": "06:59",
+          "validUntil": "",
           "remark": "星期一至四（公眾假期除外）夜泊每節$80（19:00-06:59）",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
           "covered": ""
         },
         {
@@ -1204,9 +1172,9 @@
           "price": 100,
           "periodStart": "19:00",
           "periodEnd": "06:59",
+          "validUntil": "",
           "remark": "星期五至日及公眾假期夜泊每節$100（19:00-06:59）",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
           "covered": ""
         }
       ]
@@ -1268,7 +1236,7 @@
           "periodStart": "07:00",
           "periodEnd": "18:59",
           "validUntil": "",
-          "remark": "星期一至五（公眾假期除外）日泊每節$168（07:00-18:59）",
+          "remark": "星期一至五（公眾假期除外）日泊每節$168",
           "add_source": "py-ai-fill-rule",
           "covered": ""
         },
@@ -1285,7 +1253,7 @@
           "periodStart": "19:00",
           "periodEnd": "06:59",
           "validUntil": "",
-          "remark": "星期一至四（公眾假期除外）夜泊每節$80（19:00-06:59）",
+          "remark": "星期一至四（公眾假期除外）夜泊每節$80",
           "add_source": "py-ai-fill-rule",
           "covered": ""
         },
@@ -1302,7 +1270,7 @@
           "periodStart": "19:00",
           "periodEnd": "06:59",
           "validUntil": "",
-          "remark": "星期五至日及公眾假期夜泊每節$100（19:00-06:59）",
+          "remark": "星期五至日及公眾假期夜泊每節$100",
           "add_source": "py-ai-fill-rule",
           "covered": ""
         }
@@ -1312,7 +1280,7 @@
   {
     "park_Id": "tdc268p1",
     "name": "",
-    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車,\n首2小時：$10/半小時 (第2小時後： $15/半小時)；\n23:00-07:00：$2/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車,\n首2小時： $13/半小時 (第2小時後：$19.5/半小時)；\n23:00-07:00：$2/半小時。",
+    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車,\n首2小時：$11/半小時 (第2小時後： $16.5/半小時)；\n23:00-07:00：$2/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車,\n首2小時： $13/半小時 (第2小時後：$19.5/半小時)；\n23:00-07:00：$2/半小時。",
     "privateCar": {
       "hourlyCharges": [
         {
@@ -1325,10 +1293,10 @@
           ],
           "excludePublicHoliday": true,
           "type": "half-hourly",
-          "price": 10,
+          "price": 11,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期一至五 (公眾假期除外) 07:00-08:00 首小時 $10/半小時",
+          "remark": "星期一至五(公眾假期除外)07:00-08:00首小時$11/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1343,10 +1311,10 @@
           ],
           "excludePublicHoliday": true,
           "type": "half-hourly",
-          "price": 15,
+          "price": 16.5,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五 (公眾假期除外) 08:00-23:00 第2小時後 $15/半小時",
+          "remark": "星期一至五(公眾假期除外)08:00-23:00第2小時起$16.5/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1364,7 +1332,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五 (公眾假期除外) 23:00-07:00 $2/半小時",
+          "remark": "星期一至五(公眾假期除外)23:00-07:00$2/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1380,7 +1348,7 @@
           "price": 13,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期 07:00-08:00 首小時 $13/半小時",
+          "remark": "星期六日及公眾假期07:00-08:00首小時$13/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1396,7 +1364,7 @@
           "price": 19.5,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 08:00-23:00 第2小時後 $19.5/半小時",
+          "remark": "星期六日及公眾假期08:00-23:00第2小時起$19.5/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1412,7 +1380,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00 $2/半小時",
+          "remark": "星期六日及公眾假期23:00-07:00$2/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1497,7 +1465,6 @@
       ],
       "dayNightParks": [
         {
-          "type": "day-park",
           "weekdays": [
             "MON",
             "TUE",
@@ -1508,16 +1475,15 @@
             "SUN"
           ],
           "excludePublicHoliday": false,
+          "type": "day-park",
           "price": 110,
           "periodStart": "08:00",
           "periodEnd": "20:00",
           "remark": "日泊 08:00-20:00 $110",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
           "covered": ""
         },
         {
-          "type": "day-park",
           "weekdays": [
             "MON",
             "TUE",
@@ -1528,12 +1494,12 @@
             "SUN"
           ],
           "excludePublicHoliday": false,
+          "type": "day-park",
           "price": 155,
           "periodStart": "00:00",
           "periodEnd": "24:00",
           "remark": "24小時全日泊 $155",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
           "covered": ""
         }
       ]
@@ -1542,7 +1508,7 @@
   {
     "park_Id": "tdc269p1",
     "name": "",
-    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車/旅遊巴士,\n首2小時：$10/半小時 (第2小時後： $15/半小時)；\n23:00-07:00：$2/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車/旅遊巴士,\n首2小時： $13/半小時 (第2小時後：$19.5/半小時)；\n23:00-07:00：$2/半小時。",
+    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車/旅遊巴士,\n首2小時：$11/半小時 (第2小時後： $16.5/半小時)；\n23:00-07:00：$2/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車/旅遊巴士,\n首2小時： $13/半小時 (第2小時後：$19.5/半小時)；\n23:00-07:00：$2/半小時。",
     "privateCar": {
       "hourlyCharges": [
         {
@@ -1555,10 +1521,10 @@
           ],
           "excludePublicHoliday": true,
           "type": "half-hourly",
-          "price": 10,
+          "price": 11,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五 (公眾假期除外) 07:00-23:00 首2小時：$10/半小時",
+          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時11元/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1573,10 +1539,10 @@
           ],
           "excludePublicHoliday": true,
           "type": "half-hourly",
-          "price": 15,
+          "price": 16.5,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五 (公眾假期除外) 07:00-23:00 第2小時後：$15/半小時",
+          "remark": "星期一至五(公眾假期除外)07:00-23:00第2小時後16.5元/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1594,7 +1560,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五 (公眾假期除外) 23:00-07:00：$2/半小時",
+          "remark": "星期一至五(公眾假期除外)23:00-07:002元/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1610,7 +1576,7 @@
           "price": 13,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 07:00-23:00 首2小時：$13/半小時",
+          "remark": "星期六日及公眾假期07:00-23:00首2小時13元/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1626,7 +1592,7 @@
           "price": 19.5,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 07:00-23:00 第2小時後：$19.5/半小時",
+          "remark": "星期六日及公眾假期07:00-23:00第2小時後19.5元/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1642,7 +1608,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00：$2/半小時",
+          "remark": "星期六日及公眾假期23:00-07:002元/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1678,8 +1644,8 @@
           "type": "half-hourly",
           "price": 3,
           "periodStart": "07:00",
-          "periodEnd": "09:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-09:00 首2小時 $3/半小時",
+          "periodEnd": "08:00",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$3",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1695,9 +1661,9 @@
           "excludePublicHoliday": true,
           "type": "half-hourly",
           "price": 4.5,
-          "periodStart": "09:00",
+          "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外) 09:00-23:00 第2小時後 $4.5/半小時",
+          "remark": "星期一至五(公眾假期除外) 08:00-23:00 每半小時$4.5",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1715,7 +1681,7 @@
           "price": 1,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外) 23:00-07:00 $1/半小時",
+          "remark": "星期一至五(公眾假期除外) 23:00-07:00 每半小時$1",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1730,8 +1696,8 @@
           "type": "half-hourly",
           "price": 4,
           "periodStart": "07:00",
-          "periodEnd": "09:00",
-          "remark": "星期六日及公眾假期 07:00-09:00 首2小時 $4/半小時",
+          "periodEnd": "08:00",
+          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$4",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1745,9 +1711,9 @@
           "excludePublicHoliday": false,
           "type": "half-hourly",
           "price": 6,
-          "periodStart": "09:00",
+          "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 09:00-23:00 第2小時後 $6/半小時",
+          "remark": "星期六日及公眾假期 08:00-23:00 每半小時$6",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -1763,7 +1729,7 @@
           "price": 1,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00 $1/半小時",
+          "remark": "星期六日及公眾假期 23:00-07:00 每半小時$1",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -2109,7 +2075,6 @@
       ],
       "dayNightParks": [
         {
-          "type": "day-park",
           "weekdays": [
             "MON",
             "TUE",
@@ -2121,6 +2086,7 @@
             "PH"
           ],
           "excludePublicHoliday": false,
+          "type": "day-park",
           "price": 85,
           "periodStart": "08:00",
           "periodEnd": "18:00",
@@ -2130,7 +2096,6 @@
           "covered": ""
         },
         {
-          "type": "night-park",
           "weekdays": [
             "MON",
             "TUE",
@@ -2142,6 +2107,7 @@
             "PH"
           ],
           "excludePublicHoliday": false,
+          "type": "night-park",
           "price": 60,
           "periodStart": "18:00",
           "periodEnd": "08:00",
@@ -2184,7 +2150,7 @@
           "price": 32,
           "periodStart": "00:00",
           "periodEnd": "24:00",
-          "remark": "每日每小時$32",
+          "remark": "每日00:00-24:00每小時$32",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -2192,7 +2158,6 @@
       ],
       "dayNightParks": [
         {
-          "type": "day-park",
           "weekdays": [
             "MON",
             "TUE",
@@ -2204,11 +2169,13 @@
             "PH"
           ],
           "excludePublicHoliday": false,
+          "type": "day-park",
           "price": 256,
           "periodStart": "00:00",
           "periodEnd": "24:00",
-          "remark": "每日泊$256",
+          "remark": "每日00:00-24:00日泊$256",
           "add_source": "py-ai-fill-rule",
+          "covered": "",
           "validUntil": ""
         }
       ]
@@ -2242,7 +2209,7 @@
           "price": 14,
           "periodStart": "00:00",
           "periodEnd": "23:59",
-          "remark": "星期一至五(公眾假期除外) 每小時 $14",
+          "remark": "星期一至五（公眾假期除外）每小時$14",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -2258,7 +2225,7 @@
           "price": 17,
           "periodStart": "00:00",
           "periodEnd": "23:59",
-          "remark": "星期六、日及公眾假期 每小時 $17",
+          "remark": "星期六、日及公眾假期每小時$17",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -2266,6 +2233,7 @@
       ],
       "dayNightParks": [
         {
+          "type": "day-park",
           "weekdays": [
             "MON",
             "TUE",
@@ -2274,16 +2242,16 @@
             "FRI"
           ],
           "excludePublicHoliday": true,
-          "type": "day-park",
           "price": 75,
           "periodStart": "08:00",
           "periodEnd": "18:00",
-          "remark": "星期一至五(公眾假期除外) 日泊 08:00-18:00 $75",
+          "remark": "星期一至五（公眾假期除外）日泊08:00-18:00 $75",
           "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "validUntil": "",
+          "covered": ""
         },
         {
+          "type": "night-park",
           "weekdays": [
             "MON",
             "TUE",
@@ -2292,46 +2260,45 @@
             "FRI"
           ],
           "excludePublicHoliday": true,
-          "type": "night-park",
           "price": 55,
           "periodStart": "18:00",
           "periodEnd": "08:00",
-          "remark": "星期一至五(公眾假期除外) 夜泊 18:00-08:00 $55",
+          "remark": "星期一至五（公眾假期除外）夜泊18:00-08:00 $55",
           "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "validUntil": "",
+          "covered": ""
         },
         {
+          "type": "day-park",
           "weekdays": [
             "SAT",
             "SUN",
             "PH"
           ],
           "excludePublicHoliday": false,
-          "type": "day-park",
           "price": 90,
           "periodStart": "08:00",
           "periodEnd": "18:00",
-          "remark": "星期六、日及公眾假期 日泊 08:00-18:00 $90",
+          "remark": "星期六、日及公眾假期日泊08:00-18:00 $90",
           "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "validUntil": "",
+          "covered": ""
         },
         {
+          "type": "night-park",
           "weekdays": [
             "SAT",
             "SUN",
             "PH"
           ],
           "excludePublicHoliday": false,
-          "type": "night-park",
           "price": 70,
           "periodStart": "18:00",
           "periodEnd": "08:00",
-          "remark": "星期六、日及公眾假期 夜泊 18:00-08:00 $70",
+          "remark": "星期六、日及公眾假期夜泊18:00-08:00 $70",
           "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "validUntil": "",
+          "covered": ""
         }
       ]
     }
@@ -2355,7 +2322,7 @@
           "price": 15,
           "periodStart": "00:00",
           "periodEnd": "24:00",
-          "remark": "星期一至五(公眾假期除外)每小時$15",
+          "remark": "星期一至五(不包括公眾假期) 每小時 $15",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -2371,7 +2338,7 @@
           "price": 20,
           "periodStart": "00:00",
           "periodEnd": "24:00",
-          "remark": "星期六、日及公眾假期每小時$20",
+          "remark": "星期六、日及公眾假期 每小時 $20",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -2394,10 +2361,10 @@
           "price": 70,
           "periodStart": "08:00",
           "periodEnd": "18:00",
-          "remark": "日泊(08:00-18:00) $70",
+          "remark": "日泊 08:00-18:00 $70",
           "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "validUntil": "",
+          "covered": ""
         },
         {
           "type": "night-park",
@@ -2415,10 +2382,10 @@
           "price": 80,
           "periodStart": "18:00",
           "periodEnd": "08:00",
-          "remark": "夜泊(18:00-08:00) $80",
+          "remark": "夜泊 18:00-08:00 $80",
           "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "validUntil": "",
+          "covered": ""
         }
       ]
     }
@@ -2508,7 +2475,7 @@
           "price": 75,
           "periodStart": "19:00",
           "periodEnd": "07:00",
-          "remark": "周一至周五夜泊(公眾假期除外)$75 19:00-07:00",
+          "remark": "周一至周五夜泊(公眾假期除外) 19:00-07:00 $75",
           "add_source": "py-ai-fill-rule",
           "covered": ""
         }
@@ -2792,24 +2759,6 @@
       ],
       "dayNightParks": [
         {
-          "type": "day-park",
-          "weekdays": [
-            "MON",
-            "TUE",
-            "WED",
-            "THU",
-            "FRI"
-          ],
-          "excludePublicHoliday": true,
-          "price": 60,
-          "periodStart": "07:00",
-          "periodEnd": "19:00",
-          "remark": "星期一至五（公眾假期除外）日泊$60",
-          "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
-        },
-        {
           "type": "night-park",
           "weekdays": [
             "MON",
@@ -2824,8 +2773,8 @@
           "periodEnd": "07:00",
           "remark": "星期一至五（公眾假期除外）夜泊$30",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "covered": "",
+          "validUntil": ""
         },
         {
           "type": "day-park",
@@ -2840,8 +2789,8 @@
           "periodEnd": "19:00",
           "remark": "星期六、日及公眾假期日泊$60",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "covered": "",
+          "validUntil": ""
         },
         {
           "type": "night-park",
@@ -2856,8 +2805,8 @@
           "periodEnd": "07:00",
           "remark": "星期六、日及公眾假期夜泊$50",
           "add_source": "py-ai-fill-rule",
-          "validUntil": "",
-          "covered": ""
+          "covered": "",
+          "validUntil": ""
         }
       ]
     }
@@ -2865,7 +2814,119 @@
   {
     "park_Id": "tdc48p3",
     "name": "",
-    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車：\n首2小時 $9/半小時 (第2小時後 $13.5/半小時)；\n23:00-07:00 ：$2/半小時。\n旅遊巴士：首2小時 $15/半小時 (第2小時後 $22.5/半小時)；\n23:00-07:00：$15/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車：\n首2小時：$10/半小時 (第2小時後 $15/半小時)；\n23:00-07:00 ：$2/半小時；\n旅遊巴士：首2小時 $20/半小時(第2小時後 $30/半小時)；\n23:00-07:00：$20/半小時。",
+    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車：\n首2小時 $10/半小時 (第2小時後 $15/半小時)；\n23:00-07:00 ：$2/半小時。\n旅遊巴士：首2小時 $15/半小時 (第2小時後 $22.5/半小時)；\n23:00-07:00：$15/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車：\n首2小時：$11/半小時 (第2小時後 $16.5/半小時)；\n23:00-07:00 ：$2/半小時；\n旅遊巴士：首2小時 $20/半小時(第2小時後 $30/半小時)；\n23:00-07:00：$20/半小時。",
+    "privateCar": {
+      "hourlyCharges": [
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 10,
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期一至五 (公眾假期除外) 07:00-23:00 首2小時 $10/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 15,
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期一至五 (公眾假期除外) 07:00-23:00 第2小時後 $15/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 2,
+          "periodStart": "23:00",
+          "periodEnd": "07:00",
+          "remark": "星期一至五 (公眾假期除外) 23:00-07:00 $2/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 11,
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期六日及公眾假期 07:00-23:00 首2小時 $11/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 16.5,
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期六日及公眾假期 07:00-23:00 第2小時後 $16.5/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 2,
+          "periodStart": "23:00",
+          "periodEnd": "07:00",
+          "remark": "星期六日及公眾假期 23:00-07:00 $2/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        }
+      ],
+      "dayNightParks": []
+    }
+  },
+  {
+    "park_Id": "tdc48p2",
+    "name": "",
+    "description": "星期一至五(公眾假期除外)：07:00-23:00，首2小時：$9/半小時(第2小時後：$13.5/半小時)；23:00-07:00：$9/半小時\n星期六日及公眾假期：07:00-23:00，首2小時：$11/半小時(第2小時後：$16.5/半小時)；23:00-07:00：$11/半小時",
     "privateCar": {
       "hourlyCharges": [
         {
@@ -2880,8 +2941,8 @@
           "type": "half-hourly",
           "price": 9,
           "periodStart": "07:00",
-          "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時$9/半小時，第2小時後$13.5/半小時",
+          "periodEnd": "08:00",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$9 階梯收費",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -2897,103 +2958,9 @@
           "excludePublicHoliday": true,
           "type": "half-hourly",
           "price": 13.5,
-          "periodStart": "07:00",
+          "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外)07:00-23:00第2小時後$13.5/半小時",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "MON",
-            "TUE",
-            "WED",
-            "THU",
-            "FRI"
-          ],
-          "excludePublicHoliday": true,
-          "type": "half-hourly",
-          "price": 2,
-          "periodStart": "23:00",
-          "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外)23:00-07:00$2/半小時",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "SAT",
-            "SUN",
-            "PH"
-          ],
-          "excludePublicHoliday": false,
-          "type": "half-hourly",
-          "price": 10,
-          "periodStart": "07:00",
-          "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期07:00-23:00首2小時$10/半小時，第2小時後$15/半小時",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "SAT",
-            "SUN",
-            "PH"
-          ],
-          "excludePublicHoliday": false,
-          "type": "half-hourly",
-          "price": 15,
-          "periodStart": "07:00",
-          "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期07:00-23:00第2小時後$15/半小時",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "SAT",
-            "SUN",
-            "PH"
-          ],
-          "excludePublicHoliday": false,
-          "type": "half-hourly",
-          "price": 2,
-          "periodStart": "23:00",
-          "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期23:00-07:00$2/半小時",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        }
-      ],
-      "dayNightParks": []
-    }
-  },
-  {
-    "park_Id": "tdc48p2",
-    "name": "",
-    "description": "星期一至五(公眾假期除外)：07:00-23:00，首2小時：$6/半小時(第2小時後：$9/半小時)；23:00-07:00：$6/半小時\n星期六日及公眾假期：07:00-23:00，首2小時：$8/半小時(第2小時後：$12/半小時)；23:00-07:00：$8/半小時",
-    "privateCar": {
-      "hourlyCharges": [
-        {
-          "weekdays": [
-            "MON",
-            "TUE",
-            "WED",
-            "THU",
-            "FRI"
-          ],
-          "excludePublicHoliday": true,
-          "type": "half-hourly",
-          "price": 6,
-          "periodStart": "07:00",
-          "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-23:00 首2小時 $6/半小時",
+          "remark": "星期一至五(公眾假期除外) 08:00-23:00 每半小時$13.5",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3009,27 +2976,9 @@
           "excludePublicHoliday": true,
           "type": "half-hourly",
           "price": 9,
-          "periodStart": "07:00",
-          "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-23:00 第2小時後 $9/半小時",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "MON",
-            "TUE",
-            "WED",
-            "THU",
-            "FRI"
-          ],
-          "excludePublicHoliday": true,
-          "type": "half-hourly",
-          "price": 6,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外) 23:00-07:00 $6/半小時",
+          "remark": "星期一至五(公眾假期除外) 23:00-07:00 每半小時$9",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3042,10 +2991,10 @@
           ],
           "excludePublicHoliday": false,
           "type": "half-hourly",
-          "price": 8,
+          "price": 11,
           "periodStart": "07:00",
-          "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 07:00-23:00 首2小時 $8/半小時",
+          "periodEnd": "08:00",
+          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$11 階梯收費",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3058,10 +3007,10 @@
           ],
           "excludePublicHoliday": false,
           "type": "half-hourly",
-          "price": 12,
-          "periodStart": "07:00",
+          "price": 16.5,
+          "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 07:00-23:00 第2小時後 $12/半小時",
+          "remark": "星期六日及公眾假期 08:00-23:00 每半小時$16.5",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3074,10 +3023,10 @@
           ],
           "excludePublicHoliday": false,
           "type": "half-hourly",
-          "price": 8,
+          "price": 11,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00 $8/半小時",
+          "remark": "星期六日及公眾假期 23:00-07:00 每半小時$11",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3104,8 +3053,8 @@
           "type": "half-hourly",
           "price": 14,
           "periodStart": "07:00",
-          "periodEnd": "09:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-09:00 私家車首2小時 $14/半小時",
+          "periodEnd": "23:00",
+          "remark": "星期一至五(公眾假期除外) 07:00-23:00 首2小時 $14/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3121,9 +3070,9 @@
           "excludePublicHoliday": true,
           "type": "half-hourly",
           "price": 21,
-          "periodStart": "09:00",
+          "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外) 09:00-23:00 私家車超過2小時 $21/半小時",
+          "remark": "星期一至五(公眾假期除外) 07:00-23:00 超過2小時 $21/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3141,7 +3090,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外) 23:00-07:00 私家車 $2/半小時",
+          "remark": "星期一至五(公眾假期除外) 23:00-07:00 $2/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3156,8 +3105,8 @@
           "type": "half-hourly",
           "price": 16,
           "periodStart": "07:00",
-          "periodEnd": "09:00",
-          "remark": "星期六日及公眾假期 07:00-09:00 私家車首2小時 $16/半小時",
+          "periodEnd": "23:00",
+          "remark": "星期六日及公眾假期 07:00-23:00 首2小時 $16/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3171,9 +3120,9 @@
           "excludePublicHoliday": false,
           "type": "half-hourly",
           "price": 24,
-          "periodStart": "09:00",
+          "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 09:00-23:00 私家車超過2小時 $24/半小時",
+          "remark": "星期六日及公眾假期 07:00-23:00 超過2小時 $24/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3189,7 +3138,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00 私家車 $2/半小時",
+          "remark": "星期六日及公眾假期 23:00-07:00 $2/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3282,7 +3231,7 @@
           "price": 21,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "每日07:00-23:00每小時21港幣",
+          "remark": "每日07:00-23:00，21港幣/小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -3303,7 +3252,7 @@
           "price": 17,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "每日23:00-次日07:00每小時17港幣",
+          "remark": "每日23:00-07:00，17港幣/小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -3311,6 +3260,7 @@
       ],
       "dayNightParks": [
         {
+          "type": "day-park",
           "weekdays": [
             "MON",
             "TUE",
@@ -3322,11 +3272,10 @@
             "PH"
           ],
           "excludePublicHoliday": false,
-          "type": "day-park",
           "price": 110,
           "periodStart": "08:00",
           "periodEnd": "20:00",
-          "remark": "每日08:00-20:00日泊110港幣",
+          "remark": "每日08:00-20:00，110港幣",
           "add_source": "py-ai-fill-rule",
           "covered": ""
         }
@@ -3677,7 +3626,7 @@
   {
     "park_Id": "tdc39p1",
     "name": "",
-    "description": "星期一至五 (公眾假期除外) 07:00-23：00：\n私家車/電單車/小型巴士,\n首2小時：$5/半小時 (第2小時後： $7.5/半小時)；\n23:00-07:00：$1.6/半小時。\n星期六日及公眾假期 07:00-23：00：\n私家車/電單車/小型巴士,\n首2小時： $7/半小時 (第2小時後：$10.5/半小時)；\n23:00-07:00：$1.6/半小時。",
+    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車/電單車/小型巴士,\n首2小時：$5/半小時 (第2小時後： $7.5/半小時)；\n23:00-07:00：$1.6/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車/電單車/小型巴士,\n首2小時： $7/半小時 (第2小時後：$10.5/半小時)；\n23:00-07:00：$1.6/半小時。",
     "privateCar": {
       "hourlyCharges": [
         {
@@ -3693,7 +3642,7 @@
           "price": 5,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時$5/半小時",
+          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時$5/半小時，第2小時後$7.5/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3745,7 +3694,7 @@
           "price": 7,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期07:00-23:00首2小時$7/半小時",
+          "remark": "星期六日及公眾假期07:00-23:00首2小時$7/半小時，第2小時後$10.5/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3803,8 +3752,8 @@
           "excludePublicHoliday": true,
           "type": "hourly",
           "price": 8,
-          "periodStart": "",
-          "periodEnd": "",
+          "periodStart": "00:00",
+          "periodEnd": "24:00",
           "remark": "星期一至五（公眾假期除外）每小時$8",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
@@ -3819,8 +3768,8 @@
           "excludePublicHoliday": false,
           "type": "hourly",
           "price": 18,
-          "periodStart": "",
-          "periodEnd": "",
+          "periodStart": "00:00",
+          "periodEnd": "24:00",
           "remark": "星期六，日及公眾假期每小時$18",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
@@ -3961,7 +3910,7 @@
           "price": 4,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-08:00 半小時租 $4 首2小時",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$4",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3979,7 +3928,7 @@
           "price": 6,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外) 08:00-23:00 半小時租 $6 第2小時後",
+          "remark": "星期一至五(公眾假期除外) 08:00-23:00 每半小時$6",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -3997,7 +3946,7 @@
           "price": 1.4,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外) 23:00-07:00 半小時租 $1.4",
+          "remark": "星期一至五(公眾假期除外) 23:00-07:00 每半小時$1.4",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4013,7 +3962,7 @@
           "price": 6,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期 07:00-08:00 半小時租 $6 首2小時",
+          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$6",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4029,7 +3978,7 @@
           "price": 9,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 08:00-23:00 半小時租 $9 第2小時後",
+          "remark": "星期六日及公眾假期 08:00-23:00 每半小時$9",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4045,7 +3994,7 @@
           "price": 1.4,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00 半小時租 $1.4",
+          "remark": "星期六日及公眾假期 23:00-07:00 每半小時$1.4",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4073,7 +4022,7 @@
           "price": 9,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$9",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$9 階梯收費",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4125,7 +4074,7 @@
           "price": 13,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$13",
+          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$13 階梯收費",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4224,7 +4173,7 @@
           "price": 110,
           "periodStart": "08:00",
           "periodEnd": "18:00",
-          "remark": "日泊 08:00-18:00 HK$110",
+          "remark": "日泊 08:00 - 18:00 HK$110",
           "add_source": "py-ai-fill-rule",
           "validUntil": "",
           "covered": ""
@@ -4245,7 +4194,7 @@
           "price": 120,
           "periodStart": "18:00",
           "periodEnd": "08:00",
-          "remark": "夜泊 18:00-08:00 HK$120",
+          "remark": "夜泊 18:00 - 08:00 HK$120",
           "add_source": "py-ai-fill-rule",
           "validUntil": "",
           "covered": ""
@@ -4272,7 +4221,25 @@
           "price": 5,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時$5/半小時，第2小時後$7.5/半小時",
+          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時5元/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 7.5,
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期一至五(公眾假期除外)07:00-23:00第2小時後7.5元/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4290,7 +4257,7 @@
           "price": 15,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外)23:00-07:00$15/半小時",
+          "remark": "星期一至五(公眾假期除外)23:00-07:00 15元/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4306,7 +4273,23 @@
           "price": 15,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期07:00-23:00首2小時$15/半小時，第2小時後$22.5/半小時",
+          "remark": "星期六日及公眾假期07:00-23:00首2小時15元/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 22.5,
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期六日及公眾假期07:00-23:00第2小時後22.5元/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4322,7 +4305,7 @@
           "price": 15,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期23:00-07:00$15/半小時",
+          "remark": "星期六日及公眾假期23:00-07:00 15元/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4396,7 +4379,7 @@
   {
     "park_Id": "tdc44p3",
     "name": "",
-    "description": "星期一至五 (公眾假期除外) 07:00-23:00：私家車/輕型貨車/的士,首2小時：$5/半小時 (第2小時後： $7.5/半小時)； 23:00-07:00：$1/半小時。 星期六日及公眾假期 07:00-23:00：私家車/輕型貨車/的士, 首2小時： $6/半小時 (第2小時後：$9/半小時)； 23:00-07:00：$1/半小時。",
+    "description": "星期一至五 (公眾假期除外) 07:00-23:00：私家車/輕型貨車/的士,首2小時：$5/半小時 (第2小時後： $7.5/半小時)； 23:00-07:00：$1/半小時。\n星期六日及公眾假期 07:00-23:00：私家車/輕型貨車/的士, 首2小時： $6/半小時 (第2小時後：$9/半小時)； 23:00-07:00：$1/半小時。",
     "privateCar": {
       "hourlyCharges": [
         {
@@ -4412,7 +4395,7 @@
           "price": 5,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時$5/半小時",
+          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時$5/半小時，第2小時後$7.5/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4464,7 +4447,7 @@
           "price": 6,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期07:00-23:00首2小時$6/半小時",
+          "remark": "星期六日及公眾假期07:00-23:00首2小時$6/半小時，第2小時後$9/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4524,7 +4507,7 @@
           "price": 10,
           "periodStart": "07:00",
           "periodEnd": "09:00",
-          "remark": "星期一至星期五（公眾假期除外）07:00-09:00 每半小時$10（首2小時階梯）",
+          "remark": "星期一至星期五（公眾假期除外）07:00-09:00 每半小時$10（首2小時）",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4542,7 +4525,7 @@
           "price": 15,
           "periodStart": "09:00",
           "periodEnd": "23:00",
-          "remark": "星期一至星期五（公眾假期除外）09:00-23:00 每半小時$15（首2小時後階梯）",
+          "remark": "星期一至星期五（公眾假期除外）09:00-23:00 每半小時$15（首2小時後）",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4558,7 +4541,7 @@
           "price": 14,
           "periodStart": "07:00",
           "periodEnd": "09:00",
-          "remark": "星期六、日及公眾假期07:00-09:00 每半小時$14（首2小時階梯）",
+          "remark": "星期六、日及公眾假期07:00-09:00 每半小時$14（首2小時）",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4574,7 +4557,7 @@
           "price": 21,
           "periodStart": "09:00",
           "periodEnd": "23:00",
-          "remark": "星期六、日及公眾假期09:00-23:00 每半小時$21（首2小時後階梯）",
+          "remark": "星期六、日及公眾假期09:00-23:00 每半小時$21（首2小時後）",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4766,7 +4749,7 @@
           "price": 6,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-08:00 首小時 $6/半小時",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$6",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4784,7 +4767,7 @@
           "price": 9,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外) 08:00-23:00 第2小時後 $9/半小時",
+          "remark": "星期一至五(公眾假期除外) 08:00-23:00 每半小時$9",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4802,7 +4785,7 @@
           "price": 0.5,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外) 23:00-07:00 $0.5/半小時",
+          "remark": "星期一至五(公眾假期除外) 23:00-07:00 每半小時$0.5",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4818,7 +4801,7 @@
           "price": 9,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期 07:00-08:00 首小時 $9/半小時",
+          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$9",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4834,7 +4817,7 @@
           "price": 13.5,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 08:00-23:00 第2小時後 $13.5/半小時",
+          "remark": "星期六日及公眾假期 08:00-23:00 每半小時$13.5",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -4850,7 +4833,7 @@
           "price": 0.5,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00 $0.5/半小時",
+          "remark": "星期六日及公眾假期 23:00-07:00 每半小時$0.5",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5245,7 +5228,7 @@
   {
     "park_Id": "tdc58p5",
     "name": "",
-    "description": "星期一至五 (公眾假期除外) 07:00-23:00：私家車/輕型貨車/的士/電單車,首2小時：$6/半小時 (第2小時後： $9/半小時)； 23:00-07:00：$2/半小時。 星期六日及公眾假期 07:00-23:00：私家車/輕型貨車/的士/電單車, 首2小時： $8/半小時 (第2小時後：$12/半小時)； 23:00-07:00：$2/半小時。",
+    "description": "星期一至五 (公眾假期除外) 07:00-23:00：私家車/輕型貨車/的士/電單車,首2小時：$6/半小時 (第2小時後： $9/半小時)； 23:00-07:00：$2/半小時。\n星期六日及公眾假期 07:00-23:00：私家車/輕型貨車/的士/電單車, 首2小時： $8/半小時 (第2小時後：$12/半小時)； 23:00-07:00：$2/半小時。",
     "privateCar": {
       "hourlyCharges": [
         {
@@ -5261,25 +5244,7 @@
           "price": 6,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時$6/半小時，第2小時後$9/半小時",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "MON",
-            "TUE",
-            "WED",
-            "THU",
-            "FRI"
-          ],
-          "excludePublicHoliday": true,
-          "type": "half-hourly",
-          "price": 9,
-          "periodStart": "07:00",
-          "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外)07:00-23:00第2小時後$9/半小時",
+          "remark": "星期一至五(公眾假期除外)07:00-23:00，首2小時每半小時$6，第2小時後每半小時$9",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5297,7 +5262,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外)23:00-07:00$2/半小時",
+          "remark": "星期一至五(公眾假期除外)23:00-07:00，每半小時$2",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5313,23 +5278,7 @@
           "price": 8,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期07:00-23:00首2小時$8/半小時，第2小時後$12/半小時",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "SAT",
-            "SUN",
-            "PH"
-          ],
-          "excludePublicHoliday": false,
-          "type": "half-hourly",
-          "price": 12,
-          "periodStart": "07:00",
-          "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期07:00-23:00第2小時後$12/半小時",
+          "remark": "星期六日及公眾假期07:00-23:00，首2小時每半小時$8，第2小時後每半小時$12",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5345,7 +5294,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期23:00-07:00$2/半小時",
+          "remark": "星期六日及公眾假期23:00-07:00，每半小時$2",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5371,9 +5320,9 @@
           "excludePublicHoliday": true,
           "type": "hourly",
           "price": 10,
-          "periodStart": "",
-          "periodEnd": "",
-          "remark": "星期一至五（公眾假期除外）：$10/小時",
+          "periodStart": "00:00",
+          "periodEnd": "24:00",
+          "remark": "星期一至五（公眾假期除外）$10/小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -5387,9 +5336,9 @@
           "excludePublicHoliday": false,
           "type": "hourly",
           "price": 20,
-          "periodStart": "",
-          "periodEnd": "",
-          "remark": "星期六，日及公眾假期：$20/小時",
+          "periodStart": "00:00",
+          "periodEnd": "24:00",
+          "remark": "星期六，日及公眾假期$20/小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -5409,9 +5358,9 @@
           "price": 30,
           "periodStart": "19:00",
           "periodEnd": "07:00",
-          "validUntil": "",
-          "remark": "夜泊$30 (19:00-07:00)",
+          "remark": "星期一至五（公眾假期除外）夜泊$30 (19:00-07:00)",
           "add_source": "py-ai-fill-rule",
+          "validUntil": "",
           "covered": ""
         },
         {
@@ -5425,9 +5374,9 @@
           "price": 55,
           "periodStart": "19:00",
           "periodEnd": "07:00",
-          "validUntil": "",
-          "remark": "夜泊$55(19:00-07:00)",
+          "remark": "星期六，日及公眾假期夜泊$55(19:00-07:00)",
           "add_source": "py-ai-fill-rule",
+          "validUntil": "",
           "covered": ""
         }
       ]
@@ -5488,10 +5437,10 @@
           "price": 40,
           "periodStart": "19:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五（公眾假期除外）夜泊$40",
+          "remark": "星期一至五（公眾假期除外）夜泊$40 (19:00-07:00)",
           "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "validUntil": "",
+          "covered": ""
         },
         {
           "type": "day-park",
@@ -5504,10 +5453,10 @@
           "price": 100,
           "periodStart": "07:00",
           "periodEnd": "19:00",
-          "remark": "星期六、日及公眾假期日泊$100",
+          "remark": "星期六、日及公眾假期日泊$100 (07:00-19:00)",
           "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "validUntil": "",
+          "covered": ""
         },
         {
           "type": "night-park",
@@ -5520,10 +5469,10 @@
           "price": 70,
           "periodStart": "19:00",
           "periodEnd": "07:00",
-          "remark": "星期六、日及公眾假期夜泊$70",
+          "remark": "星期六、日及公眾假期夜泊$70 (19:00-07:00)",
           "add_source": "py-ai-fill-rule",
-          "covered": "",
-          "validUntil": ""
+          "validUntil": "",
+          "covered": ""
         }
       ]
     }
@@ -5563,7 +5512,7 @@
           "price": 13,
           "periodStart": "00:00",
           "periodEnd": "24:00",
-          "remark": "星期六日及公眾假期 00:00-24:00 $13/小時",
+          "remark": "星期六日及公眾假期 $13/小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -5583,10 +5532,9 @@
           "price": 50,
           "periodStart": "19:00",
           "periodEnd": "07:00",
-          "validUntil": "",
-          "remark": "星期一至五(公眾假期除外) 19:00-07:00 夜泊 $50",
+          "remark": "星期一至五(公眾假期除外) 夜泊 19:00-07:00 $50",
           "add_source": "py-ai-fill-rule",
-          "covered": ""
+          "validUntil": ""
         },
         {
           "type": "day-park",
@@ -5599,10 +5547,9 @@
           "price": 70,
           "periodStart": "07:00",
           "periodEnd": "19:00",
-          "validUntil": "",
-          "remark": "星期六日及公眾假期 07:00-19:00 日泊 $70",
+          "remark": "星期六日及公眾假期 日泊 07:00-19:00 $70",
           "add_source": "py-ai-fill-rule",
-          "covered": ""
+          "validUntil": ""
         },
         {
           "type": "night-park",
@@ -5615,10 +5562,9 @@
           "price": 70,
           "periodStart": "19:00",
           "periodEnd": "07:00",
-          "validUntil": "",
-          "remark": "星期六日及公眾假期 19:00-07:00 夜泊 $70",
+          "remark": "星期六日及公眾假期 夜泊 19:00-07:00 $70",
           "add_source": "py-ai-fill-rule",
-          "covered": ""
+          "validUntil": ""
         }
       ]
     }
@@ -5626,7 +5572,7 @@
   {
     "park_Id": "tdc58p1",
     "name": "",
-    "description": "私家車：星期一至五(公眾假期除外)：07:00-23:00，首2小時：$11/半小時；超過2小時：$16.5/半小時；日泊：$80，23:00-07:00：$4/半小時    星期六日及公眾假期：07:00-23:00，首2小時：$13/半小時；超過2小時：$19.5/半小時；日泊$120，23:00-07:00：$4/半時",
+    "description": "私家車：星期一至五(公眾假期除外)：07:00-23:00，首2小時：$11/半小時；超過2小時：$16.5/半小時；日泊：$80，23:00-07:00：$4/半小時    星期六日及公眾假期：07:00-23:00，首2小時：$13/半小時；超過2小時：$19.5/半小時；日泊$120，23:00-07:00：$4/半小時   巴士：星期一至五(公眾假期除外)：07:00-23:00，首2小時：$11/半小時；超過2小時：$16.5/半小時；日泊：$80，23:00-07:00：$4/半小時    星期六日及公眾假期：07:00-23:00，首2小時：$13/半小時；超過2小時：$19.5/半小時；日泊$80，23:00-07:00：$9/半小時",
     "privateCar": {
       "hourlyCharges": [
         {
@@ -5776,7 +5722,7 @@
           "price": 12,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$12",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 半小時$12 階梯收費",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5794,7 +5740,7 @@
           "price": 18,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外) 08:00-23:00 每半小時$18",
+          "remark": "星期一至五(公眾假期除外) 08:00-23:00 半小時$18",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5812,7 +5758,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外) 23:00-07:00 每半小時$2",
+          "remark": "星期一至五(公眾假期除外) 23:00-07:00 半小時$2",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5828,7 +5774,7 @@
           "price": 16,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$16",
+          "remark": "星期六日及公眾假期 07:00-08:00 半小時$16 階梯收費",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5844,7 +5790,7 @@
           "price": 24,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 08:00-23:00 每半小時$24",
+          "remark": "星期六日及公眾假期 08:00-23:00 半小時$24",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5860,7 +5806,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00 每半小時$2",
+          "remark": "星期六日及公眾假期 23:00-07:00 半小時$2",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5888,25 +5834,7 @@
           "price": 8,
           "periodStart": "00:00",
           "periodEnd": "23:59",
-          "remark": "星期一至五 00:00-23:59 每半小時$8 (首2小時)",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "MON",
-            "TUE",
-            "WED",
-            "THU",
-            "FRI"
-          ],
-          "excludePublicHoliday": false,
-          "type": "half-hourly",
-          "price": 12,
-          "periodStart": "00:00",
-          "periodEnd": "23:59",
-          "remark": "星期一至五 00:00-23:59 每半小時$12 (2小時後)",
+          "remark": "星期一至五：首2小時每半小時$8，2小時後每半小時$12",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -5922,23 +5850,7 @@
           "price": 10,
           "periodStart": "00:00",
           "periodEnd": "23:59",
-          "remark": "星期六/日/公眾假期 00:00-23:59 每半小時$10 (首2小時)",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "SAT",
-            "SUN",
-            "PH"
-          ],
-          "excludePublicHoliday": false,
-          "type": "half-hourly",
-          "price": 15,
-          "periodStart": "00:00",
-          "periodEnd": "23:59",
-          "remark": "星期六/日/公眾假期 00:00-23:59 每半小時$15 (2小時後)",
+          "remark": "星期六/日/公眾假期：首2小時每半小時$10，2小時後每半小時$15",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6062,7 +5974,7 @@
   {
     "park_Id": "tdc63p1",
     "name": "",
-    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車/輕型貨車/的士/電單車 ：\n首2小時 $7/半小時 (第2小時後 $10.5/半小時)；\n23:00-07:00 ：\n$2/半小時。；\n首2小時 $7/半小時 (第2小時後 $10.5/半小時) ；\n23:00-07:00 ：\n$20/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車/輕型貨車/的士/電單車：\n首2小時：\n$10/半小時 (第2小時後 $15/半小時)；\n23:00-07:00 ：\n$2/半小時；\n首2小時 $12/半小時(第2小時後 $18/半小時) ；\n23:00-07：\n$30/半小時。",
+    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車/輕型貨車/的士/電單車 ：\n首2小時 $7/半小時 (第2小時後 $10.5/半小時)；\n23:00-07:00 ：\n$2/半小時。；\n首2小時 $7/半小時 (第2小時後 $10.5/半小時) ；\n23:00-07:00 ：\n$20/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車/輕型貨車/的士/電單車：\n首2小時：\n$10/半小時 (第2小時後 $15/半小時)；\n23:00-07:00 ：\n$2/半小時；\n首2小時 $12/半小時(第2小時後 $18/半小時) ；\n23:00-07:00：\n$30/半小時。",
     "privateCar": {
       "hourlyCharges": [
         {
@@ -6078,7 +5990,7 @@
           "price": 7,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期一至五 (公眾假期除外) 07:00-08:00 首小時 $7/半小時",
+          "remark": "星期一至五(公眾假期除外)07:00-08:00首小時$7/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6096,7 +6008,7 @@
           "price": 10.5,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五 (公眾假期除外) 08:00-23:00 第2小時後 $10.5/半小時",
+          "remark": "星期一至五(公眾假期除外)08:00-23:00第2小時後$10.5/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6113,8 +6025,26 @@
           "type": "half-hourly",
           "price": 2,
           "periodStart": "23:00",
+          "periodEnd": "24:00",
+          "remark": "星期一至五(公眾假期除外)23:00-24:00$2/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 2,
+          "periodStart": "00:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五 (公眾假期除外) 23:00-07:00 $2/半小時",
+          "remark": "星期一至五(公眾假期除外)00:00-07:00$2/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6130,7 +6060,7 @@
           "price": 10,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期 07:00-08:00 首小時 $10/半小時",
+          "remark": "星期六日及公眾假期07:00-08:00首小時$10/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6146,7 +6076,7 @@
           "price": 15,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 08:00-23:00 第2小時後 $15/半小時",
+          "remark": "星期六日及公眾假期08:00-23:00第2小時後$15/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6161,8 +6091,24 @@
           "type": "half-hourly",
           "price": 2,
           "periodStart": "23:00",
+          "periodEnd": "24:00",
+          "remark": "星期六日及公眾假期23:00-24:00$2/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 2,
+          "periodStart": "00:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00 $2/半小時",
+          "remark": "星期六日及公眾假期00:00-07:00$2/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6190,7 +6136,119 @@
           "price": 6,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時$6/半小時，第2小時後$9/半小時",
+          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時每半小時$6，其後每半小時$9",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 9,
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期一至五(公眾假期除外)07:00-23:00第2小時後每半小時$9",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 2,
+          "periodStart": "23:00",
+          "periodEnd": "07:00",
+          "remark": "星期一至五(公眾假期除外)23:00-07:00每半小時$2",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 9,
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期六日及公眾假期07:00-23:00首2小時每半小時$9，其後每半小時$13.5",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 13.5,
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期六日及公眾假期07:00-23:00第2小時後每半小時$13.5",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 2,
+          "periodStart": "23:00",
+          "periodEnd": "07:00",
+          "remark": "星期六日及公眾假期23:00-07:00每半小時$2",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        }
+      ],
+      "dayNightParks": []
+    }
+  },
+  {
+    "park_Id": "tdc63p3",
+    "name": "",
+    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車/輕型貨車/的士/電單車,\n首2小時：$7/半小時 (第2小時後： $10.5/半小時)；\n23:00-07:00：$2/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車/輕型貨車/的士/電單車,\n首2小時： $12/半小時 (第2小時後：$18/半小時)；\n23:00-07:00：$2/半小時。",
+    "privateCar": {
+      "hourlyCharges": [
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 7,
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期一至五(公眾假期除外)07:00-23:00首2小時$7/半小時，第2小時後$10.5/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6221,10 +6279,10 @@
           ],
           "excludePublicHoliday": false,
           "type": "half-hourly",
-          "price": 9,
+          "price": 12,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期07:00-23:00首2小時$9/半小時，第2小時後$13.5/半小時",
+          "remark": "星期六日及公眾假期07:00-23:00首2小時$12/半小時，第2小時後$18/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6241,118 +6299,6 @@
           "periodStart": "23:00",
           "periodEnd": "07:00",
           "remark": "星期六日及公眾假期23:00-07:00$2/半小時",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        }
-      ],
-      "dayNightParks": []
-    }
-  },
-  {
-    "park_Id": "tdc63p3",
-    "name": "",
-    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車/輕型貨車/的士/電單車,\n首2小時：$7/半小時 (第2小時後： $10.5/半小時)；\n23:00-07:00：$2/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車/輕型貨車/的士/電單車,\n首2小時： $12/半小時 (第2小時後：$18/半小時)；\n23:00-07:00：$2/半小時。",
-    "privateCar": {
-      "hourlyCharges": [
-        {
-          "weekdays": [
-            "MON",
-            "TUE",
-            "WED",
-            "THU",
-            "FRI"
-          ],
-          "excludePublicHoliday": true,
-          "type": "half-hourly",
-          "price": 7,
-          "periodStart": "07:00",
-          "periodEnd": "08:00",
-          "remark": "星期一至五(公眾假期除外)07:00-08:00首2小時前半小時$7",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "MON",
-            "TUE",
-            "WED",
-            "THU",
-            "FRI"
-          ],
-          "excludePublicHoliday": true,
-          "type": "half-hourly",
-          "price": 10.5,
-          "periodStart": "08:00",
-          "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外)08:00-23:00第2小時後半小時$10.5",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "MON",
-            "TUE",
-            "WED",
-            "THU",
-            "FRI"
-          ],
-          "excludePublicHoliday": true,
-          "type": "half-hourly",
-          "price": 2,
-          "periodStart": "23:00",
-          "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外)23:00-07:00半小時$2",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "SAT",
-            "SUN",
-            "PH"
-          ],
-          "excludePublicHoliday": false,
-          "type": "half-hourly",
-          "price": 12,
-          "periodStart": "07:00",
-          "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期07:00-08:00首2小時前半小時$12",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "SAT",
-            "SUN",
-            "PH"
-          ],
-          "excludePublicHoliday": false,
-          "type": "half-hourly",
-          "price": 18,
-          "periodStart": "08:00",
-          "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期08:00-23:00第2小時後半小時$18",
-          "add_source": "py-ai-fill-rule",
-          "billing_unit": "half_hour",
-          "covered": ""
-        },
-        {
-          "weekdays": [
-            "SAT",
-            "SUN",
-            "PH"
-          ],
-          "excludePublicHoliday": false,
-          "type": "half-hourly",
-          "price": 2,
-          "periodStart": "23:00",
-          "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期23:00-07:00半小時$2",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6716,7 +6662,7 @@
           "price": 9,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$9",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 半小時租 $9 首2小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6734,7 +6680,7 @@
           "price": 13.5,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外) 08:00-23:00 每半小時$13.5",
+          "remark": "星期一至五(公眾假期除外) 08:00-23:00 半小時租 $13.5 第2小時後",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6752,7 +6698,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外) 23:00-07:00 每半小時$2",
+          "remark": "星期一至五(公眾假期除外) 23:00-07:00 半小時租 $2",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6768,7 +6714,7 @@
           "price": 12,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$12",
+          "remark": "星期六日及公眾假期 07:00-08:00 半小時租 $12 首2小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6784,7 +6730,7 @@
           "price": 18,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 08:00-23:00 每半小時$18",
+          "remark": "星期六日及公眾假期 08:00-23:00 半小時租 $18 第2小時後",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6800,7 +6746,7 @@
           "price": 2,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00 每半小時$2",
+          "remark": "星期六日及公眾假期 23:00-07:00 半小時租 $2",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6827,8 +6773,8 @@
           "type": "half-hourly",
           "price": 7,
           "periodStart": "07:00",
-          "periodEnd": "09:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-09:00 首2小時 $7/半小時",
+          "periodEnd": "08:00",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$7",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6844,9 +6790,9 @@
           "excludePublicHoliday": true,
           "type": "half-hourly",
           "price": 10.5,
-          "periodStart": "09:00",
+          "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外) 09:00-23:00 第2小時後 $10.5/半小時",
+          "remark": "星期一至五(公眾假期除外) 08:00-23:00 每半小時$10.5",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6864,7 +6810,7 @@
           "price": 3,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外) 23:00-07:00 $3/半小時",
+          "remark": "星期一至五(公眾假期除外) 23:00-07:00 每半小時$3",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6879,8 +6825,8 @@
           "type": "half-hourly",
           "price": 10,
           "periodStart": "07:00",
-          "periodEnd": "09:00",
-          "remark": "星期六日及公眾假期 07:00-09:00 首2小時 $10/半小時",
+          "periodEnd": "08:00",
+          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$10",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6894,9 +6840,9 @@
           "excludePublicHoliday": false,
           "type": "half-hourly",
           "price": 15,
-          "periodStart": "09:00",
+          "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 09:00-23:00 第2小時後 $15/半小時",
+          "remark": "星期六日及公眾假期 08:00-23:00 每半小時$15",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -6912,7 +6858,7 @@
           "price": 3,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00 $3/半小時",
+          "remark": "星期六日及公眾假期 23:00-07:00 每半小時$3",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7275,8 +7221,8 @@
           "type": "half-hourly",
           "price": 6,
           "periodStart": "07:00",
-          "periodEnd": "08:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-08:00 首小時 $6/半小時",
+          "periodEnd": "22:00",
+          "remark": "星期一至五(公眾假期除外) 07:00-22:00 首2小時 $6/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7292,9 +7238,9 @@
           "excludePublicHoliday": true,
           "type": "half-hourly",
           "price": 9,
-          "periodStart": "08:00",
+          "periodStart": "07:00",
           "periodEnd": "22:00",
-          "remark": "星期一至五(公眾假期除外) 08:00-22:00 第2小時後 $9/半小時",
+          "remark": "星期一至五(公眾假期除外) 07:00-22:00 第2小時後 $9/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7327,8 +7273,8 @@
           "type": "half-hourly",
           "price": 9,
           "periodStart": "07:00",
-          "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期 07:00-08:00 首小時 $9/半小時",
+          "periodEnd": "22:00",
+          "remark": "星期六日及公眾假期 07:00-22:00 首2小時 $9/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7342,9 +7288,9 @@
           "excludePublicHoliday": false,
           "type": "half-hourly",
           "price": 13.5,
-          "periodStart": "08:00",
+          "periodStart": "07:00",
           "periodEnd": "22:00",
-          "remark": "星期六日及公眾假期 08:00-22:00 第2小時後 $13.5/半小時",
+          "remark": "星期六日及公眾假期 07:00-22:00 第2小時後 $13.5/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7498,9 +7444,9 @@
           "excludePublicHoliday": true,
           "type": "hourly",
           "price": 28,
-          "periodStart": "00:00",
-          "periodEnd": "23:59",
-          "remark": "星期一至五（公眾假期除外）每小時$28",
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期一至五（公眾假期除外）07:00-23:00 每小時$28",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -7514,9 +7460,9 @@
           "excludePublicHoliday": false,
           "type": "hourly",
           "price": 32,
-          "periodStart": "00:00",
-          "periodEnd": "23:59",
-          "remark": "星期六、日及公眾假期每小時$32",
+          "periodStart": "07:00",
+          "periodEnd": "23:00",
+          "remark": "星期六、日及公眾假期07:00-23:00 每小時$32",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
           "covered": ""
@@ -7537,7 +7483,7 @@
           "periodStart": "07:00",
           "periodEnd": "18:59",
           "validUntil": "",
-          "remark": "星期一至五（公眾假期除外）日泊每節$168（早上7時至晚上6時59分）",
+          "remark": "星期一至五（公眾假期除外）07:00-18:59 日泊每節$168",
           "add_source": "py-ai-fill-rule"
         }
       ]
@@ -7562,7 +7508,7 @@
           "price": 12,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五 (公眾假期除外) 07:00-23:00 首兩小時每半小時12元",
+          "remark": "星期一至五 (公眾假期除外) 07:00-23:00 首兩小時每半小時港幣12",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7580,7 +7526,7 @@
           "price": 18,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五 (公眾假期除外) 07:00-23:00 第三小時起每半小時18元",
+          "remark": "星期一至五 (公眾假期除外) 07:00-23:00 第三小時及其後每半小時港幣18",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7598,7 +7544,7 @@
           "price": 12,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五 (公眾假期除外) 23:00-07:00 每半小時12元",
+          "remark": "星期一至五 (公眾假期除外) 23:00-07:00 每半小時港幣12",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7614,7 +7560,7 @@
           "price": 12,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期六、日及公眾假期 07:00-23:00 首兩小時每半小時12元",
+          "remark": "星期六、日及公眾假期 07:00-23:00 首兩小時每半小時港幣12",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7630,7 +7576,7 @@
           "price": 188,
           "periodStart": "07:00",
           "periodEnd": "23:00",
-          "remark": "星期六、日及公眾假期 07:00-23:00 第三小時起每半小時188元",
+          "remark": "星期六、日及公眾假期 07:00-23:00 第三小時及其後每半小時港幣188",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7646,7 +7592,7 @@
           "price": 12,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六、日及公眾假期 23:00-07:00 每半小時12元",
+          "remark": "星期六、日及公眾假期 23:00-07:00 每半小時港幣12",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7676,7 +7622,7 @@
           "type": "hourly",
           "price": 20,
           "periodStart": "00:00",
-          "periodEnd": "23:59",
+          "periodEnd": "24:00",
           "remark": "每日每小時$20",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "hour",
@@ -7817,7 +7763,7 @@
           "price": 8,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-08:00 首小時 8元/半小時",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 首小時 $8/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7835,7 +7781,7 @@
           "price": 12,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外) 08:00-23:00 第2小時後 12元/半小時",
+          "remark": "星期一至五(公眾假期除外) 08:00-23:00 第2小時後 $12/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7853,7 +7799,7 @@
           "price": 1.4,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期一至五(公眾假期除外) 23:00-07:00 1.4元/半小時",
+          "remark": "星期一至五(公眾假期除外) 23:00-07:00 $1.4/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7869,7 +7815,7 @@
           "price": 12,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期 07:00-08:00 首小時 12元/半小時",
+          "remark": "星期六日及公眾假期 07:00-08:00 首小時 $12/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7885,7 +7831,7 @@
           "price": 18,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 08:00-23:00 第2小時後 18元/半小時",
+          "remark": "星期六日及公眾假期 08:00-23:00 第2小時後 $18/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7901,7 +7847,7 @@
           "price": 1.4,
           "periodStart": "23:00",
           "periodEnd": "07:00",
-          "remark": "星期六日及公眾假期 23:00-07:00 1.4元/半小時",
+          "remark": "星期六日及公眾假期 23:00-07:00 $1.4/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7930,8 +7876,8 @@
           "type": "half-hourly",
           "price": 3,
           "periodStart": "07:00",
-          "periodEnd": "08:00",
-          "remark": "07:00-08:00 首小時 $3/半小時",
+          "periodEnd": "09:00",
+          "remark": "07:00-09:00 首2小時 $3/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7949,9 +7895,9 @@
           "excludePublicHoliday": false,
           "type": "half-hourly",
           "price": 4.5,
-          "periodStart": "08:00",
+          "periodStart": "09:00",
           "periodEnd": "23:00",
-          "remark": "08:00-23:00 第2小時起 $4.5/半小時",
+          "remark": "09:00-23:00 第2小時後 $4.5/半小時",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -7999,7 +7945,7 @@
           "price": 6,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$6",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$6 階梯收費",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -8051,7 +7997,7 @@
           "price": 10,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$10",
+          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$10 階梯收費",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -8111,7 +8057,7 @@
           "price": 5,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期一至五(公眾假期除外) 07:00-08:00 半小時$5 階梯收費",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 每半小時$5",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -8129,7 +8075,7 @@
           "price": 7.5,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期一至五(公眾假期除外) 08:00-23:00 半小時$7.5",
+          "remark": "星期一至五(公眾假期除外) 08:00-23:00 每半小時$7.5",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -8145,7 +8091,7 @@
           "price": 10,
           "periodStart": "07:00",
           "periodEnd": "08:00",
-          "remark": "星期六日及公眾假期 07:00-08:00 半小時$10 階梯收費",
+          "remark": "星期六日及公眾假期 07:00-08:00 每半小時$10",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
@@ -8161,7 +8107,231 @@
           "price": 15,
           "periodStart": "08:00",
           "periodEnd": "23:00",
-          "remark": "星期六日及公眾假期 08:00-23:00 半小時$15",
+          "remark": "星期六日及公眾假期 08:00-23:00 每半小時$15",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        }
+      ],
+      "dayNightParks": []
+    }
+  },
+  {
+    "park_Id": "tdc76p2",
+    "name": "",
+    "description": "星期一至五 (公眾假期除外) 07:00-23:00：私家車,首2小時：$10/半小時 (第2小時後： $15/半小時)；23:00-07:00：$1/半小時。星期六日及公眾假期 07:00-23:00：私家車, 首2小時： $15/半小時 (第2小時後：$22.5/半小時)；23:00-07:00：$1/半小時。",
+    "privateCar": {
+      "hourlyCharges": [
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 10,
+          "periodStart": "07:00",
+          "periodEnd": "08:00",
+          "remark": "星期一至五(公眾假期除外) 07:00-08:00 首小時 $10/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 15,
+          "periodStart": "08:00",
+          "periodEnd": "23:00",
+          "remark": "星期一至五(公眾假期除外) 08:00-23:00 第2小時後 $15/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 1,
+          "periodStart": "23:00",
+          "periodEnd": "07:00",
+          "remark": "星期一至五(公眾假期除外) 23:00-07:00 $1/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 15,
+          "periodStart": "07:00",
+          "periodEnd": "08:00",
+          "remark": "星期六日及公眾假期 07:00-08:00 首小時 $15/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 22.5,
+          "periodStart": "08:00",
+          "periodEnd": "23:00",
+          "remark": "星期六日及公眾假期 08:00-23:00 第2小時後 $22.5/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 1,
+          "periodStart": "23:00",
+          "periodEnd": "07:00",
+          "remark": "星期六日及公眾假期 23:00-07:00 $1/半小時",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        }
+      ],
+      "dayNightParks": []
+    }
+  },
+  {
+    "park_Id": "tdc76p3",
+    "name": "",
+    "description": "星期一至五 (公眾假期除外) 07:00-23:00：\n私家車/輕型貨車,首2小時：$10/半小時 (第2小時後： $15/半小時)；\n23:00-07:00：$1/半小時。\n星期六日及公眾假期 07:00-23:00：\n私家車/輕型貨車, 首2小時： $15/半小時 (第2小時後：$22.5/半小時)；\n23:00-07:00：$1/半小時。",
+    "privateCar": {
+      "hourlyCharges": [
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 10,
+          "periodStart": "07:00",
+          "periodEnd": "08:00",
+          "remark": "星期一至五(公眾假期除外)07:00-08:00首小時半小時租$10",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 15,
+          "periodStart": "08:00",
+          "periodEnd": "23:00",
+          "remark": "星期一至五(公眾假期除外)08:00-23:00第2小時後半小時租$15",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI"
+          ],
+          "excludePublicHoliday": true,
+          "type": "half-hourly",
+          "price": 1,
+          "periodStart": "23:00",
+          "periodEnd": "07:00",
+          "remark": "星期一至五(公眾假期除外)23:00-07:00半小時租$1",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 15,
+          "periodStart": "07:00",
+          "periodEnd": "08:00",
+          "remark": "星期六日及公眾假期07:00-08:00首小時半小時租$15",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 22.5,
+          "periodStart": "08:00",
+          "periodEnd": "23:00",
+          "remark": "星期六日及公眾假期08:00-23:00第2小時後半小時租$22.5",
+          "add_source": "py-ai-fill-rule",
+          "billing_unit": "half_hour",
+          "covered": ""
+        },
+        {
+          "weekdays": [
+            "SAT",
+            "SUN",
+            "PH"
+          ],
+          "excludePublicHoliday": false,
+          "type": "half-hourly",
+          "price": 1,
+          "periodStart": "23:00",
+          "periodEnd": "07:00",
+          "remark": "星期六日及公眾假期23:00-07:00半小時租$1",
           "add_source": "py-ai-fill-rule",
           "billing_unit": "half_hour",
           "covered": ""
