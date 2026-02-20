@@ -11,8 +11,10 @@ const db = app.database();
 const collection = db.collection('mall_offers');
 
 // 2. 定義 Google AI Studio API 參數
+// 修改後的 GEMINI 配置
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+// 建議使用 v1 穩定版或保持 v1beta 但更換模型 ID
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 // 3. 嚴格定義數據 Schema 和 Prompt
 const PROMPT = `
@@ -52,7 +54,9 @@ async function fetchMallsFromGemini() {
         parts: [{ text: PROMPT }]
       }],
       generationConfig: {
-        responseMimeType: "application/json" // 強制要求 Gemini 輸出 JSON
+        // Gemini 2.5 支持更嚴謹的輸出控制
+        responseMimeType: "application/json",
+        temperature: 0.1 // 降低隨機性，確保數據結構穩定
       }
     });
 
