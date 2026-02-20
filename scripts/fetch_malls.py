@@ -1,104 +1,129 @@
 import requests
 import json
 import os
+import time
 from datetime import datetime
 
-# 1. 獲取環境變量 (GitHub Secrets)
-APPID = os.environ.get('WX_APPID').strip()
-APPSECRET = os.environ.get('WX_APPSECRET').strip()
-ENV_ID = os.environ.get('WX_ENV_ID').strip()
-GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY').strip()
+# 1. 環境配置
+APPID = os.environ.get('WX_APPID', '').strip()
+APPSECRET = os.environ.get('WX_APPSECRET', '').strip()
+ENV_ID = os.environ.get('WX_ENV_ID', '').strip()
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '').strip()
+COLLECTION_NAME = "mall_offers"
 
-# 2. 獲取微信 Access Token
 def get_access_token():
     url = f"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={APPID}&secret={APPSECRET}"
-    res = requests.get(url).json()
-    return res.get('access_token')
+    try:
+        res = requests.get(url, timeout=20).json()
+        return res.get('access_token')
+    except Exception as e:
+        print(f"❌ 獲取 Token 異常: {e}")
+        return None
 
-# 3. 調用 Gemini 2.5 Flash 獲取 AI 數據
-def fetch_malls_from_ai():
-    print("--- 正在調用 Gemini 2.5 Flash 獲取數據 ---")
+def fetch_malls_deep_search():
+    print("--- 🧠 啟動 Gemini 2.5 Flash 深度採集 (目標: 20+ 商場) ---")
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
     
-    prompt = f"""
-你是一名香港交通與商業數據專家。請搜索 2026 年最新香港商場泊車優惠。
-- 每次生成前查閱已有的基礎數據：
-- 商場數據源參考：
-    - 信和集团
-    - 新鸿基
-    - 东荟城
-    - 圆方 Elements
-    - 領展
-    - 其它大中型商場和媒體平台發布的信息。
-
-要求：
-1. 重點提取所有香港商場的泊車優惠政策，消費優惠停車政策，以及「粵車南下」專屬優惠禮遇。
-2. 輸出格式必須是純 JSON 數組，嚴禁包含任何解釋性文字。
-3. 字段定義：
-   - id: 唯一標識, 如海港城為harbourcity, 請確保同一個商場在不同次生成時使用相同的 id。
-   - name: 商場中文全稱 （智能校對去重）
-   - lat/lng: GCJ-02 坐標系下的精確經緯度
-   - isSouthbound: 若有針對「粵車南下」特有優惠禮遇則為 true，否則 false
-   - parking: 簡述泊車優惠（例：粵車南下額外2小時）
-   - spending: 簡述消費泊車抵扣（例：消費滿$200，或積分兌換，優惠停车1小时）
-   - presents: 消費獎賞與禮品回贈等
-   - description: 政策條款與細則（長文本， 1. 2. 3. ...）
-   - link: 官方或可靠活動網址
-   - update_time: （格式：yyyymmdd）官方發稿日期
-   - end_time: （格式：yyyymmdd）官方條款，沒有定義則留空不填寫。
+    # 強化 Prompt：要求深度搜索與多樣性
+    prompt = """
+    你是一名香港商業地產與跨境交通專家。請執行深度搜索，整理 2026 年最新香港商場泊車優惠。
+    
+    【搜索清單要求】
+    1. 必須涵蓋全港至少 20 個商場，重點包含：
+       - 信和集團 (Sino Group): 奧海城、屯門市廣場、中港城、荃新天地。
+       - 新鴻基 (SHKP): V city、YOHO MALL、apm、MOKO、新城市廣場、IFC、V Walk。
+       - 恆隆: Fashion Walk、家樂坊、荷李活商業中心。
+       - 其他: 圓方 Elements、海港城、時代廣場、東薈城、領展主要商場、太古城中心。
+    2. 重點提取「粵車南下」專屬禮遇（如FT車牌額外免停、專屬禮包）。
+    
+    【輸出格式】
+    1. 重點提取所有香港商場的泊車優惠政策，消費優惠停車政策，以及「粵車南下」專屬優惠禮遇。
+    2. 輸出格式必須是純 JSON 數組，嚴禁包含任何解釋性文字。
+    3. 字段定義：
+    - id: 唯一標識, 如海港城為harbourcity, 請確保同一個商場在不同次生成時使用相同的 id。
+    - name: 商場中文全稱 （智能校對去重）
+    - lat/lng: GCJ-02 坐標系下的精確經緯度
+    - isSouthbound: 若有針對「粵車南下」特有優惠禮遇則為 true，否則 false
+    - parking: 簡述泊車優惠（例：粵車南下額外2小時）
+    - spending: 簡述消費泊車抵扣（例：消費滿$200，或積分兌換，優惠停车1小时）
+    - presents: 消費獎賞與禮品回贈等
+    - description: 政策條款與細則（長文本， 1. 2. 3. ...）
+    - link: 官方或可靠活動網址
+    - update_time: （格式：yyyymmdd）官方發稿日期
+    - end_time: （格式：yyyymmdd）官方條款，沒有定義則留空不填寫。
     """
     
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": { "responseMimeType": "application/json", "temperature": 0.1 }
+        "generationConfig": {
+            "responseMimeType": "application/json",
+            "temperature": 0.2, # 降低隨機性
+            "maxOutputTokens": 8192 # 擴大 Token 限制以支持 20+ 數據
+        }
     }
     
-    res = requests.post(url, json=payload)
-    return json.loads(res.json()['candidates'][0]['content']['parts'][0]['text'])
+    try:
+        res = requests.post(url, json=payload, timeout=60).json()
+        content = res['candidates'][0]['content']['parts'][0]['text']
+        malls = json.loads(content)
+        # 確保返回的是數組
+        return malls if isinstance(malls, list) else malls.get('malls', [])
+    except Exception as e:
+        print(f"❌ AI 採集失敗: {e}")
+        return []
 
-# 4. 操作雲數據庫 (HTTP API 模式)
-def db_query(token, query_string):
-    url = f"https://api.weixin.qq.com/tcb/databasequery?access_token={token}"
-    data = { "env": ENV_ID, "query": query_string }
-    return requests.post(url, json=data).json()
+def clean_data_for_wx(item):
+    """處理 JSON 字符串以符合微信 query 格式，防止特殊字符崩潰"""
+    # 轉為 JSON 字符串並處理反斜槓
+    return json.dumps(item, ensure_ascii=False).replace('\\', '\\\\')
 
-def db_add(token, query_string):
-    url = f"https://api.weixin.qq.com/tcb/databaseadd?access_token={token}"
-    data = { "env": ENV_ID, "query": query_string }
-    return requests.post(url, json=data).json()
-
-def db_update(token, query_string):
-    url = f"https://api.weixin.qq.com/tcb/databaseupdate?access_token={token}"
-    data = { "env": ENV_ID, "query": query_string }
-    return requests.post(url, json=data).json()
-
-def main():
+def sync_to_wechat(malls):
     token = get_access_token()
-    if not token:
-        print("❌ 獲取微信 Token 失敗，請檢查 AppID 和 Secret")
-        return
+    if not token: return
 
-    malls = fetch_malls_from_ai()
-    print(f"AI 成功提取 {len(malls)} 個商場")
+    query_url = f"https://api.weixin.qq.com/tcb/databasequery?access_token={token}"
+    add_url = f"https://api.weixin.qq.com/tcb/databaseadd?access_token={token}"
+    update_url = f"https://api.weixin.qq.com/tcb/databaseupdate?access_token={token}"
 
-    for mall in malls:
-        # 查詢是否存在 (基於 id 字段)
-        query = f"db.collection('mall_offers').where({{id: '{mall['id']}'}}).get()"
-        res = db_query(token, query)
-        
-        # 微信 HTTP API 返回的 data 是一個 JSON 字符串列表
-        if res.get('data'):
-            # 執行更新
-            update_query = f"db.collection('mall_offers').where({{id: '{mall['id']}'}}).update({{data: {json.dumps(mall)}}})"
-            db_update(token, update_query)
-            print(f"[更新] {mall['name']}")
-        else:
-            # 執行新增
-            add_query = f"db.collection('mall_offers').add({{data: {json.dumps(mall)}}})"
-            db_add(token, add_query)
-            print(f"[新增] {mall['name']}")
+    print(f"🚀 開始同步 {len(malls)} 條數據到雲端...")
+    
+    success_add = 0
+    success_upd = 0
 
-    print("✅ 數據同步任務完成")
+    for item in malls:
+        # 1. 檢查是否存在 (根據 id)
+        check_query = f"db.collection('{COLLECTION_NAME}').where({{id: '{item['id']}'}}).get()"
+        try:
+            res = requests.post(query_url, json={"env": ENV_ID, "query": check_query}).json()
+            exists = len(res.get('data', [])) > 0
+            
+            # 準備數據
+            cleaned_json = clean_data_for_wx(item)
+            
+            if exists:
+                # 2. 執行更新
+                upd_query = f"db.collection('{COLLECTION_NAME}').where({{id: '{item['id']}'}}).update({{ data: {cleaned_json} }})"
+                resp = requests.post(update_url, json={"env": ENV_ID, "query": upd_query}).json()
+                if resp.get('errcode') == 0: success_upd += 1
+                print(f"   [更新] {item['name']}")
+            else:
+                # 3. 執行新增
+                add_query = f"db.collection('{COLLECTION_NAME}').add({{ data: {cleaned_json} }})"
+                resp = requests.post(add_url, json={"env": ENV_ID, "query": add_query}).json()
+                if resp.get('errcode') == 0: success_add += 1
+                print(f"   [新增] {item['name']}")
+            
+            # 根據參考代碼要求，每條處理完稍微休息，避免觸發頻率限制
+            time.sleep(0.2) 
+            
+        except Exception as e:
+            print(f"   ❌ 處理 {item.get('name')} 時出錯: {e}")
+
+    print(f"🎉 同步完成！新增: {success_add}, 更新: {success_upd}")
 
 if __name__ == "__main__":
-    main()
+    mall_data = fetch_malls_deep_search()
+    if mall_data:
+        sync_to_wechat(mall_data)
+    else:
+        print("⚠️ 未獲得 AI 數據，任務終止。")
