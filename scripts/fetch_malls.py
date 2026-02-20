@@ -2,12 +2,11 @@ import requests
 import json
 import os
 import time
-from datetime import datetime
 
-# 1. 環境配置
+# 1. 配置環境變量
 APPID = os.environ.get('WX_APPID', '').strip()
 APPSECRET = os.environ.get('WX_APPSECRET', '').strip()
-ENV_ID = os.environ.get('WX_ENV_ID', '').strip()
+ENV_ID = os.environ.get('TCB_ENV_ID', '').strip()
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '').strip()
 COLLECTION_NAME = "mall_offers"
 
@@ -21,10 +20,9 @@ def get_access_token():
         return None
 
 def fetch_malls_deep_search():
-    print("--- 🧠 啟動 Gemini 2.5 Flash 深度採集 (目標: 20+ 商場) ---")
+    print("--- 🧠 啟動 Gemini 2.5 Flash 深度採集 ---")
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
     
-    # 強化 Prompt：要求深度搜索與多樣性
     prompt = """
     你是一名香港商業地產與跨境交通專家。請執行深度搜索，整理 2026 年最新香港商場泊車優惠。
     
@@ -57,27 +55,36 @@ def fetch_malls_deep_search():
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
             "responseMimeType": "application/json",
-            "temperature": 0.2, # 降低隨機性
-            "maxOutputTokens": 8192 # 擴大 Token 限制以支持 20+ 數據
+            "temperature": 0.2,
+            "maxOutputTokens": 8192
         }
     }
     
     try:
-        res = requests.post(url, json=payload, timeout=60).json()
-        content = res['candidates'][0]['content']['parts'][0]['text']
-        malls = json.loads(content)
-        # 確保返回的是數組
-        return malls if isinstance(malls, list) else malls.get('malls', [])
+        res = requests.post(url, json=payload, timeout=90).json()
+        content = res['candidates'][0]['content']['parts'][0]['text'].strip()
+        # 應急修復被截斷的 JSON
+        if not content.endswith(']'):
+            last_bracket = content.rfind('}')
+            if last_bracket != -1:
+                content = content[:last_bracket+1] + ']'
+        return json.loads(content)
     except Exception as e:
-        print(f"❌ AI 採集失敗: {e}")
+        print(f"❌ AI 採集解析失敗: {e}")
         return []
 
 def clean_data_for_wx(item):
-    """處理 JSON 字符串以符合微信 query 格式，防止特殊字符崩潰"""
-    # 轉為 JSON 字符串並處理反斜槓
-    return json.dumps(item, ensure_ascii=False).replace('\\', '\\\\')
+    """將單個停車場數據轉化為符合微信 query 的 JSON 字符串"""
+    s = json.dumps(item, ensure_ascii=False)
+    # 針對微信 API 的特殊字符轉義處理
+    return s.replace('\\', '\\\\').replace('\n', '\\n').replace('\r', '\\r')
 
-def sync_to_wechat(malls):
+def sync_batch_to_wechat(malls, batch_size=5, sleep_time=5):
+    """
+    分批次執行 Upsert。
+    batch_size: 每組處理的停車場數量
+    sleep_time: 每組之間的間隔時間（秒）
+    """
     token = get_access_token()
     if not token: return
 
@@ -85,45 +92,54 @@ def sync_to_wechat(malls):
     add_url = f"https://api.weixin.qq.com/tcb/databaseadd?access_token={token}"
     update_url = f"https://api.weixin.qq.com/tcb/databaseupdate?access_token={token}"
 
-    print(f"🚀 開始同步 {len(malls)} 條數據到雲端...")
-    
-    success_add = 0
-    success_upd = 0
+    total = len(malls)
+    print(f"🚀 總計 {total} 個停車場，每批 {batch_size} 個，批次間隔 {sleep_time} 秒...")
 
-    for item in malls:
-        # 1. 檢查是否存在 (根據 id)
-        check_query = f"db.collection('{COLLECTION_NAME}').where({{id: '{item['id']}'}}).get()"
-        try:
-            res = requests.post(query_url, json={"env": ENV_ID, "query": check_query}).json()
-            exists = len(res.get('data', [])) > 0
-            
-            # 準備數據
-            cleaned_json = clean_data_for_wx(item)
-            
-            if exists:
-                # 2. 執行更新
-                upd_query = f"db.collection('{COLLECTION_NAME}').where({{id: '{item['id']}'}}).update({{ data: {cleaned_json} }})"
-                resp = requests.post(update_url, json={"env": ENV_ID, "query": upd_query}).json()
-                if resp.get('errcode') == 0: success_upd += 1
-                print(f"   [更新] {item['name']}")
-            else:
-                # 3. 執行新增
-                add_query = f"db.collection('{COLLECTION_NAME}').add({{ data: {cleaned_json} }})"
-                resp = requests.post(add_url, json={"env": ENV_ID, "query": add_query}).json()
-                if resp.get('errcode') == 0: success_add += 1
-                print(f"   [新增] {item['name']}")
-            
-            # 根據參考代碼要求，每條處理完稍微休息，避免觸發頻率限制
-            time.sleep(0.2) 
-            
-        except Exception as e:
-            print(f"   ❌ 處理 {item.get('name')} 時出錯: {e}")
+    # 將數據列表切割為每 5 個一組
+    for i in range(0, total, batch_size):
+        batch = malls[i : i + batch_size]
+        batch_num = i // batch_size + 1
+        print(f"\n📦 [批次 {batch_num}] 正在同步中...")
 
-    print(f"🎉 同步完成！新增: {success_add}, 更新: {success_upd}")
+        for item in batch:
+            try:
+                # 1. 檢查是否存在 (Upsert 邏輯)
+                check_q = f"db.collection('{COLLECTION_NAME}').where({{id: '{item['id']}'}}).get()"
+                res = requests.post(query_url, json={"env": ENV_ID, "query": check_q}).json()
+                
+                exists = len(res.get('data', [])) > 0
+                cleaned_json = clean_data_for_wx(item)
+                
+                if exists:
+                    # 2. 已存在則更新
+                    q = f"db.collection('{COLLECTION_NAME}').where({{id: '{item['id']}'}}).update({{ data: {cleaned_json} }})"
+                    resp = requests.post(update_url, json={"env": ENV_ID, "query": q}).json()
+                    status = "✅ 更新"
+                else:
+                    # 3. 不存在則新增
+                    q = f"db.collection('{COLLECTION_NAME}').add({{ data: {cleaned_json} }})"
+                    resp = requests.post(add_url, json={"env": ENV_ID, "query": q}).json()
+                    status = "🆕 新增"
+
+                if resp.get('errcode') == 0:
+                    print(f"   {status}: {item['name']}")
+                else:
+                    print(f"   ⚠️ 失敗 {item['name']}: {resp.get('errmsg')}")
+
+            except Exception as e:
+                print(f"   ❌ 處理 {item.get('name', '未知')} 時異常: {e}")
+
+        # 批次結束後的等待時間
+        if i + batch_size < total:
+            print(f"⏳ 批次 {batch_num} 已完成，休眠 {sleep_time} 秒後繼續...")
+            time.sleep(sleep_time)
+
+    print(f"\n🎉 任務執行完畢！所有停車場已同步至雲端。")
 
 if __name__ == "__main__":
-    mall_data = fetch_malls_deep_search()
-    if mall_data:
-        sync_to_wechat(mall_data)
+    malls_data = fetch_malls_deep_search()
+    if malls_data:
+        # 每 5 個停車場為一批，每批間隔 5 秒
+        sync_batch_to_wechat(malls_data, batch_size=5, sleep_time=5)
     else:
-        print("⚠️ 未獲得 AI 數據，任務終止。")
+        print("⚠️ AI 未提供有效數據，流程終止。")
