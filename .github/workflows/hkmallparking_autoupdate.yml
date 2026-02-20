@@ -1,4 +1,4 @@
-name: HK Mall Parking Sync (tx4)
+name: HK Mall Parking Sync
 
 on:
   schedule:
