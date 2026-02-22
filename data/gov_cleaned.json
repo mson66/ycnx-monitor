@@ -709,152 +709,6 @@
             }
         },
         {
-            "park_Id": "88",
-            "name": "油塘仁宇圍8號公眾停車場",
-            "displayAddress": "九龍油塘仁宇圍8號公眾停車場",
-            "latitude": 22.292238,
-            "longitude": 114.236683,
-            "contactNo": "2366 2823",
-            "website": "",
-            "facilities": [
-                "evCharger",
-                "disabilities",
-                "unloading"
-            ],
-            "heightLimits": [
-                {
-                    "remark": "高度限制: 2.4米",
-                    "height": 2.4
-                }
-            ],
-            "privateCar": {
-                "dayNightParks": [
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI"
-                        ],
-                        "excludePublicHoliday": true,
-                        "periodStart": "08:00",
-                        "periodEnd": "18:00",
-                        "price": 70,
-                        "type": "day-park",
-                        "covered": "covered",
-                        "validUntil": "no-restrictions"
-                    },
-                    {
-                        "weekdays": [
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "excludePublicHoliday": false,
-                        "periodStart": "08:00",
-                        "periodEnd": "18:00",
-                        "price": 85,
-                        "type": "day-park",
-                        "covered": "covered",
-                        "validUntil": "no-restrictions"
-                    },
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI"
-                        ],
-                        "excludePublicHoliday": true,
-                        "periodStart": "22:00",
-                        "periodEnd": "08:00",
-                        "price": 65,
-                        "type": "night-park",
-                        "covered": "covered",
-                        "validUntil": "no-restrictions"
-                    },
-                    {
-                        "weekdays": [
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "excludePublicHoliday": false,
-                        "periodStart": "22:00",
-                        "periodEnd": "08:00",
-                        "price": 85,
-                        "type": "night-park",
-                        "covered": "covered",
-                        "validUntil": "no-restrictions"
-                    }
-                ],
-                "hourlyCharges": [
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI"
-                        ],
-                        "excludePublicHoliday": true,
-                        "periodStart": "17:00",
-                        "periodEnd": "23:00",
-                        "price": 22,
-                        "type": "hourly",
-                        "covered": "covered",
-                        "billing_unit": "hour"
-                    },
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI"
-                        ],
-                        "excludePublicHoliday": true,
-                        "periodStart": "23:00",
-                        "periodEnd": "17:00",
-                        "price": 15,
-                        "type": "hourly",
-                        "covered": "covered",
-                        "billing_unit": "hour"
-                    },
-                    {
-                        "weekdays": [
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "excludePublicHoliday": false,
-                        "covered": "covered",
-                        "type": "hourly",
-                        "price": 25,
-                        "periodEnd": "23:00",
-                        "periodStart": "17:00",
-                        "billing_unit": "hour"
-                    },
-                    {
-                        "weekdays": [
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "excludePublicHoliday": false,
-                        "covered": "covered",
-                        "type": "hourly",
-                        "price": 20,
-                        "periodEnd": "17:00",
-                        "periodStart": "23:00",
-                        "billing_unit": "hour"
-                    }
-                ]
-            }
-        },
-        {
             "park_Id": "93",
             "name": "康寧道公園停車場",
             "displayAddress": "九龍觀塘康寧道及和康徑交界",
@@ -1494,6 +1348,249 @@
                         "price": 24,
                         "periodEnd": "00:00",
                         "periodStart": "00:00",
+                        "billing_unit": "hour"
+                    }
+                ]
+            }
+        },
+        {
+            "park_Id": "124",
+            "name": "主場館停車場",
+            "displayAddress": "九龍九龍城承啟道38-39號啟德體育園",
+            "latitude": 22.32216993,
+            "longitude": 114.1980958,
+            "contactNo": "",
+            "website": "https://www.kaitaksportspark.com.hk/car-park/2",
+            "facilities": [
+                "disabilities",
+                "evCharger"
+            ],
+            "heightLimits": [],
+            "privateCar": {
+                "dayNightParks": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU"
+                        ],
+                        "excludePublicHoliday": true,
+                        "validUntil": "no-restrictions",
+                        "covered": "covered",
+                        "type": "day-park",
+                        "price": 120,
+                        "periodEnd": "19:00",
+                        "periodStart": "07:00"
+                    },
+                    {
+                        "weekdays": [
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "validUntil": "no-restrictions",
+                        "covered": "covered",
+                        "type": "day-park",
+                        "price": 180,
+                        "periodEnd": "19:00",
+                        "periodStart": "07:00"
+                    },
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "validUntil": "no-restrictions",
+                        "covered": "covered",
+                        "type": "night-park",
+                        "price": 80,
+                        "periodEnd": "10:00",
+                        "periodStart": "19:00"
+                    }
+                ],
+                "hourlyCharges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU"
+                        ],
+                        "excludePublicHoliday": true,
+                        "periodStart": "07:00",
+                        "periodEnd": "22:00",
+                        "price": 25,
+                        "type": "hourly",
+                        "covered": "covered",
+                        "billing_unit": "hour"
+                    },
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU"
+                        ],
+                        "excludePublicHoliday": true,
+                        "periodStart": "22:00",
+                        "periodEnd": "07:00",
+                        "price": 12,
+                        "type": "hourly",
+                        "covered": "covered",
+                        "billing_unit": "hour"
+                    },
+                    {
+                        "weekdays": [
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "periodStart": "07:00",
+                        "periodEnd": "22:00",
+                        "price": 27,
+                        "type": "hourly",
+                        "covered": "covered",
+                        "billing_unit": "hour"
+                    },
+                    {
+                        "weekdays": [
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "covered": "covered",
+                        "type": "hourly",
+                        "price": 12,
+                        "periodEnd": "07:00",
+                        "periodStart": "22:00",
+                        "billing_unit": "hour"
+                    }
+                ]
+            }
+        },
+        {
+            "park_Id": "125",
+            "name": "體藝館停車場",
+            "displayAddress": "九龍九龍城承啟道38-39號啟德體育園",
+            "latitude": 22.32545005,
+            "longitude": 114.19669569,
+            "contactNo": "",
+            "website": "https://www.kaitaksportspark.com.hk/car-park/1",
+            "facilities": [
+                "evCharger",
+                "disabilities"
+            ],
+            "heightLimits": [],
+            "privateCar": {
+                "dayNightParks": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU"
+                        ],
+                        "excludePublicHoliday": true,
+                        "periodStart": "07:00",
+                        "periodEnd": "19:00",
+                        "price": 140,
+                        "type": "day-park",
+                        "covered": "covered",
+                        "validUntil": "no-restrictions"
+                    },
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "validUntil": "no-restrictions",
+                        "covered": "covered",
+                        "type": "night-park",
+                        "price": 72,
+                        "periodEnd": "07:00",
+                        "periodStart": "22:00"
+                    }
+                ],
+                "hourlyCharges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU"
+                        ],
+                        "excludePublicHoliday": true,
+                        "covered": "covered",
+                        "type": "hourly",
+                        "price": 25,
+                        "periodEnd": "22:00",
+                        "periodStart": "07:00",
+                        "billing_unit": "hour"
+                    },
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU"
+                        ],
+                        "excludePublicHoliday": true,
+                        "periodStart": "22:00",
+                        "periodEnd": "07:00",
+                        "price": 12,
+                        "type": "hourly",
+                        "covered": "covered",
+                        "billing_unit": "hour"
+                    },
+                    {
+                        "weekdays": [
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "periodStart": "07:00",
+                        "periodEnd": "22:00",
+                        "price": 28,
+                        "type": "hourly",
+                        "covered": "covered",
+                        "billing_unit": "hour"
+                    },
+                    {
+                        "weekdays": [
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "periodStart": "22:00",
+                        "periodEnd": "07:00",
+                        "price": 12,
+                        "type": "hourly",
+                        "covered": "covered",
                         "billing_unit": "hour"
                     }
                 ]
@@ -14232,8 +14329,8 @@
             "park_Id": "tdc334p1",
             "name": "葵涌公園停車場",
             "displayAddress": "葵涌葵裕街18號",
-            "latitude": 22.354227462875,
-            "longitude": 114.11748871477,
+            "latitude": 22.353894223552,
+            "longitude": 114.11741849048,
             "contactNo": "",
             "website": "",
             "facilities": [],
