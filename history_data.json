@@ -1,5 +1,19 @@
 [
     {
+        "id": 4,
+        "period_id": 4,
+        "batch_no": "YCCQPCH0000004",
+        "period_name": "第4期",
+        "draw_date": "2026-02-24",
+        "total_applied": 6505,
+        "quota_total": 2200,
+        "total_won": 2200,
+        "total_lost": 4305,
+        "win_rate": "33.82%",
+        "pdf_url": "https://ycnx.singlewindow.gd.cn/api/ycnx-approval/draw-lots-notarization/view-publicly-file/YCCQPCH0000004",
+        "updated_at": "2026-02-24 05:21:37"
+    },
+    {
         "id": 3,
         "period_id": 3,
         "batch_no": "YCCQPCH0000003",
