@@ -65,8 +65,8 @@ def call_gemini_api(prompt):
     }
     try:
         res = requests.post(url, json=payload, timeout=120).json()
-        raw_text = res['candidates'][0]['content']['parts'][0]['text']
-        return safe_json_loads(raw_text)
+        content = res['candidates'][0]['content']['parts'][0]['text'].strip()
+        return json.loads(content)
     except Exception as e:
         print(f"⚠️ AI 請求失敗: {e}")
         return []
