@@ -82,7 +82,7 @@ def fetch_malls_deep_search():
     - end_time: （格式：yyyymmdd）根據官方條款中的優惠期終止日期，沒有定義則留空不填寫。
     """
 
-    print("\n🧠 正在與 Gemini 2.5 Flash 通訊，請稍候...")
+    print("\n🧠 20260313正在與 Gemini 2.5 Flash 通訊，請稍候...")
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
