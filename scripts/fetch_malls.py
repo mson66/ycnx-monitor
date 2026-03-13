@@ -6,7 +6,7 @@ import time
 # 1. 配置環境變量
 APPID = os.environ.get('WX_APPID', '').strip()
 APPSECRET = os.environ.get('WX_APPSECRET', '').strip()
-ENV_ID = os.environ.get('TCB_ENV_ID', '').strip()
+ENV_ID = os.environ.get('WX_ENV_ID', '').strip()
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '').strip()
 COLLECTION_NAME = "mall_offers"
 
