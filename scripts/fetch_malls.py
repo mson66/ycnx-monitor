@@ -11,43 +11,51 @@ ENV_ID = os.environ.get('WX_ENV_ID', '').strip()
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '').strip()
 COLLECTION_NAME = "mall_offers"
 
-# 當前數據的遠端 URL
+# 數據存儲路徑
 DATA_URL = "https://raw.githubusercontent.com/mson66/ycnx-monitor/main/data/hkmallparkings.json"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# 確保指向 scripts 同級的 data 文件夾
 DATA_FOLDER = os.path.join(os.path.dirname(BASE_DIR), "data")
 JSON_FILE_PATH = os.path.join(DATA_FOLDER, "hkmallparkings.json")
 
-# --- 2. 坐標轉換工具 (修正定位偏差) ---
+# --- 2. 坐標轉換工具 (採用用戶提供的驗證算法) ---
 def wgs84_to_gcj02(lng, lat):
-    """將 WGS84 坐標轉換為 GCJ02 (火星坐標系)，解決香港地圖偏移"""
-    if not (lng and lat): return [lng, lat]
+    """
+    將 WGS84 坐標轉換為 GCJ02 (火星坐標系)
+    精確到 0.000000 以確保導航無偏差
+    """
+    if not lng or not lat:
+        return [lng, lat]
     
+    PI = 3.1415926535897932384626
+    a = 6378245.0
+    ee = 0.00669342162296594323
+
     def transform_lat(x, y):
         ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * math.sqrt(abs(x))
-        ret += (20.0 * math.sin(6.0 * x * math.pi) + 20.0 * math.sin(2.0 * x * math.pi)) * 2.0 / 3.0
-        ret += (20.0 * math.sin(y * math.pi) + 40.0 * math.sin(y / 3.0 * math.pi)) * 2.0 / 3.0
-        ret += (160.0 * math.sin(y / 12.0 * math.pi) + 320 * math.sin(y * math.pi / 30.0)) * 2.0 / 3.0
+        ret += (20.0 * math.sin(6.0 * x * PI) + 20.0 * math.sin(2.0 * x * PI)) * 2.0 / 3.0
+        ret += (20.0 * math.sin(y * PI) + 40.0 * math.sin(y / 3.0 * PI)) * 2.0 / 3.0
+        ret += (160.0 * math.sin(y / 12.0 * PI) + 320 * math.sin(y * PI / 30.0)) * 2.0 / 3.0
         return ret
 
     def transform_lng(x, y):
         ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * math.sqrt(abs(x))
-        ret += (20.0 * math.sin(6.0 * x * math.pi) + 20.0 * math.sin(2.0 * x * math.pi)) * 2.0 / 3.0
-        ret += (20.0 * math.sin(x * math.pi) + 40.0 * math.sin(x / 3.0 * math.pi)) * 2.0 / 3.0
-        ret += (150.0 * math.sin(x / 12.0 * math.pi) + 300.0 * math.sin(x / 30.0 * math.pi)) * 2.0 / 3.0
+        ret += (20.0 * math.sin(6.0 * x * PI) + 20.0 * math.sin(2.0 * x * PI)) * 2.0 / 3.0
+        ret += (20.0 * math.sin(x * PI) + 40.0 * math.sin(x / 3.0 * PI)) * 2.0 / 3.0
+        ret += (150.0 * math.sin(x / 12.0 * PI) + 300.0 * math.sin(x / 30.0 * PI)) * 2.0 / 3.0
         return ret
 
-    a = 6378245.0
-    ee = 0.00669342162296594323
-    dlat = transform_lat(lng - 105.0, lat - 35.0)
-    dlng = transform_lng(lng - 105.0, lat - 35.0)
-    radlat = lat / 180.0 * math.pi
-    magic = math.sin(radlat)
+    rad_lat = lat / 180.0 * PI
+    magic = math.sin(rad_lat)
     magic = 1 - ee * magic * magic
-    sqrtmagic = math.sqrt(magic)
-    dlat = (dlat * 180.0) / ((a * (1 - ee)) / (magic * sqrtmagic) * math.pi)
-    dlng = (dlng * 180.0) / (a / sqrtmagic * math.cos(radlat) * math.pi)
-    return [lng + dlng, lat + dlat]
+    sqrt_m = math.sqrt(magic)
+    
+    d_lat = transform_lat(lng - 105.0, lat - 35.0)
+    d_lng = transform_lng(lng - 105.0, lat - 35.0)
+    
+    dl = (d_lat * 180.0) / ((a * (1 - ee)) / (magic * sqrt_m) * PI)
+    dg = (d_lng * 180.0) / (a / sqrt_m * math.cos(rad_lat) * PI)
+    
+    return [round(lng + dg, 6), round(lat + dl, 6)]
 
 # --- 3. 基礎功能函數 ---
 def get_access_token():
@@ -60,7 +68,6 @@ def get_access_token():
         return None
 
 def call_gemini_api(prompt):
-    """調用 Gemini 2.5 Flash 接口"""
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
@@ -73,53 +80,40 @@ def call_gemini_api(prompt):
     try:
         res = requests.post(url, json=payload, timeout=120).json()
         text_content = res['candidates'][0]['content']['parts'][0]['text'].strip()
-        # 清洗 AI 可能包裹的 markdown 代碼塊
         if text_content.startswith("```json"):
             text_content = text_content.split("```json")[1].split("```")[0].strip()
         return json.loads(text_content)
     except Exception as e:
-        print(f"⚠️ AI 返回數據解析失敗: {e}")
+        print(f"⚠️ AI 數據解析失敗: {e}")
         return []
 
 def fetch_malls_incremental():
     print("\n" + "="*60)
-    print("🚀 啟動 Gemini 2.5 Flash 增量分批採集 (2026-03-13)")
-    print(f"📍 目標路徑: {JSON_FILE_PATH}")
+    print("🚀 啟動 Gemini 2.5 Flash 增量採集 + 精確坐標修正")
     print("="*60)
     
-    # 確保 data 文件夾存在
     if not os.path.exists(DATA_FOLDER):
         os.makedirs(DATA_FOLDER)
-        print(f"📁 已建立數據目錄: {DATA_FOLDER}")
 
-    # 1. 讀取現有數據
     current_malls = []
     if os.path.exists(JSON_FILE_PATH):
         with open(JSON_FILE_PATH, 'r', encoding='utf-8') as f:
             current_malls = json.load(f)
-        print(f"📁 已讀取本地數據: {len(current_malls)} 個商場")
-    else:
-        try:
-            resp = requests.get(DATA_URL, timeout=15)
-            if resp.status_code == 200:
-                current_malls = resp.json()
-                print(f"🌐 已從 GitHub 加載現有數據: {len(current_malls)} 個商場")
-        except:
-            print("⚠️ 未發現現有數據，將啟動全量模式。")
+        print(f"📁 已讀取本地數據: {len(current_malls)} 筆")
 
-    # 2. 分批任務設定
+    # 分批抓取以防截斷
     mall_targets = [
         "信和/新鴻基系商場 (奧海城, 屯門市廣場, V city, apm, 新城市廣場等)", 
         "恆隆/領展/太古系商場 (太古城, Fashion Walk, 領展旗艦等)", 
-        "圓方/海港城/時代廣場/東薈城及其他大型項目"
+        "地標項目 (海港城, 時代廣場, 圓方, 東薈城等)"
     ]
     
     mall_dict = {m['id']: m for m in current_malls}
-    total_added_names = []
-    total_updated_names = []
+    total_added = []
+    total_updated = []
 
     for idx, target in enumerate(mall_targets):
-        print(f"\n📦 [批次 {idx+1}/{len(mall_targets)}] 深度搜索: {target}...")
+        print(f"\n📦 [批次 {idx+1}/{len(mall_targets)}] 採集重點: {target}")
         existing_summary = [f"{m.get('name')}({m.get('id')})" for m in list(mall_dict.values())]
         
         prompt = f"""
@@ -144,7 +138,7 @@ def fetch_malls_incremental():
     2. 字段定義：
     - id: 唯一標識, 如海港城為harbourcity, 請確保同一個商場在不同次生成時使用相同的 id。
     - name: 商場中文全稱 （智能校對去重）
-    - lat/lng: WGS-84 座標系下的精確經緯度。
+    - lat/lng: WGS-84 座標系下的精確經緯度
     - isSouthbound: 若有針對「粵車南下」特有優惠禮遇則為 true，否則 false
     - parking: 這個描述非常重要。應描述無條件獲得免費泊車優惠，以及粵車南下專屬額外免費停車優惠。要求量化小時數，如果都沒有則描述最低消費的免費泊車時數（例1：免費停車1小時，例2:粵車南下額外2小時，例3:消費滿$100，免費停車1小時）
     - spending: 描述最低消費免費泊車門檻（例：消費滿$200，或積分兌換，優惠停车1小时）
@@ -157,48 +151,42 @@ def fetch_malls_incremental():
 
         new_batch = call_gemini_api(prompt)
         
-        # 3. 處理與修正數據
         for mall in new_batch:
-            # 座標修正: WGS84 -> GCJ02
+            # 執行坐標轉換與精確度優化
             try:
                 raw_lng = float(mall.get('lng', 0))
                 raw_lat = float(mall.get('lat', 0))
                 if raw_lng != 0:
                     fixed_coords = wgs84_to_gcj02(raw_lng, raw_lat)
-                    mall['lng'] = round(fixed_coords[0], 6)
-                    mall['lat'] = round(fixed_coords[1], 6)
+                    mall['lng'] = fixed_coords[0]
+                    mall['lat'] = fixed_coords[1]
             except: pass
 
             m_id, m_name = mall.get('id'), mall.get('name', '未知')
             if m_id in mall_dict:
                 mall_dict[m_id] = mall
-                total_updated_names.append(m_name)
+                total_updated.append(m_name)
             else:
                 mall_dict[m_id] = mall
-                total_added_names.append(m_name)
+                total_added.append(m_name)
         
-        print(f"✅ 批次 {idx+1} 完成，收穫 {len(new_batch)} 個商場數據（已自動修正坐標偏移）。")
         time.sleep(5)
 
-    # 4. 成果匯報與保存
     final_list = list(mall_dict.values())
     print("\n" + "-"*60)
-    print(f"📊 執行成果統計 (tx4 v6.8.4):")
-    print(f"➕ 新增 ({len(total_added_names)}): {', '.join(total_added_names) if total_added_names else '無'}")
-    print(f"🔄 更新 ({len(total_updated_names)}): {', '.join(total_updated_names) if total_updated_names else '無'}")
-    print(f"📚 數據庫總計: {len(final_list)} 筆")
+    print(f"📊 採集總結: 新增 {len(total_added)} 個, 更新 {len(total_updated)} 個")
+    print(f"📚 總計: {len(final_list)} 筆數據")
     print("-"*60)
 
     with open(JSON_FILE_PATH, 'w', encoding='utf-8') as f:
         json.dump(final_list, f, ensure_ascii=False, indent=2)
-    print(f"💾 數據已安全保存至: {JSON_FILE_PATH}\n")
     
     return final_list
 
 def sync_batch_to_wechat(malls, batch_size=5, sleep_time=3):
     token = get_access_token()
     if not token: return
-    print(f"🌐 正在同步至微信雲數據庫 (批次大小: {batch_size})...")
+    print(f"\n🌐 同步至微信雲數據庫...")
     
     QUERY_API = f"[https://api.weixin.qq.com/tcb/databasequery?access_token=](https://api.weixin.qq.com/tcb/databasequery?access_token=){token}"
     ADD_API = f"[https://api.weixin.qq.com/tcb/databaseadd?access_token=](https://api.weixin.qq.com/tcb/databaseadd?access_token=){token}"
@@ -217,10 +205,7 @@ def sync_batch_to_wechat(malls, batch_size=5, sleep_time=3):
                         else f"db.collection('{COLLECTION_NAME}').add({{ data: {data_str} }})"
                 
                 requests.post(UPDATE_API if exists else ADD_API, json={"env": ENV_ID, "query": query})
-            except Exception as e:
-                print(f"   ⚠️ 同步 {item.get('name')} 失敗: {e}")
-        
-        print(f"   進度: {min(i + batch_size, len(malls))}/{len(malls)}")
+            except: pass
         time.sleep(sleep_time)
 
 if __name__ == "__main__":
