@@ -87,6 +87,29 @@ def call_gemini_api(prompt):
         print(f"⚠️ AI 數據解析失敗: {e}")
         return []
 
+def repair_truncated_json(json_str):
+    """強力修復截斷的 JSON 字符串"""
+    json_str = json_str.strip()
+    if json_str.startswith('```json'):
+        json_str = re.sub(r'^```json\s*|\s*```$', '', json_str, flags=re.MULTILINE)
+    
+    # 嘗試直接解析
+    try:
+        return json.loads(json_str)
+    except json.JSONDecodeError:
+        print("🛠️ 檢測到 JSON 截斷，正在嘗試結構化修復...")
+        # 移除結尾可能殘留的半個字串或鍵名
+        json_str = re.sub(r',?\s*"[^"]*"?\s*:\s*[^,}]*$', '', json_str)
+        # 補齊大括號和中括號
+        open_brackets = json_str.count('[') - json_str.count(']')
+        open_braces = json_str.count('{') - json_str.count('}')
+        
+        fixed_str = json_str + ('"}' * open_braces) + (']' * open_brackets)
+        try:
+            return json.loads(fixed_str)
+        except:
+            return []
+
 def fetch_malls_incremental():
     print("\n" + "="*60)
     print("🚀 啟動 Gemini 2.5 Flash 增量採集 + 精確坐標修正")
@@ -103,9 +126,12 @@ def fetch_malls_incremental():
 
     # 分批抓取以防截斷
     mall_targets = [
-        "信和/新鴻基系商場 (奧海城, 屯門市廣場, V city, apm, 新城市廣場等)", 
-        "恆隆/領展/太古系商場 (太古城, Fashion Walk, 領展旗艦等)", 
-        "地標項目 (海港城, 時代廣場, 圓方, 東薈城等)"
+        "信和集團 (奧海城、屯門市廣場、中港城、荃新天地、黃金海岸、尖沙咀中心、藍灣廣場、朗壹廣場)",
+        "新鴻基地產 (apm、新城市廣場、MOKO、V city、YOHO MALL、IFC、V Walk、新達廣場)",
+        "新世界/恆基 (K11 MUSEA、K11 Art Mall、D·PARK、MCP 新都城、MOSTown 新港城)",
+        "恆隆/太古系 (太古城中心、Citygate 東薈城、Fashion Walk、康怡廣場、雅蘭中心)",
+        "領展 Link (樂富廣場、赤柱廣場、T Town、慈雲山中心、黃大仙中心、及各區旗艦)",
+        "大型獨立地標 (海港城、時代廣場、Elements 圓方、朗豪坊、新翠商場、iSQUARE)"
     ]
     
     mall_dict = {m['id']: m for m in current_malls}
@@ -119,7 +145,7 @@ def fetch_malls_incremental():
         prompt = f"""
     你是一名香港商業地產與跨境交通專家。請執行深度搜索，整理 2026 年最新香港商場泊車優惠。
         
-        【參考現有清單 (避免重複)】: {", ".join(existing_summary[:10])} ...
+        【參考現有清單 (避免重複)】: {", ".join(existing_summary[:8])} ...
         【當前採集重點】: {target}
 
     【搜索任務要求】:
@@ -147,7 +173,7 @@ def fetch_malls_incremental():
     - parking: 這個描述非常重要。應描述無條件獲得免費泊車優惠，以及粵車南下專屬額外免費停車優惠。要求量化小時數，如果都沒有則描述最低消費的免費泊車時數（例1：免費停車1小時，例2:粵車南下額外2小時，例3:消費滿$100，免費停車1小時）
     - spending: 描述最低消費免費泊車門檻（例：消費滿$200，或積分兌換，優惠停车1小时）
     - presents: 消費獎賞與禮品回贈，需要描述具體內容等
-    - description: 優先抄官網政策條款與細則，一條不漏（長文本， 1. 2. 3. ... ）
+    - description: 優先抄官網政策对核心泊車條款（長文本， 1. 2. 3. ... ）
     - link: 官方或可靠活動網址，具體精準指向泊車優惠頁面
     - update_time: （格式：yyyymmdd）根據官方條款中的優惠期起點日期
     - end_time: （格式：yyyymmdd）根據官方條款中的優惠期終止日期，沒有定義則留空不填寫。
