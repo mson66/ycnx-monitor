@@ -3,6 +3,7 @@ import json
 import os
 import time
 import math
+import re
 
 # --- 1. 配置與路徑初始化 ---
 APPID = os.environ.get('WX_APPID', '').strip()
@@ -11,61 +12,46 @@ ENV_ID = os.environ.get('WX_ENV_ID', '').strip()
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '').strip()
 COLLECTION_NAME = "mall_offers"
 
-# 數據存儲路徑
-DATA_URL = "https://raw.githubusercontent.com/mson66/ycnx-monitor/main/data/hkmallparkings.json"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# 修正路徑邏輯，確保與您的 Project 結構一致
 DATA_FOLDER = os.path.join(os.path.dirname(BASE_DIR), "data")
 JSON_FILE_PATH = os.path.join(DATA_FOLDER, "hkmallparkings.json")
 
-# --- 2. 坐標轉換工具 (採用用戶提供的驗證算法) ---
+# --- 2. 坐標轉換工具 (驗證過的 GCJ-02 算法) ---
 def wgs84_to_gcj02(lng, lat):
-    """
-    將 WGS84 坐標轉換為 GCJ02 (火星坐標系)
-    精確到 0.000000 以確保導航無偏差
-    """
-    if not lng or not lat:
-        return [lng, lat]
-    
+    if not lng or not lat: return [lng, lat]
     PI = 3.1415926535897932384626
-    a = 6378245.0
-    ee = 0.00669342162296594323
-
+    a, ee = 6378245.0, 0.00669342162296594323
     def transform_lat(x, y):
         ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * math.sqrt(abs(x))
         ret += (20.0 * math.sin(6.0 * x * PI) + 20.0 * math.sin(2.0 * x * PI)) * 2.0 / 3.0
         ret += (20.0 * math.sin(y * PI) + 40.0 * math.sin(y / 3.0 * PI)) * 2.0 / 3.0
         ret += (160.0 * math.sin(y / 12.0 * PI) + 320 * math.sin(y * PI / 30.0)) * 2.0 / 3.0
         return ret
-
     def transform_lng(x, y):
         ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * math.sqrt(abs(x))
         ret += (20.0 * math.sin(6.0 * x * PI) + 20.0 * math.sin(2.0 * x * PI)) * 2.0 / 3.0
         ret += (20.0 * math.sin(x * PI) + 40.0 * math.sin(x / 3.0 * PI)) * 2.0 / 3.0
         ret += (150.0 * math.sin(x / 12.0 * PI) + 300.0 * math.sin(x / 30.0 * PI)) * 2.0 / 3.0
         return ret
-
     rad_lat = lat / 180.0 * PI
     magic = math.sin(rad_lat)
     magic = 1 - ee * magic * magic
     sqrt_m = math.sqrt(magic)
-    
     d_lat = transform_lat(lng - 105.0, lat - 35.0)
     d_lng = transform_lng(lng - 105.0, lat - 35.0)
-    
     dl = (d_lat * 180.0) / ((a * (1 - ee)) / (magic * sqrt_m) * PI)
     dg = (d_lng * 180.0) / (a / sqrt_m * math.cos(rad_lat) * PI)
-    
     return [round(lng + dg, 6), round(lat + dl, 6)]
 
-# --- 3. 基礎功能函數 ---
-def get_access_token():
-    url = f"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={APPID}&secret={APPSECRET}"
+# --- 3. 穩定 JSON 解析 ---
+def safe_json_loads(text):
+    text = text.strip()
+    text = re.sub(r'^```json\s*|\s*```$', '', text, flags=re.MULTILINE)
     try:
-        res = requests.get(url, timeout=20).json()
-        return res.get('access_token')
-    except Exception as e:
-        print(f"❌ 獲取 Token 異常: {e}")
-        return None
+        return json.loads(text)
+    except:
+        return []
 
 def call_gemini_api(prompt):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
@@ -74,80 +60,76 @@ def call_gemini_api(prompt):
         "generationConfig": {
             "responseMimeType": "application/json",
             "temperature": 0.2,
-            "maxOutputTokens": 8192
+            "maxOutputTokens": 4096 
         }
     }
     try:
-        res = requests.post(url, json=payload, timeout=120).json()
-        text_content = res['candidates'][0]['content']['parts'][0]['text'].strip()
-        if text_content.startswith("```json"):
-            text_content = text_content.split("```json")[1].split("```")[0].strip()
-        return json.loads(text_content)
+        res = requests.post(url, json=payload, timeout=60).json()
+        raw_text = res['candidates'][0]['content']['parts'][0]['text']
+        return safe_json_loads(raw_text)
     except Exception as e:
-        print(f"⚠️ AI 數據解析失敗: {e}")
+        print(f"⚠️ AI 請求失敗: {e}")
         return []
 
-def repair_truncated_json(json_str):
-    """強力修復截斷的 JSON 字符串"""
-    json_str = json_str.strip()
-    if json_str.startswith('```json'):
-        json_str = re.sub(r'^```json\s*|\s*```$', '', json_str, flags=re.MULTILINE)
-    
-    # 嘗試直接解析
+def get_access_token():
+    url = f"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={APPID}&secret={APPSECRET}"
     try:
-        return json.loads(json_str)
-    except json.JSONDecodeError:
-        print("🛠️ 檢測到 JSON 截斷，正在嘗試結構化修復...")
-        # 移除結尾可能殘留的半個字串或鍵名
-        json_str = re.sub(r',?\s*"[^"]*"?\s*:\s*[^,}]*$', '', json_str)
-        # 補齊大括號和中括號
-        open_brackets = json_str.count('[') - json_str.count(']')
-        open_braces = json_str.count('{') - json_str.count('}')
-        
-        fixed_str = json_str + ('"}' * open_braces) + (']' * open_brackets)
-        try:
-            return json.loads(fixed_str)
-        except:
-            return []
+        res = requests.get(url).json()
+        return res.get('access_token')
+    except:
+        return None
 
-def fetch_malls_incremental():
-    print("\n" + "="*60)
-    print("🚀 啟動 Gemini 2.5 Flash 增量採集 + 精確坐標修正")
-    print("="*60)
+def sync_to_wechat(item, token):
+    if not token: return
+    ADD_API = f"https://api.weixin.qq.com/tcb/databaseadd?access_token={token}"
+    UPDATE_API = f"https://api.weixin.qq.com/tcb/databaseupdate?access_token={token}"
+    QUERY_API = f"https://api.weixin.qq.com/tcb/databasequery?access_token={token}"
     
-    if not os.path.exists(DATA_FOLDER):
-        os.makedirs(DATA_FOLDER)
+    try:
+        check_q = f"db.collection('{COLLECTION_NAME}').where({{id: '{item['id']}'}}).get()"
+        res = requests.post(QUERY_API, json={"env": ENV_ID, "query": check_q}).json()
+        exists = len(res.get('data', [])) > 0
+        data_str = json.dumps(item, ensure_ascii=False).replace('\\', '\\\\')
+        
+        query = f"db.collection('{COLLECTION_NAME}').where({{id: '{item['id']}'}}).update({{ data: {data_str} }})" if exists \
+                else f"db.collection('{COLLECTION_NAME}').add({{ data: {data_str} }})"
+        
+        requests.post(UPDATE_API if exists else ADD_API, json={"env": ENV_ID, "query": query})
+    except: pass
 
-    current_malls = []
+def fetch_malls_infinite_loop():
+    print("\n" + "="*60)
+    print("🚀 啟動 流式增量採集模式")
+    print("📍 採集規則：每批 5 個 / 間隔 5 秒")
+    print("="*60)
+
+    if not os.path.exists(DATA_FOLDER): os.makedirs(DATA_FOLDER)
+    
+    mall_dict = {}
     if os.path.exists(JSON_FILE_PATH):
         with open(JSON_FILE_PATH, 'r', encoding='utf-8') as f:
-            current_malls = json.load(f)
-        print(f"📁 已讀取本地數據: {len(current_malls)} 筆")
-
-    # 分批抓取以防截斷
-    mall_targets = [
-        "信和集團 (奧海城、屯門市廣場、中港城、荃新天地、黃金海岸、尖沙咀中心、藍灣廣場、朗壹廣場)",
-        "新鴻基地產 (apm、新城市廣場、MOKO、V city、YOHO MALL、IFC、V Walk、新達廣場)",
-        "新世界/恆基 (K11 MUSEA、K11 Art Mall、D·PARK、MCP 新都城、MOSTown 新港城)",
-        "恆隆/太古系 (太古城中心、Citygate 東薈城、Fashion Walk、康怡廣場、雅蘭中心)",
-        "領展 Link (樂富廣場、赤柱廣場、T Town、慈雲山中心、黃大仙中心、及各區旗艦)",
-        "大型獨立地標 (海港城、時代廣場、Elements 圓方、朗豪坊、新翠商場、iSQUARE)"
-    ]
+            data = json.load(f)
+            mall_dict = {m['id']: m for m in data}
     
-    mall_dict = {m['id']: m for m in current_malls}
-    total_added = []
-    total_updated = []
+    token = get_access_token()
+    # 定義搜索維度
+    groups = ["信和集團", "新鴻基地產", "恆隆/太古", "領展Link", "新世界/恆基", "九龍倉/其他大型商場"]
+    
+    batch_count = 0
+    empty_streak = 0 
 
-    for idx, target in enumerate(mall_targets):
-        print(f"\n📦 [批次 {idx+1}/{len(mall_targets)}] 採集重點: {target}")
-        existing_summary = [f"{m.get('name')}({m.get('id')})" for m in list(mall_dict.values())]
+    while True:
+        batch_count += 1
+        current_focus = groups[batch_count % len(groups)]
+        # 為了 Prompt 穩定，只給 AI 看最近 20 個已有的 ID
+        exclude_ids = list(mall_dict.keys())[-20:]
+        
+        print(f"\n🔄 [批次 {batch_count}] 正在搜索 {current_focus}...")
         
         prompt = f"""
     你是一名香港商業地產與跨境交通專家。請執行深度搜索，整理 2026 年最新香港商場泊車優惠。
-        
-        【參考現有清單 (避免重複)】: {", ".join(existing_summary[:8])} ...
-        【當前採集重點】: {target}
-
+        【排外清單】: {", ".join(exclude_ids)}
+        針對「{current_focus}」，找出 5 個清單中沒有的商場。
     【搜索任務要求】:
     1. 羅列所有香港帶停車場商場，**重點比對上述清單，優先補充名單中缺失的商場**。
     2. 提取必須涵蓋全港至少 50 個商場（包含新增與更新），包括不限於：
@@ -178,67 +160,37 @@ def fetch_malls_incremental():
     - update_time: （格式：yyyymmdd）根據官方條款中的優惠期起點日期
     - end_time: （格式：yyyymmdd）根據官方條款中的優惠期終止日期，沒有定義則留空不填寫。
         """
-
+        
         new_batch = call_gemini_api(prompt)
         
-        for mall in new_batch:
-            # 執行坐標轉換與精確度優化
-            try:
-                raw_lng = float(mall.get('lng', 0))
-                raw_lat = float(mall.get('lat', 0))
-                if raw_lng != 0:
-                    fixed_coords = wgs84_to_gcj02(raw_lng, raw_lat)
-                    mall['lng'] = fixed_coords[0]
-                    mall['lat'] = fixed_coords[1]
-            except: pass
+        if not new_batch:
+            empty_streak += 1
+            print(f"⚠️ 本批次未獲取數據。")
+            if empty_streak >= 3: break
+        else:
+            empty_streak = 0
+            for mall in new_batch:
+                m_id = mall.get('id')
+                if m_id and m_id not in mall_dict:
+                    # 座標轉換
+                    lng, lat = wgs84_to_gcj02(float(mall.get('lng', 0)), float(mall.get('lat', 0)))
+                    mall['lng'], mall['lat'] = lng, lat
+                    
+                    mall_dict[m_id] = mall
+                    sync_to_wechat(mall, token)
+                    print(f"   ✅ 新增: {mall.get('name')} (座標已修復)")
 
-            m_id, m_name = mall.get('id'), mall.get('name', '未知')
-            if m_id in mall_dict:
-                mall_dict[m_id] = mall
-                total_updated.append(m_name)
-            else:
-                mall_dict[m_id] = mall
-                total_added.append(m_name)
-        
-        time.sleep(5)
+            # 保存本地備份
+            with open(JSON_FILE_PATH, 'w', encoding='utf-8') as f:
+                json.dump(list(mall_dict.values()), f, ensure_ascii=False, indent=2)
 
-    final_list = list(mall_dict.values())
-    print("\n" + "-"*60)
-    print(f"📊 採集總結: 新增 {len(total_added)} 個, 更新 {len(total_updated)} 個")
-    print(f"📚 總計: {len(final_list)} 筆數據")
-    print("-"*60)
-
-    with open(JSON_FILE_PATH, 'w', encoding='utf-8') as f:
-        json.dump(final_list, f, ensure_ascii=False, indent=2)
-    
-    return final_list
-
-def sync_batch_to_wechat(malls, batch_size=5, sleep_time=3):
-    token = get_access_token()
-    if not token: return
-    print(f"\n🌐 同步至微信雲數據庫...")
-    
-    QUERY_API = f"[https://api.weixin.qq.com/tcb/databasequery?access_token=](https://api.weixin.qq.com/tcb/databasequery?access_token=){token}"
-    ADD_API = f"[https://api.weixin.qq.com/tcb/databaseadd?access_token=](https://api.weixin.qq.com/tcb/databaseadd?access_token=){token}"
-    UPDATE_API = f"[https://api.weixin.qq.com/tcb/databaseupdate?access_token=](https://api.weixin.qq.com/tcb/databaseupdate?access_token=){token}"
-
-    for i in range(0, len(malls), batch_size):
-        batch = malls[i : i + batch_size]
-        for item in batch:
-            try:
-                check_q = f"db.collection('{COLLECTION_NAME}').where({{id: '{item['id']}'}}).get()"
-                res = requests.post(QUERY_API, json={"env": ENV_ID, "query": check_q}).json()
-                exists = len(res.get('data', [])) > 0
-                data_str = json.dumps(item, ensure_ascii=False).replace('\\', '\\\\')
-                
-                query = f"db.collection('{COLLECTION_NAME}').where({{id: '{item['id']}'}}).update({{ data: {data_str} }})" if exists \
-                        else f"db.collection('{COLLECTION_NAME}').add({{ data: {data_str} }})"
-                
-                requests.post(UPDATE_API if exists else ADD_API, json={"env": ENV_ID, "query": query})
-            except: pass
-        time.sleep(sleep_time)
+        # --- 核心改動：每批次間隔 ---
+        if batch_count >= 15: # 安全退出條件，防止 GitHub Actions 超時
+            print("\n🚀 已達單次任務批次上限，安全停止。")
+            break
+            
+        print(f"⏳ 為了穩定性，等待 5 秒後執行下一批...")
+        time.sleep(5) 
 
 if __name__ == "__main__":
-    final_data = fetch_malls_incremental()
-    if final_data:
-        sync_batch_to_wechat(final_data)
+    fetch_malls_infinite_loop()
