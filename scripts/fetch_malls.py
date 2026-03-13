@@ -20,8 +20,8 @@ def get_access_token():
         return None
 
 def fetch_malls_deep_search():
-    print("--- 🧠 啟動 Gemini 2.5 Flash 深度採集 ---")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+    print("--- 🧠 啟動 Gemini 2.5 Pro 深度採集 ---")
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key={GEMINI_API_KEY}"
     
     prompt = """
     你是一名香港商業地產與跨境交通專家。請執行深度搜索，整理 2026 年最新香港商場泊車優惠。
@@ -56,12 +56,22 @@ def fetch_malls_deep_search():
         "generationConfig": {
             "responseMimeType": "application/json",
             "temperature": 0.2,
-            "maxOutputTokens": 8192
+            "maxOutputTokens": 65000
         }
     }
     
     try:
         res = requests.post(url, json=payload, timeout=90).json()
+        
+        # 檢查是否有錯誤響應
+        if 'error' in res:
+            print(f"❌ API 錯誤響應: {json.dumps(res.get('error'), ensure_ascii=False, indent=2)}")
+            return []
+        
+        if 'candidates' not in res:
+            print(f"❌ API 響應缺少 candidates 字段，完整響應: {json.dumps(res, ensure_ascii=False, indent=2)}")
+            return []
+        
         content = res['candidates'][0]['content']['parts'][0]['text'].strip()
         # 應急修復被截斷的 JSON
         if not content.endswith(']'):
