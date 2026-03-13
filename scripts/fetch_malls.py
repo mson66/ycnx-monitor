@@ -62,6 +62,16 @@ def fetch_malls_deep_search():
     
     try:
         res = requests.post(url, json=payload, timeout=90).json()
+        
+        # 檢查是否有錯誤響應
+        if 'error' in res:
+            print(f"❌ API 錯誤響應: {json.dumps(res.get('error'), ensure_ascii=False, indent=2)}")
+            return []
+        
+        if 'candidates' not in res:
+            print(f"❌ API 響應缺少 candidates 字段，完整響應: {json.dumps(res, ensure_ascii=False, indent=2)}")
+            return []
+        
         content = res['candidates'][0]['content']['parts'][0]['text'].strip()
         # 應急修復被截斷的 JSON
         if not content.endswith(']'):
