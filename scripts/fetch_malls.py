@@ -95,6 +95,9 @@ def fetch_malls_deep_search():
     try:
         res = requests.post(url, json=payload, timeout=120).json()
         content = res['candidates'][0]['content']['parts'][0]['text'].strip()
+        print(f"📝 AI 返回內容長度: {len(content)} 字符")
+        print(f"📝 前 300 字符: {content[:300]}")
+        print(f"📝 後 300 字符: {content[-300:]}")
         new_malls_list = json.loads(content)
         
         print(f"✨ AI 返回了 {len(new_malls_list)} 個商場數據")
@@ -129,7 +132,7 @@ def fetch_malls_deep_search():
             
         return final_malls
     except Exception as e:
-        print(f"❌ 發生錯誤: {e}")
+        print(f"❌ (2026-03-13)發生錯誤: {e}")
         return []
 
 def sync_batch_to_wechat(malls, batch_size=5, sleep_time=5):
