@@ -2,8 +2,6 @@ import requests
 import json
 import os
 import time
-import math
-import re
 
 # --- 1. 配置與路徑初始化 ---
 APPID = os.environ.get('WX_APPID', '').strip()
@@ -15,33 +13,6 @@ COLLECTION_NAME = "mall_offers"
 DATA_URL = "https://raw.githubusercontent.com/mson66/ycnx-monitor/main/data/hkmallparkings.json"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 JSON_FILE_PATH = os.path.join(BASE_DIR, "..", "data", "hkmallparkings.json")
-
-# --- 2. 坐標轉換工具 (驗證過的 GCJ-02 算法) ---
-def wgs84_to_gcj02(lng, lat):
-    if not lng or not lat: return [lng, lat]
-    PI = 3.1415926535897932384626
-    a, ee = 6378245.0, 0.00669342162296594323
-    def transform_lat(x, y):
-        ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * math.sqrt(abs(x))
-        ret += (20.0 * math.sin(6.0 * x * PI) + 20.0 * math.sin(2.0 * x * PI)) * 2.0 / 3.0
-        ret += (20.0 * math.sin(y * PI) + 40.0 * math.sin(y / 3.0 * PI)) * 2.0 / 3.0
-        ret += (160.0 * math.sin(y / 12.0 * PI) + 320 * math.sin(y * PI / 30.0)) * 2.0 / 3.0
-        return ret
-    def transform_lng(x, y):
-        ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * math.sqrt(abs(x))
-        ret += (20.0 * math.sin(6.0 * x * PI) + 20.0 * math.sin(2.0 * x * PI)) * 2.0 / 3.0
-        ret += (20.0 * math.sin(x * PI) + 40.0 * math.sin(x / 3.0 * PI)) * 2.0 / 3.0
-        ret += (150.0 * math.sin(x / 12.0 * PI) + 300.0 * math.sin(x / 30.0 * PI)) * 2.0 / 3.0
-        return ret
-    rad_lat = lat / 180.0 * PI
-    magic = math.sin(rad_lat)
-    magic = 1 - ee * magic * magic
-    sqrt_m = math.sqrt(magic)
-    d_lat = transform_lat(lng - 105.0, lat - 35.0)
-    d_lng = transform_lng(lng - 105.0, lat - 35.0)
-    dl = (d_lat * 180.0) / ((a * (1 - ee)) / (magic * sqrt_m) * PI)
-    dg = (d_lng * 180.0) / (a / sqrt_m * math.cos(rad_lat) * PI)
-    return [round(lng + dg, 6), round(lat + dl, 6)]
 
 def get_access_token():
     url = f"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={APPID}&secret={APPSECRET}"
@@ -56,7 +27,7 @@ def fetch_malls_deep_search():
     print("\n" + "="*50)
     print("🚀 啟動 Gemini 2.5 Flash 深度採集與增量更新")
     print("="*50)
-
+    
     # 1. 讀取並分析現有數據
     current_malls = []
     if os.path.exists(JSON_FILE_PATH):
@@ -77,10 +48,10 @@ def fetch_malls_deep_search():
 
     # 2. 構造 Prompt (保留您的嚴格要求)
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
-
+    
     prompt = f"""
     你是一名香港商業地產與跨境交通專家。請執行深度搜索，整理 2026 年最新香港商場泊車優惠。
-
+    
     【當前已存在數據 (請勿重複生成完全相同的數據)】:
     {", ".join(existing_summary)}
 
@@ -120,31 +91,28 @@ def fetch_malls_deep_search():
             "maxOutputTokens": 8192
         }
     }
-
+    
     try:
         res = requests.post(url, json=payload, timeout=120).json()
         content = res['candidates'][0]['content']['parts'][0]['text'].strip()
         new_malls_list = json.loads(content)
-
+        
         print(f"✨ AI 返回了 {len(new_malls_list)} 個商場數據")
 
         # 3. 查缺補漏合併邏輯
         mall_dict = {m['id']: m for m in current_malls}
         add_names = []
         upd_names = []
-
+        
         for mall in new_malls_list:
             m_id, m_name = mall.get('id'), mall.get('name')
-            if not m_id:
-                continue
-
             if m_id in mall_dict:
                 mall_dict[m_id] = mall
                 upd_names.append(m_name)
             else:
                 mall_dict[m_id] = mall
                 add_names.append(m_name)
-
+        
         final_malls = list(mall_dict.values())
 
         # 4. 輸出成果統計
@@ -158,7 +126,7 @@ def fetch_malls_deep_search():
         with open(JSON_FILE_PATH, 'w', encoding='utf-8') as f:
             json.dump(final_malls, f, ensure_ascii=False, indent=2)
         print(f"💾 本地 JSON 已更新完成。\n")
-
+            
         return final_malls
     except Exception as e:
         print(f"❌ 發生錯誤: {e}")
