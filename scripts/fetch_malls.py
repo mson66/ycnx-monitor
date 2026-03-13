@@ -20,8 +20,8 @@ def get_access_token():
         return None
 
 def fetch_malls_deep_search():
-    print("--- 🧠 啟動 Gemini 2.5 Pro 深度採集 ---")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key={GEMINI_API_KEY}"
+    print("--- 🧠 啟動 gemini-3-flash-preview 深度採集 ---")
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key={GEMINI_API_KEY}"
     
     prompt = """
     你是一名香港商業地產與跨境交通專家。請執行深度搜索，整理 2026 年最新香港商場泊車優惠。
