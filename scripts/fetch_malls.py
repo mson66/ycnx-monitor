@@ -100,7 +100,7 @@ def fetch_malls_deep_search():
     2. 字段定義：
     - id: 唯一標識, 如海港城為harbourcity, 請確保同一個商場在不同次生成時使用相同的 id。
     - name: 商場中文全稱 （智能校對去重）
-    - lat/lng: WGS-84 坐標系下的精確經緯度
+    - lat/lng: GCJ-02 坐標系下的精確經緯度
     - isSouthbound: 若有針對「粵車南下」特有優惠禮遇則為 true，否則 false
     - parking: 這個描述非常重要。應描述無條件獲得免費泊車優惠，以及粵車南下專屬額外免費停車優惠。要求量化小時數，如果都沒有則描述最低消費的免費泊車時數（例1：免費停車1小時，例2:粵車南下額外2小時，例3:消費滿$100，免費停車1小時）
     - spending: 描述最低消費免費泊車門檻（例：消費滿$200，或積分兌換，優惠停车1小时）
@@ -137,10 +137,6 @@ def fetch_malls_deep_search():
             m_id, m_name = mall.get('id'), mall.get('name')
             if not m_id:
                 continue
-
-            # 座標轉換 (WGS84 -> GCJ02)
-            lng, lat = wgs84_to_gcj02(float(mall.get('lng', 0)), float(mall.get('lat', 0)))
-            mall['lng'], mall['lat'] = lng, lat
 
             if m_id in mall_dict:
                 mall_dict[m_id] = mall
