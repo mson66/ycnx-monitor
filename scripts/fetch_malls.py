@@ -10,6 +10,7 @@ ENV_ID = os.environ.get('WX_ENV_ID', '').strip()
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '').strip()
 COLLECTION_NAME = "mall_offers"
 
+# 自動定位路徑：確保 data 與 scripts 文件夾同級
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 JSON_FILE_PATH = os.path.join(BASE_DIR, "..", "data", "hkmallparkings.json")
 
