@@ -2,6 +2,7 @@ import requests
 import json
 import os
 import time
+import math
 
 # --- 1. 配置與路徑初始化 ---
 APPID = os.environ.get('WX_APPID', '').strip()
@@ -10,9 +11,59 @@ ENV_ID = os.environ.get('WX_ENV_ID', '').strip()
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '').strip()
 COLLECTION_NAME = "mall_offers"
 
-# 自動定位路徑：確保 data 與 scripts 文件夾同級
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 JSON_FILE_PATH = os.path.join(BASE_DIR, "..", "data", "hkmallparkings.json")
+
+# --- 2. 坐標轉換工具 (WGS-84 -> GCJ-02) ---
+def wgs84_to_gcj02(lng, lat):
+    """將 WGS-84 坐標轉換為 GCJ-02 坐標（火星坐標系）"""
+    if not lng or not lat:
+        return [lng, lat]
+    
+    PI = 3.1415926535897932384626
+    a = 6378245.0
+    ee = 0.00669342162296594323
+    
+    def transform_lat(x, y):
+        ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * math.sqrt(abs(x))
+        ret += (20.0 * math.sin(6.0 * x * PI) + 20.0 * math.sin(2.0 * x * PI)) * 2.0 / 3.0
+        ret += (20.0 * math.sin(y * PI) + 40.0 * math.sin(y / 3.0 * PI)) * 2.0 / 3.0
+        ret += (160.0 * math.sin(y / 12.0 * PI) + 320 * math.sin(y * PI / 30.0)) * 2.0 / 3.0
+        return ret
+    
+    def transform_lng(x, y):
+        ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * math.sqrt(abs(x))
+        ret += (20.0 * math.sin(6.0 * x * PI) + 20.0 * math.sin(2.0 * x * PI)) * 2.0 / 3.0
+        ret += (20.0 * math.sin(x * PI) + 40.0 * math.sin(x / 3.0 * PI)) * 2.0 / 3.0
+        ret += (150.0 * math.sin(x / 12.0 * PI) + 300.0 * math.sin(x / 30.0 * PI)) * 2.0 / 3.0
+        return ret
+    
+    rad_lat = lat / 180.0 * PI
+    magic = math.sin(rad_lat)
+    magic = 1 - ee * magic * magic
+    sqrt_m = math.sqrt(magic)
+    
+    d_lat = transform_lat(lng - 105.0, lat - 35.0)
+    d_lng = transform_lng(lng - 105.0, lat - 35.0)
+    
+    dl = (d_lat * 180.0) / ((a * (1 - ee)) / (magic * sqrt_m) * PI)
+    dg = (d_lng * 180.0) / (a / sqrt_m * math.cos(rad_lat) * PI)
+    
+    return [round(lng + dg, 6), round(lat + dl, 6)]
+
+def format_description(text):
+    """格式化 description 字段，確保每條款後有換行符"""
+    if not text:
+        return text
+    
+    # 如果已經包含換行符，保持原樣
+    if '\n' in text:
+        return text
+    
+    # 在數字編號後添加換行符 (如 1. 2. 3.)
+    import re
+    formatted = re.sub(r'(\d+\.)\s*', r'\1\n', text)
+    return formatted.strip()
 
 def get_access_token():
     url = f"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={APPID}&secret={APPSECRET}"
@@ -24,7 +75,7 @@ def get_access_token():
         return None
 
 def fetch_malls_deep_search():
-    print("--- 🧠 啟動 Ggemini-3-flash-preview 深度採集 ---")
+    print("--- 🧠 啟動 Gemini 3 Flash 深度採集 ---")
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key={GEMINI_API_KEY}"
     
     prompt = """
@@ -46,17 +97,16 @@ def fetch_malls_deep_search():
     3. 字段定義：
     - id: 唯一標識, 如海港城為harbourcity, 請確保同一個商場在不同次生成時使用相同的 id。
     - name: 商場中文全稱 （智能校對去重）
-    - lat/lng: GCJ-02 坐標系下的精確經緯度
+    - lat/lng: WGS-84 坐標系下的精確經緯度（原始坐標，系統會自動轉換）
     - isSouthbound: 若有針對「粵車南下」特有優惠禮遇則為 true，否則 false
     - parking: 這個描述非常重要。應描述無條件獲得免費泊車優惠，以及粵車南下專屬額外免費停車優惠。要求量化小時數，如果都沒有則描述最低消費的免費泊車時數（例1：免費停車1小時，例2:粵車南下額外2小時，例3:消費滿$100，免費停車1小時）
     - spending: 描述最低消費免費泊車門檻（例：消費滿$200，或積分兌換，優惠停车1小时）
     - presents: 消費獎賞與禮品回贈，需要描述具體內容等
-    - description: 優先抄官網政策條款與細則，一條不漏（長文本， 1. 2. 3. ... ）
+    - description: 優先抄官網政策條款與細則，每條款用數字編號（如 1. 2. 3. ...）
     - link: 官方或可靠活動網址，具體精準指向泊車優惠頁面
     - update_time: （格式：yyyymmdd）根據官方條款中的優惠期起點日期
     - end_time: （格式：yyyymmdd）根據官方條款中的優惠期終止日期，沒有定義則留空不填寫。
     """
-
 
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
@@ -70,7 +120,6 @@ def fetch_malls_deep_search():
     try:
         res = requests.post(url, json=payload, timeout=90).json()
         
-        # 檢查是否有錯誤響應
         if 'error' in res:
             print(f"❌ API 錯誤響應: {json.dumps(res.get('error'), ensure_ascii=False, indent=2)}")
             return []
@@ -81,7 +130,6 @@ def fetch_malls_deep_search():
         
         content = res['candidates'][0]['content']['parts'][0]['text'].strip()
         
-        # 應急修復被截斷的 JSON
         if not content.endswith(']'):
             last_bracket = content.rfind('}')
             if last_bracket != -1:
@@ -89,7 +137,23 @@ def fetch_malls_deep_search():
         
         malls = json.loads(content)
         
-        # 保存到本地 data 文件夾進行監控
+        # 處理每個商場數據：坐標轉換 + 格式化 description
+        for mall in malls:
+            # 坐標轉換 (WGS-84 -> GCJ-02)
+            try:
+                lng = float(mall.get('lng', 0))
+                lat = float(mall.get('lat', 0))
+                if lng and lat:
+                    gcj_lng, gcj_lat = wgs84_to_gcj02(lng, lat)
+                    mall['lng'] = gcj_lng
+                    mall['lat'] = gcj_lat
+            except (ValueError, TypeError):
+                pass
+            
+            # 格式化 description
+            if 'description' in mall:
+                mall['description'] = format_description(mall['description'])
+        
         data_dir = os.path.dirname(JSON_FILE_PATH)
         os.makedirs(data_dir, exist_ok=True)
         with open(JSON_FILE_PATH, 'w', encoding='utf-8') as f:
@@ -120,7 +184,6 @@ def sync_batch_to_wechat(malls, batch_size=5, sleep_time=5):
 
         for item in batch:
             try:
-                # 1. 檢查是否存在 (Upsert 邏輯)
                 check_q = f"db.collection('{COLLECTION_NAME}').where({{id: '{item['id']}'}}).get()"
                 res = requests.post(QUERY_API, json={"env": ENV_ID, "query": check_q}).json()
                 
@@ -129,7 +192,6 @@ def sync_batch_to_wechat(malls, batch_size=5, sleep_time=5):
                     continue
 
                 exists = len(res.get('data', [])) > 0
-                # 轉義 JSON 字符串以符合微信 HTTP API 規範
                 data_str = json.dumps(item, ensure_ascii=False).replace('\\', '\\\\')
                 
                 if exists:
@@ -149,7 +211,6 @@ def sync_batch_to_wechat(malls, batch_size=5, sleep_time=5):
             except Exception as e:
                 print(f"   ❌ 處理 {item.get('name')} 異常: {e}")
 
-        # 批次間隔休眠
         if i + batch_size < total:
             print(f"⏳ 等待 {sleep_time} 秒後執行下一批...")
             time.sleep(sleep_time)
