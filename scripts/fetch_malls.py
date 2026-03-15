@@ -94,9 +94,14 @@ def load_existing_malls():
         
         existing_malls = []
         for item in data:
+            if isinstance(item, str):
+                parsed = json.loads(item)
+            else:
+                parsed = item
+            
             existing_malls.append({
-                'id': item.get('id'),
-                'name': item.get('name')
+                'id': parsed.get('id'),
+                'name': parsed.get('name')
             })
         
         print(f"📥 從雲數據庫加載 {len(existing_malls)} 個現有商場")
@@ -118,6 +123,15 @@ def load_from_local_file():
         except Exception as e:
             print(f"⚠️ 讀取本地文件異常: {e}")
     return []
+
+def normalize_name(name):
+    """標準化商場名稱：用於模糊匹配"""
+    if not name:
+        return ""
+    import re
+    n = name.lower().strip()
+    n = re.sub(r'[^\w\u4e00-\u9fff]', '', n)
+    return n
 
 def fetch_malls_deep_search():
     print("--- 🧠 啟動 Gemini 3 Flash 深度採集 ---")
@@ -197,17 +211,27 @@ def fetch_malls_deep_search():
         
         # 建立現有商場索引（用於後續同步時判斷更新/新增）
         existing_id_index = {m['id']: True for m in existing_malls if m.get('id')}
-        existing_name_index = {m['name']: m['id'] for m in existing_malls if m.get('name') and m.get('id')}
+        
+        existing_name_index = {}
+        existing_normalized_index = {}
+        for m in existing_malls:
+            if m.get('name') and m.get('id'):
+                existing_name_index[m['name']] = m['id']
+                existing_normalized_index[normalize_name(m['name'])] = m['id']
         
         # 標記每個商場是更新還是新增
         for mall in malls:
             mall_id = mall.get('id')
             mall_name = mall.get('name')
+            mall_normalized = normalize_name(mall.get('name', ''))
             
             if mall_id in existing_id_index:
                 mall['_action'] = 'update'
-            elif mall_name in existing_name_index:
-                mall['id'] = existing_name_index[mall_name]
+            elif mall.get('name') in existing_name_index:
+                mall['id'] = existing_name_index[mall.get('name')]
+                mall['_action'] = 'update'
+            elif mall_normalized in existing_normalized_index:
+                mall['id'] = existing_normalized_index[mall_normalized]
                 mall['_action'] = 'update'
             else:
                 mall['_action'] = 'add'
