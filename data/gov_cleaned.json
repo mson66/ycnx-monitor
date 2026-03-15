@@ -6740,7 +6740,7 @@
             "heightLimits": [
                 {
                     "height": 2.9,
-                    "remark": "高度限制: 2.9"
+                    "remark": "高度限制: 2.9米"
                 }
             ],
             "privateCar": {}
@@ -8867,7 +8867,7 @@
             "heightLimits": [
                 {
                     "height": 2.45,
-                    "remark": "高度限制: 2.45"
+                    "remark": "高度限制: 2.45米"
                 }
             ],
             "privateCar": {
@@ -10259,7 +10259,7 @@
             "heightLimits": [
                 {
                     "height": 2.45,
-                    "remark": "高度限制: 2.45"
+                    "remark": "高度限制: 2.45米"
                 }
             ],
             "privateCar": {
@@ -10437,7 +10437,7 @@
             "heightLimits": [
                 {
                     "height": 2.0,
-                    "remark": "高度限制: 2"
+                    "remark": "高度限制: 2米"
                 }
             ],
             "privateCar": {}
