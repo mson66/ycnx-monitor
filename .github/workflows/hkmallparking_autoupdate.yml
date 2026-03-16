@@ -29,7 +29,7 @@ jobs:
           WX_APPID: ${{ secrets.WX_APPID }}
           WX_APPSECRET: ${{ secrets.WX_APPSECRET }}
           WX_ENV_ID: ${{ secrets.WX_ENV_ID }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
         run: python scripts/fetch_malls.py
 
       - name: Commit and Push JSON backup

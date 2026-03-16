@@ -8,7 +8,7 @@ import math
 APPID = os.environ.get('WX_APPID', '').strip()
 APPSECRET = os.environ.get('WX_APPSECRET', '').strip()
 ENV_ID = os.environ.get('WX_ENV_ID', '').strip()
-GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '').strip()
+MOONSHOT_API_KEY = os.environ.get('MOONSHOT_API_KEY', '').strip()
 COLLECTION_NAME = "mall_offers"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -134,16 +134,15 @@ def normalize_name(name):
     return n
 
 def fetch_malls_deep_search():
-    print("--- 🧠 啟動 gemini-3.1-flash-lite-preview 深度採集 ---")
-    
+    print("--- 🧠 啟動 kimi-k2.5 深度採集 ---")
+
     existing_malls = load_existing_malls()
-    
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key={GEMINI_API_KEY}"
-    
+
+    url = "https://api.moonshot.cn/v1/chat/completions"
+
     existing_list_text = json.dumps(existing_malls, ensure_ascii=False, indent=2) if existing_malls else "[]"
-    
-    prompt = f"""
-你是一名香港商業地產與跨境交通專家。請執行深度搜索，整理 2026 年最新香港商場泊車優惠。
+
+    prompt = f"""你是一名香港商業地產與跨境交通專家。請執行深度搜索，整理 2026 年最新香港商場泊車優惠。
 
 【現有商場列表】(請嚴格保持這些商場的 id 不變):
 {existing_list_text}
@@ -164,49 +163,67 @@ def fetch_malls_deep_search():
 - 例如：「奧海城一期」「奧海城二期」都應該使用 id "olympiancity"
 - 如果是列表中沒有的全新商場，請生成新的唯一 id（使用英文簡稱，如 harbourcity）
 
-【輸出格式】
-1. 輸出格式必須是純 JSON 數組，嚴禁包含任何解釋性文字。
-2. 字段定義：
+【輸出格式 - 嚴格要求】
+1. 輸出必須是純 JSON 數組格式，不要包含任何 markdown 代碼塊標記（如 ```json）
+2. 不要包含任何解釋性文字，只返回 JSON 數組
+3. 字段定義：
 - id: 必須與現有列表中的 id 一致（如果判斷為同一商場），否則生成新 id
 - name: 商場中文全稱
 - lat/lng: WGS-84 坐標系下的精確經緯度
 - isSouthbound: 若有針對「粵車南下」特有優惠禮遇則為 true，否則 false
 - parking: 粵車南下專屬額外免費停車優惠。
 - spending: 描述最低消費免費泊車門檻（例：消費滿$200，或積分兌換，優惠停车1小时）
-- presents: 消費獎賞與禮品回贈，需要描述具體內容等
+- presents: 訪港獎賞，消費獎賞和禮券回贈，包括購物券、美食券等。需要描述具體內容等。
 - description: 優先抄官網政策條款與細則核心部分，每條款用數字編號（如 1. 2. 3. ...）
 - link: 官方或可靠活動網址，具體精準指向泊車優惠頁面
 - update_time: （格式：yyyymmdd）優惠期起點日期
 - end_time: （格式：yyyymmdd）根據官方條款中的優惠期終止日期，沒有定義則留空不填寫。
 """
 
-    payload = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "responseMimeType": "application/json",
-            "temperature": 0.2,
-            "maxOutputTokens": 65000
-        }
+    headers = {
+        "Authorization": f"Bearer {MOONSHOT_API_KEY}",
+        "Content-Type": "application/json"
     }
-    
+
+    payload = {
+        "model": "kimi-k2.5",
+        "messages": [
+            {"role": "system", "content": "你是一個專業的數據提取助手，只返回純 JSON 格式數據，不包含任何 markdown 標記或解釋文字。"},
+            {"role": "user", "content": prompt}
+        ],
+        "temperature": 0.2,
+        "max_tokens": 65000
+    }
+
     try:
-        res = requests.post(url, json=payload, timeout=90).json()
-        
+        response = requests.post(url, headers=headers, json=payload, timeout=120)
+        res = response.json()
+
         if 'error' in res:
             print(f"❌ API 錯誤響應: {json.dumps(res.get('error'), ensure_ascii=False, indent=2)}")
             return []
-        
-        if 'candidates' not in res:
-            print(f"❌ API 響應缺少 candidates 字段，完整響應: {json.dumps(res, ensure_ascii=False, indent=2)}")
+
+        if 'choices' not in res or not res['choices']:
+            print(f"❌ API 響應缺少 choices 字段，完整響應: {json.dumps(res, ensure_ascii=False, indent=2)}")
             return []
-        
-        content = res['candidates'][0]['content']['parts'][0]['text'].strip()
-        
+
+        content = res['choices'][0]['message']['content'].strip()
+
+        # 清理可能的 markdown 代碼塊標記
+        if content.startswith('```json'):
+            content = content[7:]
+        elif content.startswith('```'):
+            content = content[3:]
+        if content.endswith('```'):
+            content = content[:-3]
+        content = content.strip()
+
+        # 確保 JSON 數組完整
         if not content.endswith(']'):
             last_bracket = content.rfind('}')
             if last_bracket != -1:
                 content = content[:last_bracket+1] + ']'
-        
+
         malls = json.loads(content)
         
         # 建立現有商場索引（用於後續同步時判斷更新/新增）
