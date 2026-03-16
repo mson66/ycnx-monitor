@@ -134,11 +134,11 @@ def normalize_name(name):
     return n
 
 def fetch_malls_deep_search():
-    print("--- 🧠 啟動 Gemini 3 Flash 深度採集 ---")
+    print("--- 🧠 啟動 gemini-3.1-flash-lite-preview 深度採集 ---")
     
     existing_malls = load_existing_malls()
     
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key={GEMINI_API_KEY}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key={GEMINI_API_KEY}"
     
     existing_list_text = json.dumps(existing_malls, ensure_ascii=False, indent=2) if existing_malls else "[]"
     
