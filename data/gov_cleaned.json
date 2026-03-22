@@ -616,131 +616,6 @@
             }
         },
         {
-            "park_Id": "81",
-            "name": "宏利廣場",
-            "displayAddress": "九龍觀塘觀塘道348號",
-            "latitude": 22.3149246,
-            "longitude": 114.21706438,
-            "contactNo": "21543090",
-            "website": "https://itt-hk.com/en/index.php",
-            "facilities": [
-                "disabilities",
-                "unloading",
-                "evCharger"
-            ],
-            "heightLimits": [
-                {
-                    "height": 4.7
-                }
-            ],
-            "privateCar": {
-                "monthlyCharges": [
-                    {
-                        "price": 3600,
-                        "remark": "",
-                        "type": "monthly-park",
-                        "covered": "covered",
-                        "reserved": "non-reserved"
-                    },
-                    {
-                        "price": 4500,
-                        "remark": "條款及細則:  1) 月租車位需事先填表申請。 2) 泊車位以先到先得方法分配，Manulife Place 租戶享有固定車位優先選擇權。 3) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 4) 如有任何爭議，停車場管理公司保留最終決定權。",
-                        "type": "monthly-park",
-                        "covered": "covered",
-                        "reserved": "reserved"
-                    }
-                ],
-                "dayNightParks": [
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI"
-                        ],
-                        "excludePublicHoliday": true,
-                        "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期一至五, 公眾假期除外)，私家車日泊收費為HK$200。2) 按當時累計時租或日泊 (如：HK$200) 收費，兩者以較低者為準 。 3) 泊車不足壹小時，亦會以壹小時計算。 4) 只限單次出入。 5) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 6) 如有任何爭議，停車場管理公司保留最終決定權。",
-                        "validUntil": "no-restrictions",
-                        "covered": "covered",
-                        "type": "day-park",
-                        "price": 200,
-                        "periodEnd": "20:00",
-                        "periodStart": "08:00"
-                    },
-                    {
-                        "weekdays": [
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "excludePublicHoliday": false,
-                        "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期六, 日及公眾假期)，私家車日泊收費為HK$100。2) 按當時累計時租或日泊 (如：HK$100) 收費，兩者以較低者為準 。 3) 泊車不足壹小時，亦會以壹小時計算。 4) 只限單次出入。 5) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 6) 如有任何爭議，停車場管理公司保留最終決定權。",
-                        "periodStart": "08:00",
-                        "periodEnd": "20:00",
-                        "price": 100,
-                        "type": "day-park",
-                        "covered": "covered",
-                        "validUntil": "no-restrictions"
-                    },
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI",
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "excludePublicHoliday": false,
-                        "periodStart": "20:00",
-                        "periodEnd": "08:00",
-                        "price": 95,
-                        "type": "night-park",
-                        "covered": "covered",
-                        "validUntil": "no-restrictions",
-                        "remark": "條款及細則: 1) 由晚上八時至翌日早上八時正，私家車晚泊收費為HK$95。2) 按當時累計時租或日泊 (如：HK$95) 收費，兩者以較低者為準 。 3) 泊車不足壹小時，亦會以壹小時計算。 4) 只限單次出入。 5) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 6) 如有任何爭議，停車場管理公司保留最終決定權。"
-                    }
-                ],
-                "hourlyCharges": [
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI"
-                        ],
-                        "excludePublicHoliday": true,
-                        "periodStart": "00:00",
-                        "periodEnd": "24:00",
-                        "price": 27,
-                        "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期一至五, 公眾假期除外)，私家車日泊收費為HK$200。2) 由早上八時至晚上八時正 (星期六, 日及公眾假期)，私家車日泊收費為HK$100。3) 由晚上八時至翌日早上八時正，私家車晚泊收費為HK$95。4) 按當時累計時租或日泊 (如：HK$200) 收費，兩者以較低者為準 。 5) 泊車不足壹小時，亦會以壹小時計算。 6) 只限單次出入。 7) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 8) 如有任何爭議，停車場管理公司保留最終決定權。",
-                        "type": "hourly",
-                        "covered": "covered",
-                        "billing_unit": "hour"
-                    },
-                    {
-                        "weekdays": [
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "excludePublicHoliday": false,
-                        "periodStart": "00:00",
-                        "periodEnd": "24:00",
-                        "price": 16,
-                        "type": "hourly",
-                        "covered": "covered",
-                        "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期一至五, 公眾假期除外)，私家車日泊收費為HK$200。2) 由早上八時至晚上八時正 (星期六, 日及公眾假期)，私家車日泊收費為HK$100。3) 由晚上八時至翌日早上八時正，私家車晚泊收費為HK$95。4) 按當時累計時租或日泊 (如：HK$200) 收費，兩者以較低者為準 。 5) 泊車不足壹小時，亦會以壹小時計算。 6) 只限單次出入。 7) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 8) 如有任何爭議，停車場管理公司保留最終決定權。",
-                        "billing_unit": "hour"
-                    }
-                ]
-            }
-        },
-        {
             "park_Id": "88",
             "name": "油塘仁宇圍8號公眾停車場",
             "displayAddress": "九龍油塘仁宇圍8號公眾停車場",
@@ -1133,7 +1008,7 @@
                         "periodStart": "07:00",
                         "periodEnd": "00:00",
                         "price": 22,
-                        "remark": "(最近檢���日期: 2023-04-20)",
+                        "remark": "(最近檢視日期: 2023-04-20)",
                         "type": "hourly",
                         "covered": "covered",
                         "billing_unit": "hour"
@@ -13382,7 +13257,7 @@
             "heightLimits": [
                 {
                     "height": 2.0,
-                    "remark": "高度限制: 2 M (此高度限制適用於私家車/客貨車) 3.8M (此高度限制適用於中重型貨車)"
+                    "remark": "高度限制: 2M (此高度限制適用於私家車/客貨車) 3.5M (此高度限制適用於中重型貨車)"
                 }
             ],
             "privateCar": {
