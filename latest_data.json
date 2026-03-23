@@ -1,14 +1,14 @@
 {
-    "id": 4,
-    "period_id": 4,
-    "batch_no": "YCCQPCH0000004",
-    "period_name": "第4期",
-    "draw_date": "2026-02-24",
-    "total_applied": 6505,
-    "quota_total": 2200,
-    "total_won": 2200,
-    "total_lost": 4305,
-    "win_rate": "33.82%",
-    "pdf_url": "https://ycnx.singlewindow.gd.cn/api/ycnx-approval/draw-lots-notarization/view-publicly-file/YCCQPCH0000004",
-    "updated_at": "2026-02-24 05:21:37"
+    "id": 5,
+    "period_id": 5,
+    "batch_no": "YCCQPCH0000005",
+    "period_name": "第5期",
+    "draw_date": "2026-03-23",
+    "total_applied": 6686,
+    "quota_total": 2100,
+    "total_won": 2100,
+    "total_lost": 4586,
+    "win_rate": "31.41%",
+    "pdf_url": "https://ycnx.singlewindow.gd.cn/api/ycnx-approval/draw-lots-notarization/view-publicly-file/YCCQPCH0000005",
+    "updated_at": "2026-03-23 02:29:00"
 }
