@@ -6324,23 +6324,6 @@
             "privateCar": {}
         },
         {
-            "park_Id": "tdstt26",
-            "name": "青山公路 – 青山灣段",
-            "displayAddress": "新界屯門第 41 區青山公路–青山灣段",
-            "latitude": 22.38314629,
-            "longitude": 113.97858429,
-            "contactNo": "",
-            "website": "",
-            "facilities": [],
-            "heightLimits": [
-                {
-                    "height": 0,
-                    "remark": "高度限制:"
-                }
-            ],
-            "privateCar": {}
-        },
-        {
             "park_Id": "tdstt28",
             "name": "三聖街 4",
             "displayAddress": "屯門三聖街",
@@ -6638,38 +6621,76 @@
             "privateCar": {}
         },
         {
-            "park_Id": "tdc33p1",
-            "name": "九龍灣公園停車場",
-            "displayAddress": "九龍灣啟禮道11號",
-            "latitude": 22.32723236,
-            "longitude": 114.20716095,
+            "park_Id": "tdc349p1",
+            "name": "佐敦谷游泳池",
+            "displayAddress": "九龍牛頭角彩霞道6號",
+            "latitude": 22.32326476097,
+            "longitude": 114.21800963743,
             "contactNo": "",
             "website": "",
             "facilities": [],
             "heightLimits": [
                 {
-                    "height": 0,
-                    "remark": "高度限制:"
+                    "height": 2.45,
+                    "remark": "高度限制: 2.45米"
                 }
             ],
-            "privateCar": {}
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "星期一至五(公眾假期除外)：\n07:00-23:00，私家車及小型巴士：首2小時：$7/半小時；超過2小時：$10.5/半小時，\n23:00-07:00 ：$2/半小時.\n星期六日及公眾假期：\n07:00-23:00，私家車及小型巴士：首2小時：$11/半小時；超過2小時：$16.5/半小時，\n23:00-07:00 ：$2/半小時.",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
         },
         {
-            "park_Id": "tdc33p2",
-            "name": "佐敦谷遊樂場停車場",
-            "displayAddress": "18 彩霞道, 牛頭角",
-            "latitude": 22.325073794484,
-            "longitude": 114.2190872487,
+            "park_Id": "tdc350p1",
+            "name": "九龍灣公園",
+            "displayAddress": "九龍灣啟禮道11號",
+            "latitude": 22.327380181616,
+            "longitude": 114.20723952317,
             "contactNo": "",
             "website": "",
             "facilities": [],
             "heightLimits": [
                 {
-                    "height": 0,
-                    "remark": "高度限制:"
+                    "height": 2.45,
+                    "remark": "高度限制: 2.45米"
                 }
             ],
-            "privateCar": {}
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "星期一至五(公眾假期除外)：\n07:00-23:00，私家車：首2小時：$7/半小時；超過2小時：$10.5/半小時，\n23:00-07:00 ：$2/半小時.\n星期六日及公眾假期：\n07:00-23:00，私家車：首2小時：$11/半小時；超過2小時：$16.5/半小時，\n23:00-07:00 ：$2/半小時.",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
         },
         {
             "park_Id": "tdc113p1",
@@ -7421,23 +7442,6 @@
             "privateCar": {}
         },
         {
-            "park_Id": "tdstt43",
-            "name": "元政路",
-            "displayAddress": "新界元朗十八鄉元政路",
-            "latitude": 22.44353676,
-            "longitude": 114.03808594,
-            "contactNo": "",
-            "website": "",
-            "facilities": [],
-            "heightLimits": [
-                {
-                    "height": 0,
-                    "remark": "高度限制:"
-                }
-            ],
-            "privateCar": {}
-        },
-        {
             "park_Id": "tdc44p3",
             "name": "瀑布灣公園",
             "displayAddress": "香港仔華富邨瀑布灣道",
@@ -7701,18 +7705,18 @@
             }
         },
         {
-            "park_Id": "tdc53p2",
-            "name": "佐敦谷游泳池",
-            "displayAddress": "6 彩霞道, 牛頭角",
-            "latitude": 22.32359314,
-            "longitude": 114.21828461,
+            "park_Id": "tdc346p1",
+            "name": "葵盛游泳池停車場",
+            "displayAddress": "葵涌葵盛圍306號",
+            "latitude": 22.359626573482,
+            "longitude": 114.12288704985,
             "contactNo": "",
             "website": "",
             "facilities": [],
             "heightLimits": [
                 {
-                    "height": 2.45,
-                    "remark": "高度限制: 2.45"
+                    "height": 3.8,
+                    "remark": "高度限制: 3.8米"
                 }
             ],
             "privateCar": {
@@ -7728,7 +7732,7 @@
                             "SUN",
                             "PH"
                         ],
-                        "description": "星期一至五(公眾假期除外)：07:00-23:00，首2小時：$6/半小時(第2小時後：$9/半小時)；23:00-07:00：$0.5/半小時 星期六日及公眾假期：07:00-23:00，首2小時：$9/半小時(第2小時後：$13.5/半小時)；23:00-07:00：$0.5/半小時",
+                        "description": "星期一至五(公眾假期除外)：\n07:00-23:00，首2小時：$4/半小時 (第2小時後：$6/半小時)；\n23:00-07:00：$1.6/半小時\n星期六日及公眾假期：\n07:00-23:00，首2小時：$5/半小時(第2小時後：$7.5/半小時)；\n23:00-07:00：$1.6/半小時",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
@@ -8617,6 +8621,42 @@
                             "PH"
                         ],
                         "description": "星期一至五(公眾假期除外)：\n07:00-23:00， 首2小時：$9/半小時 (第2小時後：$13.5/半小時)；\n23:00-07:00：$2/半小時\n星期六日及公眾假期：\n07:00-23:00，首2小時：$12/半小時(第2小時後18/半小時)；\n23:00-07:00：2/半小時",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
+        },
+        {
+            "park_Id": "tdc351p1",
+            "name": "佐敦谷遊樂場",
+            "displayAddress": "牛頭角彩霞路18號",
+            "latitude": 22.325107341011,
+            "longitude": 114.21908730535,
+            "contactNo": "",
+            "website": "",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 2.45,
+                    "remark": "高度限制: 2.45米"
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "星期一至五(公眾假期除外)：\n07:00-23:00，私家車和電單車：首2小時：$7/半小時；超過2小時：$10.5/半小時，\n23:00-07:00 ：$2/半小時.\n星期六日及公眾假期：\n07:00-23:00，私家車和電單車：首2小時：$11/半小時；超過2小時：$16.5/半小時，\n23:00-07:00 ：$2/半小時.",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
@@ -9551,18 +9591,18 @@
             }
         },
         {
-            "park_Id": "tdc81p3",
-            "name": "葵盛游泳池",
-            "displayAddress": "葵涌葵盛圍306號",
-            "latitude": 22.359614386077,
-            "longitude": 114.12281933029,
-            "contactNo": "2912 3713, 94451674",
+            "park_Id": "tdc323p1",
+            "name": "安秀苑停車場",
+            "displayAddress": "新界西貢安愉道12號安秀苑安秀商場",
+            "latitude": 22.322302474908,
+            "longitude": 114.23785808606,
+            "contactNo": "",
             "website": "",
             "facilities": [],
             "heightLimits": [
                 {
-                    "height": 0,
-                    "remark": "高度限制:"
+                    "height": 2.4,
+                    "remark": "高度限制: 2.4米"
                 }
             ],
             "privateCar": {
@@ -9578,7 +9618,7 @@
                             "SUN",
                             "PH"
                         ],
-                        "description": "0700 - 2300\n週一至週五：$ 6 /半小時（首2小時）; $ 9 /半小時（2小時後）\n星期六/星期日及公眾假期：$ 8 /半小時（首2小時）; $ 12 /半小時（2小時後）\n2300 - 0700\n星期一至星期日：$ 2 /半小時（首2小時）; $ 3 /半小時（2小時後）",
+                        "description": "私家車:\n時租:$21/小時,\n月租:$2910/月\n電單車:\n月租:$690/月",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
@@ -12437,7 +12477,7 @@
             "heightLimits": [
                 {
                     "height": 1.7,
-                    "remark": "高度限制: 1.7 (此高度限制適用於私家車) 3.8 (此高度限制適用於輕型貨車)"
+                    "remark": "高度限制: 1.7 (此高度限制適用於私家車/客貨車) 3.8 (此高度限制適用於貨車)"
                 }
             ],
             "privateCar": {}
@@ -12648,8 +12688,8 @@
             "facilities": [],
             "heightLimits": [
                 {
-                    "height": 5.0,
-                    "remark": "高度限制: 5米"
+                    "height": 0,
+                    "remark": "高度限制:"
                 }
             ],
             "privateCar": {}
@@ -12773,8 +12813,8 @@
             "facilities": [],
             "heightLimits": [
                 {
-                    "height": 5.0,
-                    "remark": "高度限制: 5米"
+                    "height": 0,
+                    "remark": "高度限制:"
                 }
             ],
             "privateCar": {}
@@ -13542,7 +13582,7 @@
                             "SUN",
                             "PH"
                         ],
-                        "description": "2.4米(適用於私家車/客貨車) ; 3.0米 (適用於貨櫃車)\n(時租車位只限於地面)\n私家車:\n星期一至日(半小時免費)：$21/小時\n電單車:\n星期一至日(半小時免費)：$6/小時\n星期一至日(半小時免費)：$24/小時,(第3小時開始)$48/小時",
+                        "description": "2.4米(適用於私家車/客貨車) ; 3.0米 (適用於輕型貨車)\n(時租車位只限於地面)\n私家車:\n星期一至日(半小時免費)：$21/小時\n電單車:\n星期一至日(半小時免費)：$6/小時\n星期一至日(半小時免費)：$24/小時,(第3小時開始)$48/小時",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"

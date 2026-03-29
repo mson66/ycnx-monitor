@@ -1,19 +1,19 @@
 ================================================================================
 JSON文件合併報告
 ================================================================================
-合併時間：2026-03-22 01:40:28
-總處理停車場數量：544
-成功匹配並合併的停車場：226
-未匹配的停車場：318
+合併時間：2026-03-29 02:01:00
+總處理停車場數量：543
+成功匹配並合併的停車場：228
+未匹配的停車場：315
 
 詳細統計：
 ----------------------------------------
 hourlyCharges規則：
-  新增規則：594
-  跳過規則（已存在）：87
+  新增規則：585
+  跳過規則（已存在）：94
 dayNightParks規則：
-  新增規則：164
-  跳過規則（已存在）：27
+  新增規則：165
+  跳過規則（已存在）：18
 
 已合併的停車場詳細情況：
 ----------------------------------------
@@ -96,7 +96,7 @@ dayNightParks規則：
     hourlyCharges - 新增:2, 跳過:0
     dayNightParks - 新增:2, 跳過:0
   石硤尾公園第三期 (ID:tdc269p1):
-    hourlyCharges - 新增:4, 跳過:2
+    hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   科技中心 (ID:tdc25p36):
     hourlyCharges - 新增:0, 跳過:0
@@ -114,7 +114,7 @@ dayNightParks規則：
     hourlyCharges - 新增:1, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   機場一號停車埸(時租) (ID:tdc2p1):
-    hourlyCharges - 新增:1, 跳過:0
+    hourlyCharges - 新增:1, 跳過:1
     dayNightParks - 新增:0, 跳過:0
   豐業街停車場 (ID:tdstt71):
     hourlyCharges - 新增:1, 跳過:0
@@ -144,7 +144,7 @@ dayNightParks規則：
     hourlyCharges - 新增:0, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   九龍仔公園停車場 (ID:tdc27p1):
-    hourlyCharges - 新增:4, 跳過:2
+    hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   西貢政府合署停車場 (ID:tdc10p1):
     hourlyCharges - 新增:2, 跳過:0
@@ -191,11 +191,17 @@ dayNightParks規則：
   蘇屋邨(一期) 停車場 (ID:tdc6p22):
     hourlyCharges - 新增:0, 跳過:0
     dayNightParks - 新增:0, 跳過:0
+  佐敦谷游泳池 (ID:tdc349p1):
+    hourlyCharges - 新增:4, 跳過:2
+    dayNightParks - 新增:0, 跳過:0
+  九龍灣公園 (ID:tdc350p1):
+    hourlyCharges - 新增:4, 跳過:2
+    dayNightParks - 新增:0, 跳過:0
   如心廣場 (ID:tdc30p1):
     hourlyCharges - 新增:0, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   小西灣運動場停車場 (ID:tdc39p1):
-    hourlyCharges - 新增:4, 跳過:0
+    hourlyCharges - 新增:4, 跳過:2
     dayNightParks - 新增:0, 跳過:0
   大埔政府合署 (ID:tdc37p1):
     hourlyCharges - 新增:2, 跳過:0
@@ -222,7 +228,7 @@ dayNightParks規則：
     hourlyCharges - 新增:4, 跳過:2
     dayNightParks - 新增:0, 跳過:0
   東涌市政大樓 (ID:tdc47p1):
-    hourlyCharges - 新增:5, 跳過:0
+    hourlyCharges - 新增:3, 跳過:2
     dayNightParks - 新增:0, 跳過:0
   翩滙坊停車場 (ID:tdc46p1):
     hourlyCharges - 新增:1, 跳過:0
@@ -230,11 +236,11 @@ dayNightParks規則：
   佐敦谷公園 (ID:tdc53p1):
     hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
-  佐敦谷游泳池 (ID:tdc53p2):
+  葵盛游泳池停車場 (ID:tdc346p1):
     hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   康寧道公園 (ID:tdc53p3):
-    hourlyCharges - 新增:6, 跳過:0
+    hourlyCharges - 新增:4, 跳過:2
     dayNightParks - 新增:0, 跳過:0
   北角政府合署 (ID:tdc55p1):
     hourlyCharges - 新增:2, 跳過:0
@@ -272,9 +278,6 @@ dayNightParks規則：
   馬鞍山運動場 (ID:tdc63p1):
     hourlyCharges - 新增:4, 跳過:4
     dayNightParks - 新增:0, 跳過:0
-  馬鞍山游泳池 (ID:tdc63p2):
-    hourlyCharges - 新增:4, 跳過:2
-    dayNightParks - 新增:0, 跳過:0
   小瀝源路遊樂場 (ID:tdc63p3):
     hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
@@ -290,8 +293,11 @@ dayNightParks規則：
   鳳琴街體育館停車場 (ID:tdc65p1):
     hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
+  佐敦谷遊樂場 (ID:tdc351p1):
+    hourlyCharges - 新增:4, 跳過:2
+    dayNightParks - 新增:0, 跳過:0
   天業路公園停車場 (ID:tdc65p5):
-    hourlyCharges - 新增:6, 跳過:0
+    hourlyCharges - 新增:4, 跳過:2
     dayNightParks - 新增:0, 跳過:0
   粉嶺游泳池 (ID:tdc69p1):
     hourlyCharges - 新增:6, 跳過:0
@@ -303,10 +309,10 @@ dayNightParks規則：
     hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   沙田賽馬會游泳池及源禾路體育館 (ID:tdc66p1):
-    hourlyCharges - 新增:4, 跳過:2
+    hourlyCharges - 新增:4, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   沙田運動場 & 源禾遊樂場停車場 (ID:tdc70p1):
-    hourlyCharges - 新增:6, 跳過:0
+    hourlyCharges - 新增:4, 跳過:2
     dayNightParks - 新增:0, 跳過:0
   M+ 停車場 (ID:tdc52p1):
     hourlyCharges - 新增:2, 跳過:0
@@ -336,7 +342,7 @@ dayNightParks規則：
     hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   蒲崗村道公園 (ID:tdc76p3):
-    hourlyCharges - 新增:4, 跳過:2
+    hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   土瓜灣街市暨政府合署 (ID:tdc71p1):
     hourlyCharges - 新增:2, 跳過:0
@@ -353,26 +359,26 @@ dayNightParks規則：
   興芳路遊樂場 (ID:tdc81p1):
     hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
-  葵盛游泳池 (ID:tdc81p3):
-    hourlyCharges - 新增:6, 跳過:0
+  安秀苑停車場 (ID:tdc323p1):
+    hourlyCharges - 新增:1, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   和宜合道運動場 (ID:tdc81p7):
     hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   青衣西南康體大樓 (ID:tdc81p6):
-    hourlyCharges - 新增:6, 跳過:0
+    hourlyCharges - 新增:4, 跳過:2
     dayNightParks - 新增:0, 跳過:0
   青衣運動場及游泳池停車場 (ID:tdc81p5):
-    hourlyCharges - 新增:4, 跳過:2
+    hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   青衣東北公園 (ID:tdc81p4):
     hourlyCharges - 新增:4, 跳過:2
     dayNightParks - 新增:0, 跳過:0
   沙田大會堂停車場 (ID:tdc94p1):
-    hourlyCharges - 新增:6, 跳過:0
+    hourlyCharges - 新增:4, 跳過:2
     dayNightParks - 新增:0, 跳過:0
   廣福公園停車場 (ID:tdc74p13):
-    hourlyCharges - 新增:4, 跳過:0
+    hourlyCharges - 新增:4, 跳過:2
     dayNightParks - 新增:0, 跳過:0
   金鐘道政府合署 (ID:tdc95p1):
     hourlyCharges - 新增:2, 跳過:0
@@ -384,7 +390,7 @@ dayNightParks規則：
     hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   大埔運動場停車場 (ID:tdc74p12):
-    hourlyCharges - 新增:4, 跳過:2
+    hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   晒草灣遊樂場 (ID:tdc74p8):
     hourlyCharges - 新增:6, 跳過:0
@@ -396,7 +402,7 @@ dayNightParks規則：
     hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   友愛體育館 (ID:tdc74p7):
-    hourlyCharges - 新增:6, 跳過:0
+    hourlyCharges - 新增:4, 跳過:2
     dayNightParks - 新增:0, 跳過:0
   杯渡路停車場 (ID:tdstt59):
     hourlyCharges - 新增:2, 跳過:0
@@ -532,7 +538,7 @@ dayNightParks規則：
     dayNightParks - 新增:4, 跳過:0
   海濤停車場 (ID:tdstt132):
     hourlyCharges - 新增:9, 跳過:0
-    dayNightParks - 新增:3, 跳過:3
+    dayNightParks - 新增:6, 跳過:0
   松泊停車場屯義街 (ID:tdstt133):
     hourlyCharges - 新增:1, 跳過:0
     dayNightParks - 新增:2, 跳過:0
@@ -570,10 +576,10 @@ dayNightParks規則：
     hourlyCharges - 新增:2, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   新城市廣場三期停車場 (ID:tdc280p1):
-    hourlyCharges - 新增:2, 跳過:0
+    hourlyCharges - 新增:0, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   新城市廣場一期停車場 (ID:tdc279p1):
-    hourlyCharges - 新增:2, 跳過:0
+    hourlyCharges - 新增:0, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   新都會廣場 (ID:tdc312p1):
     hourlyCharges - 新增:3, 跳過:0
@@ -618,13 +624,13 @@ dayNightParks規則：
     hourlyCharges - 新增:2, 跳過:0
     dayNightParks - 新增:1, 跳過:0
   將軍澳中心(商場)停車場 (ID:tdc322p1):
-    hourlyCharges - 新增:5, 跳過:0
+    hourlyCharges - 新增:2, 跳過:0
     dayNightParks - 新增:2, 跳過:2
   中山紀念公園體育館 (ID:tdc114p2):
     hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   中山紀念公園 (ID:tdc114p1):
-    hourlyCharges - 新增:4, 跳過:2
+    hourlyCharges - 新增:6, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   上水廣場停車場 (ID:tdc325p1):
     hourlyCharges - 新增:2, 跳過:0
@@ -636,7 +642,7 @@ dayNightParks規則：
     hourlyCharges - 新增:2, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   形點 II (ID:tdc321p1):
-    hourlyCharges - 新增:4, 跳過:0
+    hourlyCharges - 新增:2, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   荃灣廣場停車場 (ID:tdc327p1):
     hourlyCharges - 新增:2, 跳過:1
@@ -654,14 +660,14 @@ dayNightParks規則：
     hourlyCharges - 新增:2, 跳過:0
     dayNightParks - 新增:2, 跳過:0
   海盈邨停車場 (ID:tdc290p1):
-    hourlyCharges - 新增:2, 跳過:2
+    hourlyCharges - 新增:1, 跳過:1
     dayNightParks - 新增:0, 跳過:0
   凱樂苑停車場 (ID:tdc289p1):
     hourlyCharges - 新增:1, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   將軍澳政府合署公眾停車場 (ID:tdc335p1):
     hourlyCharges - 新增:2, 跳過:8
-    dayNightParks - 新增:4, 跳過:12
+    dayNightParks - 新增:2, 跳過:6
   葵涌公園停車場 (ID:tdc334p1):
     hourlyCharges - 新增:2, 跳過:2
     dayNightParks - 新增:0, 跳過:0
@@ -675,7 +681,7 @@ dayNightParks規則：
     hourlyCharges - 新增:1, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   蘇屋邨停車場二期 (ID:tdc295p1):
-    hourlyCharges - 新增:1, 跳過:1
+    hourlyCharges - 新增:1, 跳過:0
     dayNightParks - 新增:0, 跳過:0
   白田邨7&8期停車場 (ID:tdc293p1):
     hourlyCharges - 新增:1, 跳過:2
@@ -718,4 +724,4 @@ dayNightParks規則：
   KTR350 停車場 (ID:123)
   主場館停車場 (ID:124)
   體藝館停車場 (ID:125)
-  ... 還有 298 個
+  ... 還有 295 個
