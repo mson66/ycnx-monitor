@@ -616,6 +616,131 @@
             }
         },
         {
+            "park_Id": "81",
+            "name": "宏利廣場",
+            "displayAddress": "九龍觀塘觀塘道348號",
+            "latitude": 22.3149246,
+            "longitude": 114.21706438,
+            "contactNo": "21543090",
+            "website": "https://itt-hk.com/en/index.php",
+            "facilities": [
+                "disabilities",
+                "unloading",
+                "evCharger"
+            ],
+            "heightLimits": [
+                {
+                    "height": 4.7
+                }
+            ],
+            "privateCar": {
+                "monthlyCharges": [
+                    {
+                        "price": 3600,
+                        "remark": "",
+                        "type": "monthly-park",
+                        "covered": "covered",
+                        "reserved": "non-reserved"
+                    },
+                    {
+                        "price": 4500,
+                        "remark": "條款及細則:  1) 月租車位需事先填表申請。 2) 泊車位以先到先得方法分配，Manulife Place 租戶享有固定車位優先選擇權。 3) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 4) 如有任何爭議，停車場管理公司保留最終決定權。",
+                        "type": "monthly-park",
+                        "covered": "covered",
+                        "reserved": "reserved"
+                    }
+                ],
+                "dayNightParks": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI"
+                        ],
+                        "excludePublicHoliday": true,
+                        "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期一至五, 公眾假期除外)，私家車日泊收費為HK$200。2) 按當時累計時租或日泊 (如：HK$200) 收費，兩者以較低者為準 。 3) 泊車不足壹小時，亦會以壹小時計算。 4) 只限單次出入。 5) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 6) 如有任何爭議，停車場管理公司保留最終決定權。",
+                        "validUntil": "no-restrictions",
+                        "covered": "covered",
+                        "type": "day-park",
+                        "price": 200,
+                        "periodEnd": "20:00",
+                        "periodStart": "08:00"
+                    },
+                    {
+                        "weekdays": [
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期六, 日及公眾假期)，私家車日泊收費為HK$100。2) 按當時累計時租或日泊 (如：HK$100) 收費，兩者以較低者為準 。 3) 泊車不足壹小時，亦會以壹小時計算。 4) 只限單次出入。 5) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 6) 如有任何爭議，停車場管理公司保留最終決定權。",
+                        "periodStart": "08:00",
+                        "periodEnd": "20:00",
+                        "price": 100,
+                        "type": "day-park",
+                        "covered": "covered",
+                        "validUntil": "no-restrictions"
+                    },
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "periodStart": "20:00",
+                        "periodEnd": "08:00",
+                        "price": 95,
+                        "type": "night-park",
+                        "covered": "covered",
+                        "validUntil": "no-restrictions",
+                        "remark": "條款及細則: 1) 由晚上八時至翌日早上八時正，私家車晚泊收費為HK$95。2) 按當時累計時租或日泊 (如：HK$95) 收費，兩者以較低者為準 。 3) 泊車不足壹小時，亦會以壹小時計算。 4) 只限單次出入。 5) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 6) 如有任何爭議，停車場管理公司保留最終決定權。"
+                    }
+                ],
+                "hourlyCharges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI"
+                        ],
+                        "excludePublicHoliday": true,
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "price": 27,
+                        "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期一至五, 公眾假期除外)，私家車日泊收費為HK$200。2) 由早上八時至晚上八時正 (星期六, 日及公眾假期)，私家車日泊收費為HK$100。3) 由晚上八時至翌日早上八時正，私家車晚泊收費為HK$95。4) 按當時累計時租或日泊 (如：HK$200) 收費，兩者以較低者為準 。 5) 泊車不足壹小時，亦會以壹小時計算。 6) 只限單次出入。 7) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 8) 如有任何爭議，停車場管理公司保留最終決定權。",
+                        "type": "hourly",
+                        "covered": "covered",
+                        "billing_unit": "hour"
+                    },
+                    {
+                        "weekdays": [
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "price": 16,
+                        "type": "hourly",
+                        "covered": "covered",
+                        "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期一至五, 公眾假期除外)，私家車日泊收費為HK$200。2) 由早上八時至晚上八時正 (星期六, 日及公眾假期)，私家車日泊收費為HK$100。3) 由晚上八時至翌日早上八時正，私家車晚泊收費為HK$95。4) 按當時累計時租或日泊 (如：HK$200) 收費，兩者以較低者為準 。 5) 泊車不足壹小時，亦會以壹小時計算。 6) 只限單次出入。 7) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 8) 如有任何爭議，停車場管理公司保留最終決定權。",
+                        "billing_unit": "hour"
+                    }
+                ]
+            }
+        },
+        {
             "park_Id": "88",
             "name": "油塘仁宇圍8號公眾停車場",
             "displayAddress": "九龍油塘仁宇圍8號公眾停車場",
@@ -1008,7 +1133,7 @@
                         "periodStart": "07:00",
                         "periodEnd": "00:00",
                         "price": 22,
-                        "remark": "(最近檢視日期: 2023-04-20)",
+                        "remark": "(最近檢���日期: 2023-04-20)",
                         "type": "hourly",
                         "covered": "covered",
                         "billing_unit": "hour"
@@ -6324,6 +6449,42 @@
             "privateCar": {}
         },
         {
+            "park_Id": "tdstt146",
+            "name": "元政路停車場 (Delta Parking)",
+            "displayAddress": "新界元朗十八鄉元政路",
+            "latitude": 22.443528794518,
+            "longitude": 114.0384262983,
+            "contactNo": "53944243",
+            "website": "",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 2.4,
+                    "remark": "高度限制: 2.4米"
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "私家車:\n星期一至五不包括公眾假期：$15/小時,\n日泊(07:00-19:00): $80,\n夜泊(19:00-07:00): $80,\n星期六日假期：$18/小時,\n日泊(07:00-19:00): $90,\n夜泊(19:00-07:00): $90\n月租: $2,500\n電單車:\n月租: $800",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
+        },
+        {
             "park_Id": "tdstt28",
             "name": "三聖街 4",
             "displayAddress": "屯門三聖街",
@@ -7440,6 +7601,42 @@
                 }
             ],
             "privateCar": {}
+        },
+        {
+            "park_Id": "tdc262p1",
+            "name": "港島壹號中心停車場",
+            "displayAddress": "香港銅鑼灣告士打道281號",
+            "latitude": 22.282146575599,
+            "longitude": 114.1842995935,
+            "contactNo": "",
+            "website": "",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 2.4,
+                    "remark": "高度限制: 2.4米"
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "平日/星期六、日及公眾假期\n$40/小時 (08:00-23:00)\n$10/小時 (23:00-08:00)\n$180/日 (08:00-18:00)\n費用可能會根據實際情況進行調整",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
         },
         {
             "park_Id": "tdc44p3",
@@ -8595,7 +8792,7 @@
         {
             "park_Id": "tdc65p1",
             "name": "鳳琴街體育館停車場",
-            "displayAddress": "元朗體育路10號",
+            "displayAddress": "元朗鳳攸北街20號",
             "latitude": 22.443071870661,
             "longitude": 114.03329017859,
             "contactNo": "",
@@ -14843,6 +15040,186 @@
                             "PH"
                         ],
                         "description": "私家車:\n星期一至五不包括公眾假期：$20/小時,\n星期六日及公眾假期：$22/小時\n首小時$30, 其後$50",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
+        },
+        {
+            "park_Id": "tdc347p1",
+            "name": "郵輪碼頭停車場1號",
+            "displayAddress": "香港九龍承豐道33號",
+            "latitude": 22.306207712251,
+            "longitude": 114.21306071622,
+            "contactNo": "",
+            "website": "",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 0,
+                    "remark": "高度限制:"
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "私家車/電單車:\n星期一至五:$17/小時\n星期六﹑日及公眾假期:$20/小時\n*若在營運時間以外停泊，除時租外需另付$250行政費",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
+        },
+        {
+            "park_Id": "tdc348p1",
+            "name": "郵輪碼頭停車場2號",
+            "displayAddress": "香港九龍承豐道33號",
+            "latitude": 22.305440665967,
+            "longitude": 114.21443469459,
+            "contactNo": "",
+            "website": "",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 0,
+                    "remark": "高度限制:"
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "私家車:\n星期一至五:$17/小時\n星期六﹑日及公眾假期:$20/小時\n*若在營運時間以外停泊，除時租外需另付$250行政費",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
+        },
+        {
+            "park_Id": "tdstt147",
+            "name": "掃管笏停車場",
+            "displayAddress": "掃管笏掃管笏路愛琴海海岸",
+            "latitude": 22.371075339751,
+            "longitude": 113.99509396225,
+            "contactNo": "",
+            "website": "",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 3.8,
+                    "remark": "高度限制: 3.8米"
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "私家車/電單車: $12/小時\n日泊(08:00-18:00): $45\n夜泊(18:00-08:00): $55\n小型巴士: $20/小時\n日泊(08:00-18:00): $65\n夜泊(18:00-08:00): $75\n月租:\n$400 (電單車)\n$1500 (私家車)\n$2000 (小型巴士)",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
+        },
+        {
+            "park_Id": "tdc352p1",
+            "name": "塱原自然生態公園停車場",
+            "displayAddress": "古洞燕崗路",
+            "latitude": 22.504686111883,
+            "longitude": 114.11083949786,
+            "contactNo": "",
+            "website": "",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 2.45,
+                    "remark": "高度限制: 2.45米"
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "星期一至五(公眾假期除外)：07:30-18:00，$8/半小時\n星期六日及公眾假期：7:30-18:00， $10/半小時",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
+        },
+        {
+            "park_Id": "tdc2p16",
+            "name": "機場三號停車場",
+            "displayAddress": "香港國際機場翔天中路",
+            "latitude": 22.318543635797,
+            "longitude": 113.93783706733,
+            "contactNo": "21834360",
+            "website": "https://www.hongkongairport.com/tc/transport/parking/parking-charges.page",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 2.0,
+                    "remark": "高度限制: 2.0米"
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "私家車:\n時租： $32/每小時\n日租：$256/每日\n長期停放：$470/首 3天; 其後每天 $256/每日\n電單車:\n時租： $8/每小時\n日租：$56/每日",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
