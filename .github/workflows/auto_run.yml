@@ -2,8 +2,8 @@ name: Ycnx Data Auto Crawler
 
 on:
   schedule:
-    # 每天北京时间 12:00 运行 (UTC 4:00)
-    - cron: '0 4 * * *'
+    # 每月23、24、25日北京时间10:30运行 (UTC 2:30)
+    - cron: '30 2 23-25 * *'
   workflow_dispatch:
   push:
     branches: [ main ]
