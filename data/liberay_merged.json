@@ -4,7 +4,7 @@
       "data/gov_cleaned.json",
       "data/description-rules.json"
     ],
-    "merged_at": "2026-05-03 02:07:29",
+    "merged_at": "2026-05-10 02:10:51",
     "merge_rule": "僅通過park_Id匹配，僅比較weekdays/periodStart/periodEnd判斷規則是否重複"
   },
   "results": [
@@ -15,7 +15,7 @@
       "latitude": 22.32470074,
       "longitude": 114.21675324,
       "contactNo": "2756 3666",
-      "website": "https://www.facebook.com/AmoyPlazaHK/",
+      "website": "https://www.hanglungmalls.com/parking?mall=amoy-plaza",
       "facilities": [
         "evCharger",
         "disabilities",
@@ -24,8 +24,8 @@
       ],
       "heightLimits": [
         {
-          "remark": "",
-          "height": 1.9
+          "height": 1.9,
+          "remark": ""
         }
       ],
       "privateCar": {
@@ -39,9 +39,9 @@
               "FRI"
             ],
             "excludePublicHoliday": true,
-            "description": "顧客於商場內消費滿港幣$300，可享1小時免費泊車優惠；滿港幣$500，則享最多2小時免費泊車優惠。\n\n*只接受最多二張即日電子消費單據及電子簽賬存根。\n*每張泊車票最多可享2小時免費泊車優惠。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
+            "periodStart": "00:00",
             "periodEnd": "24:00",
-            "periodStart": "00:00"
+            "description": "顧客於商場內消費滿港幣$300，可享1小時免費泊車優惠；滿港幣$500，則享最多2小時免費泊車優惠。\n\n*只接受最多兩組不同商戶發出的即日電子消費單據及電子簽賬存根。\n*每張泊車票最多可享2小時免費泊車優惠。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。"
           },
           {
             "weekdays": [
@@ -52,9 +52,9 @@
               "FRI"
             ],
             "excludePublicHoliday": true,
-            "description": "凡於星期一至星期五(公眾假期除外)下午12時至2時進入停車場，並於食肆消費滿港幣$200，均可享最多2小時免費泊車優惠。\n\n*只接受最多兩張食肆發出之即日電子消費單據及簽賬存根。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
+            "periodStart": "12:00",
             "periodEnd": "14:00",
-            "periodStart": "12:00"
+            "description": "凡於星期一至星期五(公眾假期除外)下午12:00時至14:00時進入停車場，並於食肆消費滿港幣$200，均可享最多2小時免費泊車優惠。\n\n*只接受單一食肆發出之即日電子消費單據及簽賬存根。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。"
           },
           {
             "weekdays": [
@@ -63,25 +63,25 @@
               "PH"
             ],
             "excludePublicHoliday": false,
-            "description": "顧客於商場內消費滿港幣$400，可享1小時免費泊車優惠；滿港幣$600，則享最多2小時免費泊車優惠。 *只接受最多二張即日電子消費單據及電子簽賬存根。 *每張泊車票最多可享2小時免費泊車優惠。 *以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
+            "periodStart": "00:00",
             "periodEnd": "24:00",
-            "periodStart": "00:00"
+            "description": "顧客於商場內消費滿港幣$400，可享1小時免費泊車優惠；滿港幣$600，則享最多2小時免費泊車優惠。 *只接受最多兩組不同商戶發出的即日電子消費單據及電子簽賬存根。 *每張泊車票最多可享2小時免費泊車優惠。 *以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。"
           }
         ],
         "monthlyCharges": [
           {
-            "reserved": "non-reserved",
-            "covered": "mixed",
-            "type": "monthly-park",
+            "price": 3600,
             "remark": "並不適用於部份充電車位。",
-            "price": 3600
+            "type": "monthly-park",
+            "covered": "mixed",
+            "reserved": "non-reserved"
           },
           {
-            "reserved": "reserved",
-            "covered": "covered",
-            "type": "monthly-park",
+            "price": 4200,
             "remark": "並不適用於充電車位。",
-            "price": 4200
+            "type": "monthly-park",
+            "covered": "covered",
+            "reserved": "reserved"
           }
         ],
         "dayNightParks": [
@@ -97,12 +97,12 @@
               "PH"
             ],
             "excludePublicHoliday": false,
-            "validUntil": "no-restrictions",
-            "covered": "mixed",
-            "type": "night-park",
-            "price": 100,
+            "periodStart": "21:00",
             "periodEnd": "09:00",
-            "periodStart": "21:00"
+            "price": 100,
+            "type": "night-park",
+            "covered": "mixed",
+            "validUntil": "no-restrictions"
           }
         ],
         "hourlyCharges": [
@@ -118,13 +118,13 @@
               "PH"
             ],
             "excludePublicHoliday": false,
-            "remark": "",
-            "covered": "mixed",
-            "type": "hourly",
-            "price": 25,
-            "usageMinimum": 1,
-            "periodEnd": "24:00",
             "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "usageMinimum": 1,
+            "price": 25,
+            "type": "hourly",
+            "covered": "mixed",
+            "remark": "",
             "billing_unit": "hour"
           }
         ]
@@ -6710,7 +6710,7 @@
     {
       "park_Id": "tdc6p21",
       "name": "漁灣邨停車場",
-      "displayAddress": "柴灣柴灣道365號",
+      "displayAddress": "香港柴灣怡豐街漁灣邨停車場1樓",
       "latitude": 22.26508713,
       "longitude": 114.2402191,
       "contactNo": "2505 1471 / 5281 0834",
@@ -9095,8 +9095,8 @@
       "facilities": [],
       "heightLimits": [
         {
-          "height": 2.45,
-          "remark": "高度限制: 2.45"
+          "height": 0,
+          "remark": "高度限制:"
         }
       ],
       "privateCar": {
@@ -9112,7 +9112,7 @@
               "SUN",
               "PH"
             ],
-            "description": "星期一至五(公眾假期除外)：07:00-23:00，首2小時：$4/半小時(第2小時後：$6/半小時)；23:00-07:00：$1/半小時 星期六日及公眾假期：07:00-23:00，首2小時：$6/半小時(第2小時後：$9/半小時)；23:00-07:00：$1/半小時",
+            "description": "星期一至五(公眾假期除外)：\n07:00-23:00，首2小時：$5/半小時(第2小時後：$7.5/半小時)；\n23:00-07:00：$1.6/半小時\n星期六日及公眾假期：\n07:00-23:00，首2小時：$8/半小時(第2小時後：$12/半小時)；\n23:00-07:00：$1.6/半小時",
             "periodStart": "00:00",
             "periodEnd": "24:00",
             "add_source": "py-auto-fill"
@@ -11586,12 +11586,12 @@
       }
     },
     {
-      "park_Id": "tdc146p1",
+      "park_Id": "tdc366p1",
       "name": "旺角大球場",
       "displayAddress": "九龍旺角花墟道37號",
-      "latitude": 22.326475853733,
-      "longitude": 114.17377173271,
-      "contactNo": "",
+      "latitude": 22.326452786056,
+      "longitude": 114.17380239591,
+      "contactNo": "9079 9992",
       "website": "",
       "facilities": [],
       "heightLimits": [
@@ -11613,7 +11613,7 @@
               "SUN",
               "PH"
             ],
-            "description": "私家車/電單車：星期一至五(公眾假期除外)：07:00-23:00，首2小時：$12/半小時；超過2小時：$18/半小時，23:00-07:00：$12/半小時；星期六日及公眾假期：07:00-23:00，首2小時：$16/半小時；超過2小時：$24/半小時，23:00-07:00：$16/半小時。小型巴士：星期一至日(包括公眾假期)：07:00-23:00，首2小時：$50/半小時；超過2小時：$75/半小時，23:00-07:00：$50/半小時。",
+            "description": "私家車/電單車:\n星期一至星期五 (不包括公眾假期):\n日泊 (07:00 - 23:00): 首兩小時:$12/半小時,  首兩小時後:$18/半小時\n夜泊 (23:00 - 07:00):$12/半小時\n星期六及星期日 (包括公眾假期):\n日泊 (07:00 - 23:00): 首兩小時:$18/半小時,  首兩小時後:$27/半小時\n夜泊 (23:00 - 07:00):$18/半小時\n星期一至星期五 (不包括公眾假期):\n日泊 (07:00 - 23:00): 首兩小時:$30/半小時,  首兩小時後:$45/半小時\n夜泊 (23:00 - 07:00):$30/半小時\n星期六及星期日 (包括公眾假期):\n日泊 (07:00 - 23:00): 首兩小時:$30/半小時,  首兩小時後:$45/半小時\n夜泊 (23:00 - 07:00):$30/半小時",
             "periodStart": "00:00",
             "periodEnd": "24:00",
             "add_source": "py-auto-fill"
@@ -15354,6 +15354,42 @@
               "PH"
             ],
             "description": "私家車/小型巴士：\n星期一至五(公眾假期除外)：\n07:00-23:00，首2小時：$14/半小時；超過2小時：$21/半小時；\n日泊：$120，\n23:00-07:00：$6/半小時\n星期六日及公眾假期：\n07:00-23:00，首2小時：$16/半小時；超過2小時：$24/半小時；\n日泊$150，\n23:00-07:00：$8/半小時",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "tdc367p1",
+      "name": "GO PARK 2 停車場",
+      "displayAddress": "新界西沙海映路8號",
+      "latitude": 22.427164835123,
+      "longitude": 114.26768304446,
+      "contactNo": "3168 2508",
+      "website": "https://www.goparksaisha.hk/tc/visit-go-park/parking/",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 2.4,
+          "remark": "高度限制: 2.4米"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "私家車/電單車:\n星期一至五不包括公眾假期：$20/小時,\n夜泊(20:00-08:00): $90,\n星期六日假期：$24/小時,\n夜泊(20:00-08:00): $90",
             "periodStart": "00:00",
             "periodEnd": "24:00",
             "add_source": "py-auto-fill"
