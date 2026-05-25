@@ -3,24 +3,65 @@ import os
 import json
 import pdfplumber
 import re
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from groq import Groq
 
 class CrawlerEngine:
     def __init__(self, groq_api_key):
         self.client = Groq(api_key=groq_api_key)
-        # 使用 llama-3.1-8b-instant，速度快且配额充足
         self.model_id = "llama-3.1-8b-instant" 
         self.base_pdf_url = "https://ycnx.singlewindow.gd.cn/api/ycnx-approval/draw-lots-notarization/view-publicly-file/YCCQPCH"
+        
+        self.browser_headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Connection': 'keep-alive',
+            'Referer': 'https://ycnx.singlewindow.gd.cn/',
+            'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"macOS"',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'none',
+            'Sec-Fetch-User': '?1',
+            'Upgrade-Insecure-Requests': '1'
+        }
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=2, min=3, max=10),
+        retry=retry_if_exception_type((requests.exceptions.ConnectionError, requests.exceptions.Timeout, ConnectionResetError)),
+        reraise=True
+    )
+    def _make_request(self, url):
+        """带重试机制的 HTTP 请求"""
+        response = requests.get(
+            url, 
+            headers=self.browser_headers, 
+            timeout=30,
+            allow_redirects=True,
+            verify=True
+        )
+        return response
 
     def download_and_convert(self, period_id):
         """下载 PDF 并仅提取第一页文本"""
-        # 构建官方 URL
         pdf_url = f"{self.base_pdf_url}{str(period_id).zfill(7)}"
         print(f"🌐 正在探测 URL: {pdf_url}")
         
         try:
-            response = requests.get(pdf_url, timeout=20)
-            if response.status_code != 200 or not response.content.startswith(b'%PDF'):
+            response = self._make_request(pdf_url)
+            print(f"📡 响应状态: {response.status_code}, 内容类型: {response.headers.get('Content-Type', 'unknown')}")
+            
+            if response.status_code != 200:
+                print(f"⚠️ 非200状态码: {response.status_code}")
+                return None, pdf_url
+            
+            content_type = response.headers.get('Content-Type', '')
+            if 'pdf' not in content_type.lower() and not response.content.startswith(b'%PDF'):
+                print(f"⚠️ 非PDF内容: {content_type}")
                 return None, pdf_url
             
             pdf_path = f"temp_{period_id}.pdf"
