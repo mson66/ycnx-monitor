@@ -1,6 +1,128 @@
 {
     "results": [
         {
+            "park_Id": "12",
+            "name": "淘大商場",
+            "displayAddress": "九龍九龍灣牛頭角道77號",
+            "latitude": 22.32470074,
+            "longitude": 114.21675324,
+            "contactNo": "2756 3666",
+            "website": "https://www.hanglungmalls.com/parking?mall=amoy-plaza",
+            "facilities": [
+                "evCharger",
+                "disabilities",
+                "unloading",
+                "washing"
+            ],
+            "heightLimits": [
+                {
+                    "height": 1.9,
+                    "remark": ""
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI"
+                        ],
+                        "excludePublicHoliday": true,
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "description": "顧客於商場內消費滿港幣$300，可享1小時免費泊車優惠；滿港幣$500，則享最多2小時免費泊車優惠。\n\n*只接受最多兩組不同商戶發出的即日電子消費單據及電子簽賬存根。\n*每張泊車票最多可享2小時免費泊車優惠。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。"
+                    },
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI"
+                        ],
+                        "excludePublicHoliday": true,
+                        "periodStart": "12:00",
+                        "periodEnd": "14:00",
+                        "description": "凡於星期一至星期五(公眾假期除外)下午12:00時至14:00時進入停車場，並於食肆消費滿港幣$200，均可享最多2小時免費泊車優惠。\n\n*只接受單一食肆發出之即日電子消費單據及簽賬存根。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。"
+                    },
+                    {
+                        "weekdays": [
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "description": "顧客於商場內消費滿港幣$400，可享1小時免費泊車優惠；滿港幣$600，則享最多2小時免費泊車優惠。 *只接受最多兩組不同商戶發出的即日電子消費單據及電子簽賬存根。 *每張泊車票最多可享2小時免費泊車優惠。 *以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。"
+                    }
+                ],
+                "monthlyCharges": [
+                    {
+                        "price": 3600,
+                        "remark": "並不適用於部份充電車位。",
+                        "type": "monthly-park",
+                        "covered": "mixed",
+                        "reserved": "non-reserved"
+                    },
+                    {
+                        "price": 4200,
+                        "remark": "並不適用於充電車位。",
+                        "type": "monthly-park",
+                        "covered": "covered",
+                        "reserved": "reserved"
+                    }
+                ],
+                "dayNightParks": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "periodStart": "21:00",
+                        "periodEnd": "09:00",
+                        "price": 100,
+                        "type": "night-park",
+                        "covered": "mixed",
+                        "validUntil": "no-restrictions"
+                    }
+                ],
+                "hourlyCharges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "usageMinimum": 1,
+                        "price": 25,
+                        "type": "hourly",
+                        "covered": "mixed",
+                        "remark": "",
+                        "billing_unit": "hour"
+                    }
+                ]
+            }
+        },
+        {
             "park_Id": "27",
             "name": "油麗商場停車場",
             "displayAddress": "九龍油塘油塘道9號油麗商場LG1 & LG2",
@@ -7571,18 +7693,18 @@
             }
         },
         {
-            "park_Id": "tdc44p3",
-            "name": "瀑布灣公園",
+            "park_Id": "tdc381p1",
+            "name": "瀑布灣公園停車場",
             "displayAddress": "香港仔華富邨瀑布灣道",
-            "latitude": 22.25065422,
-            "longitude": 114.1348877,
+            "latitude": 22.250591805651,
+            "longitude": 114.13489368832,
             "contactNo": "",
             "website": "",
             "facilities": [],
             "heightLimits": [
                 {
-                    "height": 2.45,
-                    "remark": "高度限制: 2.45米"
+                    "height": 0,
+                    "remark": "高度限制:"
                 }
             ],
             "privateCar": {
@@ -7598,7 +7720,7 @@
                             "SUN",
                             "PH"
                         ],
-                        "description": "星期一至五 (公眾假期除外) 07:00-23:00：私家車/輕型貨車/的士,首2小時：$5/半小時 (第2小時後： $7.5/半小時)； 23:00-07:00：$1/半小時。\n星期六日及公眾假期 07:00-23:00：私家車/輕型貨車/的士, 首2小時： $6/半小時 (第2小時後：$9/半小時)； 23:00-07:00：$1/半小時。",
+                        "description": "星期一至五(公眾假期除外)：\n07:00-23:00， 首2小時：$5/半小時 (第2小時後：$7.5/半小時)；\n23:00-07:00：$3/半小時\n星期六日及公眾假期：\n07:00-23:00，首2小時：$6/半小時(第2小時後:9/半小時)；\n23:00-07:00：3/半小時",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
@@ -9991,38 +10113,76 @@
             }
         },
         {
-            "park_Id": "tdc82p2",
-            "name": "城門谷游泳池",
-            "displayAddress": "荃灣城門道21號",
-            "latitude": 22.372604211179,
-            "longitude": 114.12343782929,
-            "contactNo": "2912 3713",
+            "park_Id": "tdc380p1",
+            "name": "城門谷游泳池停車場",
+            "displayAddress": "新界荃灣城門道21號",
+            "latitude": 22.372587580547,
+            "longitude": 114.12344539826,
+            "contactNo": "",
             "website": "",
             "facilities": [],
             "heightLimits": [
                 {
-                    "height": 0,
-                    "remark": "高度限制:"
+                    "height": 3.8,
+                    "remark": "高度限制: 3.8米"
                 }
             ],
-            "privateCar": {}
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "私家車:\n星期一至五(公眾假期除外)：\n07:00-23:00，首2小時：$3.4/半小時 (第2小時後：$5.1/半小時)；\n23:00-07:00：$1/半小時\n星期六日及公眾假期：\n07:00-23:00，首2小時：$5/半小時(第2小時後:7.5/半小時)；\n23:00-07:00：$1/半小時\n星期一至五(公眾假期除外)：\n07:00-23:00，首2小時：$8/半小時 (第2小時後：$12/半小時)；\n23:00-07:00：$3/半小時\n星期六日及公眾假期：\n07:00-23:00，首2小時：$12/半小時(第2小時後:18/半小時)；\n23:00-07:00：3/半小時",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
         },
         {
-            "park_Id": "tdc82p1",
-            "name": "城門谷運動場",
-            "displayAddress": "荃灣城門道21號",
-            "latitude": 22.376622119727,
-            "longitude": 114.12917592165,
-            "contactNo": "2912 3713",
+            "park_Id": "tdc383p1",
+            "name": "城門谷運動埸停車場",
+            "displayAddress": "新界荃灣城門道21號",
+            "latitude": 22.376689743514,
+            "longitude": 114.12912186165,
+            "contactNo": "",
             "website": "",
             "facilities": [],
             "heightLimits": [
                 {
-                    "height": 0,
-                    "remark": "高度限制:"
+                    "height": 3.8,
+                    "remark": "高度限制: 3.8米"
                 }
             ],
-            "privateCar": {}
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "星期一至五(公眾假期除外)：\n07:00-23:00，首2小時：$7/半小時 (第2小時後：$10.5/半小時)；\n23:00-07:00：$1/半小時\n星期六日及公眾假期：\n07:00-23:00，首2小時：$10/半小時(第2小時後:15/半小時)；\n23:00-07:00：1/半小時",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
         },
         {
             "park_Id": "tdc371p1",
@@ -12987,23 +13147,6 @@
                     }
                 ]
             }
-        },
-        {
-            "park_Id": "tdstt127",
-            "name": "海裕街 (金偉停車場有限公司)",
-            "displayAddress": "香港鰂魚涌海裕街停車場",
-            "latitude": 22.290130749383,
-            "longitude": 114.21470266267,
-            "contactNo": "90799992",
-            "website": "",
-            "facilities": [],
-            "heightLimits": [
-                {
-                    "height": 0,
-                    "remark": "高度限制:"
-                }
-            ],
-            "privateCar": {}
         },
         {
             "park_Id": "tdstt132",
