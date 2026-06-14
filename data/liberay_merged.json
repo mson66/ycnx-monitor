@@ -4,7 +4,7 @@
       "data/gov_cleaned.json",
       "data/description-rules.json"
     ],
-    "merged_at": "2026-06-07 02:47:32",
+    "merged_at": "2026-06-14 02:52:37",
     "merge_rule": "僅通過park_Id匹配，僅比較weekdays/periodStart/periodEnd判斷規則是否重複"
   },
   "results": [
@@ -707,131 +707,6 @@
       }
     },
     {
-      "park_Id": "81",
-      "name": "宏利廣場",
-      "displayAddress": "九龍觀塘觀塘道348號",
-      "latitude": 22.3149246,
-      "longitude": 114.21706438,
-      "contactNo": "21543090",
-      "website": "https://itt-hk.com/en/index.php",
-      "facilities": [
-        "disabilities",
-        "unloading",
-        "evCharger"
-      ],
-      "heightLimits": [
-        {
-          "height": 4.7
-        }
-      ],
-      "privateCar": {
-        "monthlyCharges": [
-          {
-            "price": 3600,
-            "remark": "",
-            "type": "monthly-park",
-            "covered": "covered",
-            "reserved": "non-reserved"
-          },
-          {
-            "price": 4500,
-            "remark": "條款及細則:  1) 月租車位需事先填表申請。 2) 泊車位以先到先得方法分配，Manulife Place 租戶享有固定車位優先選擇權。 3) 停車場管���公司有權更改優惠、條款及細則而毋須另行通知。 4) 如有任何爭議，停車場管理公司保留最終決定權。",
-            "type": "monthly-park",
-            "covered": "covered",
-            "reserved": "reserved"
-          }
-        ],
-        "dayNightParks": [
-          {
-            "weekdays": [
-              "MON",
-              "TUE",
-              "WED",
-              "THU",
-              "FRI"
-            ],
-            "excludePublicHoliday": true,
-            "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期一至五, 公眾假期除外)，私家車日泊收費為HK$200。2) 按當時累計時租或日泊 (如：HK$200) 收費，兩者以較低者為準 。 3) 泊車不足壹小時，亦會以壹小時計算。 4) 只限單次出入。 5) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 6) 如有任何爭議，停車場管理公司保留最終決定權。",
-            "validUntil": "no-restrictions",
-            "covered": "covered",
-            "type": "day-park",
-            "price": 200,
-            "periodEnd": "20:00",
-            "periodStart": "08:00"
-          },
-          {
-            "weekdays": [
-              "SAT",
-              "SUN",
-              "PH"
-            ],
-            "excludePublicHoliday": false,
-            "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期六, 日及公眾假期)，私家車日泊收費為HK$100。2) 按當時累計時租或日泊 (如：HK$100) 收費，兩者以較低者為準 。 3) 泊車不足壹小時，亦會以壹小時計算。 4) 只限單次出入。 5) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 6) 如有任何爭議，停車場管理公司保留最終決定權。",
-            "periodStart": "08:00",
-            "periodEnd": "20:00",
-            "price": 100,
-            "type": "day-park",
-            "covered": "covered",
-            "validUntil": "no-restrictions"
-          },
-          {
-            "weekdays": [
-              "MON",
-              "TUE",
-              "WED",
-              "THU",
-              "FRI",
-              "SAT",
-              "SUN",
-              "PH"
-            ],
-            "excludePublicHoliday": false,
-            "periodStart": "20:00",
-            "periodEnd": "08:00",
-            "price": 95,
-            "type": "night-park",
-            "covered": "covered",
-            "validUntil": "no-restrictions",
-            "remark": "條款及細則: 1) 由晚上八時至翌日早上八時正，私家車晚泊收費為HK$95。2) 按當時累計時租或日泊 (如：HK$95) 收費，兩者以較低者為準 。 3) 泊車不足壹小時，亦會以壹小時計算。 4) 只限單次出入。 5) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 6) 如有任何爭議，停車場管理公司保留最終決定權。"
-          }
-        ],
-        "hourlyCharges": [
-          {
-            "weekdays": [
-              "MON",
-              "TUE",
-              "WED",
-              "THU",
-              "FRI"
-            ],
-            "excludePublicHoliday": true,
-            "periodStart": "00:00",
-            "periodEnd": "24:00",
-            "price": 27,
-            "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期一至五, 公眾假期除外)，私家車日泊收費為HK$200。2) 由早上八時至晚上八時正 (星期六, 日及公眾假期)，私家車日泊收費為HK$100。3) 由晚上八時至翌日早上八時正，私家車晚泊收費為HK$95。4) 按當時累計時租或日泊 (如：HK$200) 收費，兩者以較低者為準 。 5) 泊車不足壹小時，亦會以壹小時計算。 6) 只限單次出入。 7) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 8) 如有任何爭議，停車場管理公司保留最終決定權。",
-            "type": "hourly",
-            "covered": "covered",
-            "billing_unit": "hour"
-          },
-          {
-            "weekdays": [
-              "SAT",
-              "SUN",
-              "PH"
-            ],
-            "excludePublicHoliday": false,
-            "periodStart": "00:00",
-            "periodEnd": "24:00",
-            "price": 16,
-            "type": "hourly",
-            "covered": "covered",
-            "remark": "條款及細則: 1) 由早上八時至晚上八時正 (星期一至五, 公眾假期除外)，私家車日泊收費為HK$200。2) 由早上八時至晚上八時正 (星期六, 日及公眾假期)，私家車日泊收費為HK$100。3) 由晚上八時至翌日早上八時正，私家車晚泊收費為HK$95。4) 按當時累計時租或日泊 (如：HK$200) 收費，兩者以較低者為準 。 5) 泊車不足壹小時，亦會以壹小時計算。 6) 只限單次出入。 7) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 8) 如有任何爭議，停車場管理公司保留最終決定權。",
-            "billing_unit": "hour"
-          }
-        ]
-      }
-    },
-    {
       "park_Id": "88",
       "name": "油塘仁宇圍8號公眾停車場",
       "displayAddress": "九龍油塘仁宇圍8號公眾停車場",
@@ -1472,44 +1347,6 @@
             "price": 20,
             "type": "hourly",
             "covered": "covered",
-            "billing_unit": "hour"
-          }
-        ]
-      }
-    },
-    {
-      "park_Id": "119",
-      "name": "德朗邨停車場B",
-      "displayAddress": "九龍九龍城沐翠街",
-      "latitude": 22.3308936,
-      "longitude": 114.20424879,
-      "contactNo": "",
-      "website": "",
-      "facilities": [],
-      "heightLimits": [
-        {
-          "height": 4.7
-        }
-      ],
-      "privateCar": {
-        "hourlyCharges": [
-          {
-            "weekdays": [
-              "MON",
-              "TUE",
-              "WED",
-              "THU",
-              "FRI",
-              "SAT",
-              "SUN",
-              "PH"
-            ],
-            "excludePublicHoliday": false,
-            "covered": "covered",
-            "type": "hourly",
-            "price": 20,
-            "periodEnd": "00:00",
-            "periodStart": "00:00",
             "billing_unit": "hour"
           }
         ]
@@ -12231,21 +12068,40 @@
       "privateCar": {}
     },
     {
-      "park_Id": "tdc141p2",
-      "name": "德朗邨B停車場",
-      "displayAddress": "九龍九龍城沐翠街",
-      "latitude": 22.330872191006,
-      "longitude": 114.20328783409,
-      "contactNo": "22173556",
+      "park_Id": "tdc384p1",
+      "name": "大圍薈蕎公眾收費停車場",
+      "displayAddress": "大圍大埔公路- 大圍段7838號",
+      "latitude": 22.372033496105,
+      "longitude": 114.17363627992,
+      "contactNo": "",
       "website": "",
       "facilities": [],
       "heightLimits": [
         {
-          "height": 4.7,
-          "remark": "高度限制: 4.7米"
+          "height": 2.45,
+          "remark": "高度限制: 2.45米"
         }
       ],
-      "privateCar": {}
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "星期一至五(公眾假期除外)：時租00:00-00:00，$16/每小時;\n(日泊: 08:00-18:00：$60  夜泊: 18:00-08:00：$70)\n星期六日及公眾假期：時租00:00-00:00，$22/每小時;\n(日泊: 08:00-18:00：$80  夜泊: 18:00-08:00：$90)\n月租 :$3800",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
     },
     {
       "park_Id": "tdc141p1",
