@@ -1,5 +1,19 @@
 [
     {
+        "id": 9,
+        "period_id": 9,
+        "batch_no": "YCCQPCH0000009",
+        "period_name": "第9期",
+        "draw_date": "2026-07-23",
+        "total_applied": 14879,
+        "quota_total": 4200,
+        "total_won": 4200,
+        "total_lost": 10679,
+        "win_rate": "28.23%",
+        "pdf_url": "https://ycnx.singlewindow.gd.cn/api/ycnx-approval/draw-lots-notarization/view-publicly-file/YCCQPCH0000009",
+        "updated_at": "2026-07-23 02:20:35"
+    },
+    {
         "id": 8,
         "period_id": 8,
         "batch_no": "YCCQPCH0000008",
