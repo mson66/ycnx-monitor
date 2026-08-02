@@ -4,7 +4,7 @@
       "data/gov_cleaned.json",
       "data/description-rules.json"
     ],
-    "merged_at": "2026-07-26 02:01:37",
+    "merged_at": "2026-08-02 02:00:42",
     "merge_rule": "僅通過park_Id匹配，僅比較weekdays/periodStart/periodEnd判斷規則是否重複"
   },
   "results": [
@@ -8223,42 +8223,6 @@
       }
     },
     {
-      "park_Id": "tdc55p1",
-      "name": "北角政府合署",
-      "displayAddress": "香港北角渣華道333號",
-      "latitude": 22.29232597,
-      "longitude": 114.20836639,
-      "contactNo": "",
-      "website": "",
-      "facilities": [],
-      "heightLimits": [
-        {
-          "height": 2.45,
-          "remark": "高度限制: 2.45"
-        }
-      ],
-      "privateCar": {
-        "privileges": [
-          {
-            "weekdays": [
-              "MON",
-              "TUE",
-              "WED",
-              "THU",
-              "FRI",
-              "SAT",
-              "SUN",
-              "PH"
-            ],
-            "description": "星期一至日（包括公眾假期）：$7/每小時(19:00-07:00)， 星期六，日及公眾假期：$12/每小時(07:00-19:00)",
-            "periodStart": "00:00",
-            "periodEnd": "24:00",
-            "add_source": "py-auto-fill"
-          }
-        ]
-      }
-    },
-    {
       "park_Id": "tdc58p3",
       "name": "石硤尾公園網球場",
       "displayAddress": "深水埗南昌街270號",
@@ -12708,12 +12672,12 @@
       }
     },
     {
-      "park_Id": "tdstt94",
-      "name": "海裕街2號停車場",
-      "displayAddress": "鰂魚涌海裕街",
-      "latitude": 22.291206697068,
-      "longitude": 114.21233868906,
-      "contactNo": "",
+      "park_Id": "tdc395p1",
+      "name": "北角政府合署 (金偉停車場有限公司)",
+      "displayAddress": "北角渣華道333號, 北角政府合署地下及地庫部分地方",
+      "latitude": 22.292274727688,
+      "longitude": 114.2084106387,
+      "contactNo": "9079 9992",
       "website": "",
       "facilities": [],
       "heightLimits": [
@@ -12722,7 +12686,26 @@
           "remark": "高度限制:"
         }
       ],
-      "privateCar": {}
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "地下限制: 3.5米\n地庫限制: 1.7-1.9米\n私家車：\n星期一至星期五(公眾假期除外)\n夜泊 (19:00-07:00) 每小時 $10\n星期六、日及公眾假期\n日泊 (07:00-翌日07:00) 每小時 $10",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
     },
     {
       "park_Id": "tdc183p1",
