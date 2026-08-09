@@ -1,128 +1,6 @@
 {
     "results": [
         {
-            "park_Id": "12",
-            "name": "淘大商場",
-            "displayAddress": "九龍九龍灣牛頭角道77號",
-            "latitude": 22.32470074,
-            "longitude": 114.21675324,
-            "contactNo": "2756 3666",
-            "website": "https://www.hanglungmalls.com/parking?mall=amoy-plaza",
-            "facilities": [
-                "evCharger",
-                "disabilities",
-                "unloading",
-                "washing"
-            ],
-            "heightLimits": [
-                {
-                    "height": 1.9,
-                    "remark": ""
-                }
-            ],
-            "privateCar": {
-                "privileges": [
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI"
-                        ],
-                        "excludePublicHoliday": true,
-                        "description": "顧客於商場內消費滿港幣$300，可享1小時免費泊車優惠；滿港幣$500，則享最多2小時免費泊車優惠。\n\n*只接受最多兩組不同商戶發出的即日電子消費單據及電子簽賬存根。\n*每張泊車票最多可享2小時免費泊車優惠。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
-                        "periodEnd": "24:00",
-                        "periodStart": "00:00"
-                    },
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI"
-                        ],
-                        "excludePublicHoliday": true,
-                        "description": "凡於星期一至星期五(公眾假期除外)下午12:00時至14:00時進入停車場，並於食肆消費滿港幣$200，均可享最多2小時免費泊車優惠。\n\n*只接受單一食肆發出之即日電子消費單據及簽賬存根。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
-                        "periodEnd": "14:00",
-                        "periodStart": "12:00"
-                    },
-                    {
-                        "weekdays": [
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "excludePublicHoliday": false,
-                        "description": "顧客於商場內消費滿港幣$400，可享1小時免費泊車優惠；滿港幣$600，則享最多2小時免費泊車優惠。 *只接受最多兩組不同商戶發出的即日電子消費單據及電子簽賬存根。 *每張泊車票最多可享2小時免費泊車優惠。 *以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
-                        "periodEnd": "24:00",
-                        "periodStart": "00:00"
-                    }
-                ],
-                "monthlyCharges": [
-                    {
-                        "reserved": "non-reserved",
-                        "covered": "mixed",
-                        "type": "monthly-park",
-                        "remark": "並不適用於部份充電車位。",
-                        "price": 3600
-                    },
-                    {
-                        "reserved": "reserved",
-                        "covered": "covered",
-                        "type": "monthly-park",
-                        "remark": "並不適用於充電車位。",
-                        "price": 4200
-                    }
-                ],
-                "dayNightParks": [
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI",
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "excludePublicHoliday": false,
-                        "validUntil": "no-restrictions",
-                        "covered": "mixed",
-                        "type": "night-park",
-                        "price": 100,
-                        "periodEnd": "09:00",
-                        "periodStart": "21:00"
-                    }
-                ],
-                "hourlyCharges": [
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI",
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "excludePublicHoliday": false,
-                        "remark": "",
-                        "covered": "mixed",
-                        "type": "hourly",
-                        "price": 25,
-                        "usageMinimum": 1,
-                        "periodEnd": "24:00",
-                        "periodStart": "00:00",
-                        "billing_unit": "hour"
-                    }
-                ]
-            }
-        },
-        {
             "park_Id": "27",
             "name": "油麗商場停車場",
             "displayAddress": "九龍油塘油塘道9號油麗商場LG1 & LG2",
@@ -849,7 +727,7 @@
                     },
                     {
                         "price": 4500,
-                        "remark": "條款及細則:  1) 月租車位需事先填表申請。 2) 泊車位以先到先得方法分配，Manulife Place 租戶享有固定車位優先選擇權。 3) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 4) 如有任何爭議，停車場管理公司保留最終決定權。",
+                        "remark": "條款及細則:  1) 月租車位需事先填表申請。 2) 泊車位以先到先得方法分配，Manulife Place 租戶享有固定車位優先選擇權。 3) 停車場管���公司有權更改優惠、條款及細則而毋須另行通知。 4) 如有任何爭議，停車場管理公司保留最終決定權。",
                         "type": "monthly-park",
                         "covered": "covered",
                         "reserved": "reserved"
@@ -1172,7 +1050,7 @@
                         "price": 30,
                         "periodEnd": "23:00",
                         "periodStart": "07:00",
-                        "remark": "星期一至五 首2小時 07:00 – 23:00 每半小���$10 , 首2小時以後 每半小時$15",
+                        "remark": "星期一至五 首2小時 07:00 – 23:00 每半小時$10 , 首2小時以後 每半小時$15",
                         "billing_unit": "hour"
                     }
                 ]
@@ -4598,42 +4476,6 @@
             "privateCar": {}
         },
         {
-            "park_Id": "tdc43p2",
-            "name": "青山灣泳灘",
-            "displayAddress": "新界 屯門 青山公路-青山灣段 青山灣泳灘",
-            "latitude": 22.38051224,
-            "longitude": 113.97942352,
-            "contactNo": "",
-            "website": "",
-            "facilities": [],
-            "heightLimits": [
-                {
-                    "height": 2.45,
-                    "remark": "高度限制: 2.45"
-                }
-            ],
-            "privateCar": {
-                "privileges": [
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI",
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "description": "星期一至五(公眾假期除外)：07:00-23:00，首2小時：$3/半小時(第2小時後：$4.5/半小時)；23:00-07:00：$1/半小時    星期六日及公眾假期：07:00-23:00，首2小時：$4/半小時(第2小時後：$6/半小時)；23:00-07:00：$1/半小時",
-                        "periodStart": "00:00",
-                        "periodEnd": "24:00",
-                        "add_source": "py-auto-fill"
-                    }
-                ]
-            }
-        },
-        {
             "park_Id": "tdc14p5132",
             "name": "TKO Gateway 南翼停車場",
             "displayAddress": "新界將軍澳銀澳路8號TKO Gateway South",
@@ -6779,12 +6621,12 @@
             }
         },
         {
-            "park_Id": "tdc10p4",
-            "name": "灣仔政府大樓、入境事務大樓及稅務大樓",
-            "displayAddress": "香港灣仔港灣道12號、告士打道7號及告士打道5號",
-            "latitude": 22.28018712,
-            "longitude": 114.17260722,
-            "contactNo": "6676 3162/2912 3713",
+            "park_Id": "tdc392p1",
+            "name": "屯門西北游泳池",
+            "displayAddress": "屯門鳴琴路95號",
+            "latitude": 22.408290882248,
+            "longitude": 113.96535790414,
+            "contactNo": "9207 8527",
             "website": "",
             "facilities": [],
             "heightLimits": [
@@ -6806,7 +6648,7 @@
                             "SUN",
                             "PH"
                         ],
-                        "description": "時租\n星期一至五(假期除外)19:00 - 07:00  每半小時 $13（私家車）\n星期六﹑日及公眾假期7:00 - 07:00  每半小時 $12（私家車）\n星期一至五(假期除外)19:00 - 07:00  每半小時 $8（電單車）\n星期六﹑日及公眾假期7:00 - 07:00  每半小時 $15（電單車）\n月租\n$1,200（私家車）\n星期一至五19:00 - 07:00, 星期六﹑日及公眾假期7:00 - 07:00",
+                        "description": "私家車/小型巴士：\n星期一至星期五(公眾假期除外)\n(07:00-23:00)\n首2小時 每半小時 $10\n超過2小時 每半小時 $15\n(23:00-07:00) 每半小時 $2\n星期六、日及公眾假期\n(07:00-23:00)\n首2小時 每半小時 $14\n超過2小時 每半小時 $21\n(23:00-07:00) 每半小時 $2",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
@@ -6912,7 +6754,7 @@
                             "SUN",
                             "PH"
                         ],
-                        "description": "1.9米(適用於B2-B4私家車)\n3.8米(適用於B1卸貨區)\n私家車:\n星期一至五不包括公眾假期：$30/小時,\n星期六日假期：$34/小時,\n夜泊(22:00-07:00): $90\n全日：首一小時$30，其後每小時$50",
+                        "description": "1.9米(適用於B2-B4私家車)\n私家車:\n星期一至五不包括公眾假期：$30/小時,\n星期六日假期：$34/小時,\n夜泊(22:00-07:00): $90",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
@@ -7269,78 +7111,6 @@
                 }
             ],
             "privateCar": {}
-        },
-        {
-            "park_Id": "tdc38p2",
-            "name": "賽馬會屯門蝴蝶灣體育館",
-            "displayAddress": "新界屯門湖山路11號",
-            "latitude": 22.37870168,
-            "longitude": 113.9647093,
-            "contactNo": "",
-            "website": "",
-            "facilities": [],
-            "heightLimits": [
-                {
-                    "height": 0,
-                    "remark": "高度限制:"
-                }
-            ],
-            "privateCar": {
-                "privileges": [
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI",
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "description": "星期一至五(公眾假期除外)：07:00-23:00，首2小時：$4/半小時(第2小時後：$6/半小時)；23:00-07:00：$1.4/半小時星期六日及公眾假期：07:00-23:00，首2小時：$6/半小時(第2小時後：$9/半小時)；23:00-07:00：$1.4/半小時",
-                        "periodStart": "00:00",
-                        "periodEnd": "24:00",
-                        "add_source": "py-auto-fill"
-                    }
-                ]
-            }
-        },
-        {
-            "park_Id": "tdc38p3",
-            "name": "屯門西北游泳池",
-            "displayAddress": "屯門鳴琴路95號",
-            "latitude": 22.4086647,
-            "longitude": 113.9655685,
-            "contactNo": "",
-            "website": "",
-            "facilities": [],
-            "heightLimits": [
-                {
-                    "height": 0,
-                    "remark": "高度限制:"
-                }
-            ],
-            "privateCar": {
-                "privileges": [
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI",
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "description": "星期一至五(公眾假期除外)：07:00-23:00，首2小時：$9/半小時(第2小時後：$13.5/半小時)；23:00-07:00：$2/半小時星期六日及公眾假期：07:00-23:00，首2小時：$13/半小時(第2小時後：$19.5/半小時)；23:00-07:00：$2/半小時",
-                        "periodStart": "00:00",
-                        "periodEnd": "24:00",
-                        "add_source": "py-auto-fill"
-                    }
-                ]
-            }
         },
         {
             "park_Id": "tdc362p1",
@@ -8207,6 +7977,42 @@
                             "PH"
                         ],
                         "description": "星期一至五(公眾假期除外)：07:00-23:00，首2小時：$6/半小時(第2小時後：$9/半小時)；23:00-07:00：$1/半小時 星期六日及公眾假期：07:00-23:00，首2小時：$10/半小時(第2小時後：$15/半小時)；23:00-07:00：$1/半小時",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
+        },
+        {
+            "park_Id": "tdc393p1",
+            "name": "青山灣泳灘",
+            "displayAddress": "屯門青山公路19咪",
+            "latitude": 22.380527708826,
+            "longitude": 113.97942319929,
+            "contactNo": "9207 8527",
+            "website": "",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 0,
+                    "remark": "高度限制:"
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "私家車\n星期一至星期五(公眾假期除外)\n(07:00-23:00)\n首2小時 每半小時 $10\n超過2小時 每半小時 $15\n(23:00-07:00) 每半小時 $10\n星期六、日及公眾假期\n(07:00-23:00)\n首2小時 每半小時 $17\n超過2小時 每半小時 $25.5\n(23:00-07:00) 每半小時 $17",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
@@ -10660,42 +10466,6 @@
             }
         },
         {
-            "park_Id": "tdc74p7",
-            "name": "友愛體育館",
-            "displayAddress": "新界屯門興安里3號",
-            "latitude": 22.38510895,
-            "longitude": 113.97131348,
-            "contactNo": "",
-            "website": "",
-            "facilities": [],
-            "heightLimits": [
-                {
-                    "height": 2.45,
-                    "remark": "高度限制: 2.45米"
-                }
-            ],
-            "privateCar": {
-                "privileges": [
-                    {
-                        "weekdays": [
-                            "MON",
-                            "TUE",
-                            "WED",
-                            "THU",
-                            "FRI",
-                            "SAT",
-                            "SUN",
-                            "PH"
-                        ],
-                        "description": "星期一至五(公眾假期除外)：07:00-23:00，首2小時：$3/半小時(第2小時後：$4.5/半小時)；23:00-07:00：$1/半小時 星期六日及公眾假期：07:00-23:00，首2小時：$4/半小時(第2小時後：$6/半小時)；23:00-07:00：$1/半小時",
-                        "periodStart": "00:00",
-                        "periodEnd": "24:00",
-                        "add_source": "py-auto-fill"
-                    }
-                ]
-            }
-        },
-        {
             "park_Id": "tdc242p1",
             "name": "高翔苑停車場",
             "displayAddress": "九龍油塘高超道32號",
@@ -10925,18 +10695,18 @@
             "privateCar": {}
         },
         {
-            "park_Id": "tdstt77",
-            "name": "樂華街停車場",
-            "displayAddress": "九龍慈雲山樂華街",
-            "latitude": 22.34864224,
-            "longitude": 114.20521292,
-            "contactNo": "",
+            "park_Id": "tdc391p1",
+            "name": "賽馬會屯門蝴蝶灣體育館",
+            "displayAddress": "屯門湖山路11號",
+            "latitude": 22.378696954491,
+            "longitude": 113.96473520283,
+            "contactNo": "9207 8527",
             "website": "",
             "facilities": [],
             "heightLimits": [
                 {
-                    "height": 2.45,
-                    "remark": "高度限制: 2.45"
+                    "height": 0,
+                    "remark": "高度限制:"
                 }
             ],
             "privateCar": {
@@ -10952,7 +10722,7 @@
                             "SUN",
                             "PH"
                         ],
-                        "description": "私家車:星期一至日及公眾假期：$10/小時, 日泊(08:00-18:00): $70, 夜泊(18:00-08:00): $95",
+                        "description": "私家車：\n星期一至星期五(公眾假期除外)\n(07:00-23:00)\n首2小時 每半小時 $6\n超過2小時 每半小時 $9\n(23:00-07:00) 每半小時 $1.6\n星期六、日及公眾假期\n(07:00-23:00)\n首2小時 每半小時 $9\n超過2小時 每半小時 $13.5\n(23:00-07:00) 每半小時 $1.6",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
@@ -15935,6 +15705,42 @@
                             "PH"
                         ],
                         "description": "私家車/輕型貨車/電單車:\n星期一至五不包括公眾假期：$11/小時,\n日泊(08:00-18:00): $80,\n夜泊(18:00-08:00): $115，\n星期六日假期：$12/小時,\n日泊(08:00-18:00): $80,\n夜泊(18:00-08:00): $115",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
+        },
+        {
+            "park_Id": "tdc394p1",
+            "name": "友愛體育館",
+            "displayAddress": "屯門興安里3號",
+            "latitude": 22.385419684623,
+            "longitude": 113.97138674169,
+            "contactNo": "9207 8527",
+            "website": "",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 0,
+                    "remark": "高度限制:"
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "私家車/電單車：\n星期一至星期五(公眾假期除外)\n(07:00-23:00)\n首2小時 每半小時 $6\n超過2小時 每半小時 $9\n(23:00-07:00) 每半小時 $2\n星期六、日及公眾假期\n(07:00-23:00)\n首2小時 每半小時 $10\n超過2小時 每半小時 $15\n(23:00-07:00) 每半小時 $2",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
