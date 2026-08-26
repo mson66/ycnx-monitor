@@ -9,7 +9,7 @@ from groq import Groq
 class CrawlerEngine:
     def __init__(self, groq_api_key):
         self.client = Groq(api_key=groq_api_key)
-        self.model_id = "llama-3.1-8b-instant" 
+        self.model_id = "openai/gpt-oss-20b"
         self.base_pdf_url = "https://ycnx.singlewindow.gd.cn/api/ycnx-approval/draw-lots-notarization/view-publicly-file/YCCQPCH"
         
         self.browser_headers = {
