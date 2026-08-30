@@ -4,7 +4,7 @@
       "data/gov_cleaned.json",
       "data/description-rules.json"
     ],
-    "merged_at": "2026-08-23 00:52:05",
+    "merged_at": "2026-08-30 02:45:20",
     "merge_rule": "僅通過park_Id匹配，僅比較weekdays/periodStart/periodEnd判斷規則是否重複"
   },
   "results": [
@@ -531,6 +531,47 @@
       }
     },
     {
+      "park_Id": "78",
+      "name": "寶光商業中心",
+      "displayAddress": "九龍新蒲崗太子道東698號寶光商業中心",
+      "latitude": 22.33448116,
+      "longitude": 114.1981709,
+      "contactNo": "2350 4501",
+      "website": "",
+      "facilities": [
+        "evCharger"
+      ],
+      "heightLimits": [
+        {
+          "height": 3.8
+        }
+      ],
+      "privateCar": {
+        "hourlyCharges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "excludePublicHoliday": false,
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "price": 30,
+            "usageMinimum": 1,
+            "type": "hourly",
+            "covered": "covered",
+            "billing_unit": "hour"
+          }
+        ]
+      }
+    },
+    {
       "park_Id": "79",
       "name": "綠景",
       "displayAddress": "九龍觀塘海濱道123號NEO",
@@ -694,7 +735,7 @@
           },
           {
             "price": 4500,
-            "remark": "條款及細則:  1) 月租車位需事先填表申請。 2) 泊車位以先到先得方法分配，Manulife Place 租戶享有固定車位優先選擇權。 3) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 4) 如有任何爭議，停車場管理公司保留最終決定權。",
+            "remark": "條款及細則:  1) 月租車位需事先填表申請。 2) 泊車位以先到先得方法分配，Manulife Place 租戶享有固定車位優先選擇權。 3) 停車場管���公司有權更改優惠、條款及細則而毋須另行通知。 4) 如有任何爭議，停車場管理公司保留最終決定權。",
             "type": "monthly-park",
             "covered": "covered",
             "reserved": "reserved"
@@ -751,7 +792,7 @@
             "type": "night-park",
             "covered": "covered",
             "validUntil": "no-restrictions",
-            "remark": "條款及細則: 1) 由晚上八時���翌日早上八時正，私家車晚泊收費為HK$95。2) 按當時累計時租或日泊 (如：HK$95) 收費，兩者以較低者為準 。 3) 泊車不足壹小時，亦會以壹小時計算。 4) 只限單次出入。 5) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 6) 如有任何爭議，停車場管理公司保留最終決定權。"
+            "remark": "條款及細則: 1) 由晚上八時至翌日早上八時正，私家車晚泊收費為HK$95。2) 按當時累計時租或日泊 (如：HK$95) 收費，兩者以較低者為準 。 3) 泊車不足壹小時，亦會以壹小時計算。 4) 只限單次出入。 5) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 6) 如有任何爭議，停車場管理公司保留最終決定權。"
           }
         ],
         "hourlyCharges": [
@@ -1502,6 +1543,40 @@
             "price": 20,
             "type": "hourly",
             "covered": "covered",
+            "billing_unit": "hour"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "120",
+      "name": "彩盈邨停車場",
+      "displayAddress": "九龍牛頭角彩霞道79號",
+      "latitude": 22.32849687,
+      "longitude": 114.21452165,
+      "contactNo": "",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [],
+      "privateCar": {
+        "hourlyCharges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "excludePublicHoliday": false,
+            "covered": "covered",
+            "type": "hourly",
+            "price": 20,
+            "periodEnd": "00:00",
+            "periodStart": "00:00",
             "billing_unit": "hour"
           }
         ]
@@ -4443,6 +4518,42 @@
       "privateCar": {}
     },
     {
+      "park_Id": "tdc397p1",
+      "name": "大埔政府合署停車場",
+      "displayAddress": "新界大埔汀角路1號",
+      "latitude": 22.451246322048,
+      "longitude": 114.16415371078,
+      "contactNo": "2117 3036",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 0,
+          "remark": "高度限制:"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "私家車：\n星期一至星期五(公眾假期除外) (19:00-07:00)  每小時 $12\n星期六、日及公眾假期 每小時 $19\n日泊\n星期六、日及公眾假期 (07:00-19:00) $65\n夜泊\n星期一至星期日及公眾假期 (19:00-07:00) $50",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
       "park_Id": "tdc14p5132",
       "name": "TKO Gateway 南翼停車場",
       "displayAddress": "新界將軍澳銀澳路8號TKO Gateway South",
@@ -7027,18 +7138,18 @@
       }
     },
     {
-      "park_Id": "tdc37p1",
-      "name": "大埔政府合署",
-      "displayAddress": "新界大埔汀角路1號",
-      "latitude": 22.451241395257,
-      "longitude": 114.16426012276,
+      "park_Id": "tdc389p1",
+      "name": "東區尤德夫人那打素醫院訪客停車場",
+      "displayAddress": "香港柴灣樂民道3號",
+      "latitude": 22.269145517673,
+      "longitude": 114.23510233856,
       "contactNo": "",
       "website": "",
       "facilities": [],
       "heightLimits": [
         {
-          "height": 2.45,
-          "remark": "高度限制: 2.45"
+          "height": 3.3,
+          "remark": "高度限制: 3.3米"
         }
       ],
       "privateCar": {
@@ -7054,7 +7165,7 @@
               "SUN",
               "PH"
             ],
-            "description": "星期一至五（公眾假期除外）：$8/每小時， 星期六，日及公眾假期：$18/每小時",
+            "description": "私家車/電單車：\n由 07:00 至 23:00\n首半及第二個半小時 每半小時 $11\n第三個半小時及以後 每半小時 $17\n由 23:00 至 07:00\n首半及第二個半小時 每半小時 $6\n第三個半小時及以後 每半小時 $9",
             "periodStart": "00:00",
             "periodEnd": "24:00",
             "add_source": "py-auto-fill"
@@ -7075,6 +7186,23 @@
         {
           "height": 2.45,
           "remark": "高度限制: 2.45米"
+        }
+      ],
+      "privateCar": {}
+    },
+    {
+      "park_Id": "tdc398p1",
+      "name": "香園圍2號停車場",
+      "displayAddress": "新界打鼓嶺北蓮麻坑路第78約地段380號, 377號, 第80約地段61號B分段餘段, 62號, 65號B分段餘段",
+      "latitude": 22.553802938983,
+      "longitude": 114.15697281576,
+      "contactNo": "",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 0,
+          "remark": "高度限制:"
         }
       ],
       "privateCar": {}
@@ -10425,6 +10553,42 @@
               "PH"
             ],
             "description": "星期一至五(公眾假期除外)：\n07:00-23:00， 首2小時：$5/半小時 (第2小時後：$7.5/半小時)；\n23:00-07:00：$2/半小時\n星期六日及公眾假期：\n07:00-23:00，首2小時：$9/半小時(第2小時後：$13.5/半小時)；\n23:00-07:00：2/半小時",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "tdc390p1",
+      "name": "安楹苑車場",
+      "displayAddress": "九龍安達臣安禧街15號",
+      "latitude": 22.325585876295,
+      "longitude": 114.23327224172,
+      "contactNo": "3753 5073",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 0,
+          "remark": "高度限制:"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "2.4米 (適用於私家車)\n私家車/輕型貨車：\n星期一至星期日及公眾假期\n(07:00-23:00) 每小時 $21\n(23:00-07:00) 每小時 $17\n電單車：\n星期一至日及公眾假期 每小時 $6",
             "periodStart": "00:00",
             "periodEnd": "24:00",
             "add_source": "py-auto-fill"
