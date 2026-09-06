@@ -1,6 +1,128 @@
 {
     "results": [
         {
+            "park_Id": "12",
+            "name": "淘大商場",
+            "displayAddress": "九龍九龍灣牛頭角道77號",
+            "latitude": 22.32470074,
+            "longitude": 114.21675324,
+            "contactNo": "2756 3666",
+            "website": "https://www.hanglungmalls.com/parking?mall=amoy-plaza",
+            "facilities": [
+                "evCharger",
+                "disabilities",
+                "unloading",
+                "washing"
+            ],
+            "heightLimits": [
+                {
+                    "height": 1.9,
+                    "remark": ""
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI"
+                        ],
+                        "excludePublicHoliday": true,
+                        "description": "顧客於商場內消費滿港幣$300，可享1小時免費泊車優惠；滿港幣$500，則享最多2小時免費泊車優惠。\n\n*只接受最多兩組不同商戶發出的即日電子消費單據及電子簽賬存根。\n*每張泊車票最多可享2小時免費泊車優惠。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
+                        "periodEnd": "24:00",
+                        "periodStart": "00:00"
+                    },
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI"
+                        ],
+                        "excludePublicHoliday": true,
+                        "description": "凡於星期一至星期五(公眾假期除外)下午12:00時至14:00時進入停車場，並於食肆消費滿港幣$200，均可享最多2小時免費泊車優惠。\n\n*只接受單一食肆發出之即日電子消費單據及簽賬存根。\n*以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
+                        "periodEnd": "14:00",
+                        "periodStart": "12:00"
+                    },
+                    {
+                        "weekdays": [
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "description": "顧客於商場內消費滿港幣$400，可享1小時免費泊車優惠；滿港幣$600，則享最多2小時免費泊車優惠。 *只接受最多兩組不同商戶發出的即日電子消費單據及電子簽賬存根。 *每張泊車票最多可享2小時免費泊車優惠。 *以上優惠只適用於部份商戶，並須受有關條款及細則約束，詳情請参閱場內宣傳物品。",
+                        "periodEnd": "24:00",
+                        "periodStart": "00:00"
+                    }
+                ],
+                "monthlyCharges": [
+                    {
+                        "reserved": "non-reserved",
+                        "covered": "mixed",
+                        "type": "monthly-park",
+                        "remark": "並不適用於部份充電車位。",
+                        "price": 3600
+                    },
+                    {
+                        "reserved": "reserved",
+                        "covered": "covered",
+                        "type": "monthly-park",
+                        "remark": "並不適用於充電車位。",
+                        "price": 4200
+                    }
+                ],
+                "dayNightParks": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "validUntil": "no-restrictions",
+                        "covered": "mixed",
+                        "type": "night-park",
+                        "price": 100,
+                        "periodEnd": "09:00",
+                        "periodStart": "21:00"
+                    }
+                ],
+                "hourlyCharges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "excludePublicHoliday": false,
+                        "remark": "",
+                        "covered": "mixed",
+                        "type": "hourly",
+                        "price": 25,
+                        "usageMinimum": 1,
+                        "periodEnd": "24:00",
+                        "periodStart": "00:00",
+                        "billing_unit": "hour"
+                    }
+                ]
+            }
+        },
+        {
             "park_Id": "27",
             "name": "油麗商場停車場",
             "displayAddress": "九龍油塘油塘道9號油麗商場LG1 & LG2",
@@ -727,7 +849,7 @@
                     },
                     {
                         "price": 4500,
-                        "remark": "條款及細則:  1) 月租車位需事先填表申請。 2) 泊車位以先到先得方法分配，Manulife Place 租戶享有固定車位優先選擇權。 3) 停車場管���公司有權更改優惠、條款及細則而毋須另行通知。 4) 如有任何爭議，停車場管理公司保留最終決定權。",
+                        "remark": "條款及細則:  1) 月租車位需事先填表申請。 2) 泊車位以先到先得方法分配，Manulife Place 租戶享有固定車位優先選擇權。 3) 停車場管理公司有權更改優惠、條款及細則而毋須另行通知。 4) 如有任何爭議，停車場管理公司保留最終決定權。",
                         "type": "monthly-park",
                         "covered": "covered",
                         "reserved": "reserved"
@@ -1050,7 +1172,7 @@
                         "price": 30,
                         "periodEnd": "23:00",
                         "periodStart": "07:00",
-                        "remark": "星期一至五 首2小時 07:00 – 23:00 每半小時$10 , 首2小時以後 每半小時$15",
+                        "remark": "星期一至五 首2小時 07:00 – 23:00 每半小���$10 , 首2小時以後 每半小時$15",
                         "billing_unit": "hour"
                     }
                 ]
@@ -6824,7 +6946,7 @@
                             "SUN",
                             "PH"
                         ],
-                        "description": "1.9米(適用於B2-B4私家車)\n私家車:\n星期一至五不包括公眾假期：$30/小時,\n星期六日假期：$34/小時,\n夜泊(22:00-07:00): $90",
+                        "description": "1.9米(適用於B2-B4私家車)\n私家車：\n星期一至星期五(公眾假期除外) 每小時 $32\n星期六、日及公眾假期 每小時 $37\n夜泊\n星期一至日及公眾假期 (22:00-07:00) $90",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
@@ -7178,6 +7300,23 @@
                 {
                     "height": 2.45,
                     "remark": "高度限制: 2.45米"
+                }
+            ],
+            "privateCar": {}
+        },
+        {
+            "park_Id": "tdc8p13",
+            "name": "高鐵香港段西九龍站停車場",
+            "displayAddress": "高鐵香港段西九龍站的地下庫B2",
+            "latitude": 22.30384039,
+            "longitude": 114.1643756,
+            "contactNo": "26177131, 93107236",
+            "website": "",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 0,
+                    "remark": "高度限制:"
                 }
             ],
             "privateCar": {}
@@ -10580,7 +10719,7 @@
                             "SUN",
                             "PH"
                         ],
-                        "description": "2.4米 (適用於私家車)\n私家車/輕型貨車：\n星期一至星期日及公眾假期\n(07:00-23:00) 每小時 $21\n(23:00-07:00) 每小時 $17\n電單車：\n星期一至日及公眾假期 每小時 $6",
+                        "description": "2.4米 (適用於私家車)\n私家車：\n每小時 $21\n電單車：\n每小時 $6\n*私家車泊位可供電單車停泊",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
@@ -15864,6 +16003,42 @@
                             "PH"
                         ],
                         "description": "私家車/電單車：\n星期一至星期五(公眾假期除外)\n(07:00-23:00)\n首2小時 每半小時 $6\n超過2小時 每半小時 $9\n(23:00-07:00) 每半小時 $2\n星期六、日及公眾假期\n(07:00-23:00)\n首2小時 每半小時 $10\n超過2小時 每半小時 $15\n(23:00-07:00) 每半小時 $2",
+                        "periodStart": "00:00",
+                        "periodEnd": "24:00",
+                        "add_source": "py-auto-fill"
+                    }
+                ]
+            }
+        },
+        {
+            "park_Id": "tdstt158",
+            "name": "東涌錦東街露天收費停車場",
+            "displayAddress": "東涌錦東街",
+            "latitude": 22.296845162304,
+            "longitude": 113.95481289309,
+            "contactNo": "",
+            "website": "",
+            "facilities": [],
+            "heightLimits": [
+                {
+                    "height": 2.45,
+                    "remark": "高度限制: 2.45米"
+                }
+            ],
+            "privateCar": {
+                "privileges": [
+                    {
+                        "weekdays": [
+                            "MON",
+                            "TUE",
+                            "WED",
+                            "THU",
+                            "FRI",
+                            "SAT",
+                            "SUN",
+                            "PH"
+                        ],
+                        "description": "私家車/電單車：\n星期一至星期五(公眾假期除外) 每小時 $18\n星期六、日及公眾假期 每小時 $16\n日泊\n星期一至星期五(公眾假期除外) (08:00-18:00) $100\n星期六、日及公眾假期 (08:00-18:00) $95\n夜泊\n星期一至星期五(公眾假期除外) (18:00-08:00) $80\n星期六、日及公眾假期 (18:00-08:00) $75",
                         "periodStart": "00:00",
                         "periodEnd": "24:00",
                         "add_source": "py-auto-fill"
