@@ -4,7 +4,7 @@
       "data/gov_cleaned.json",
       "data/description-rules.json"
     ],
-    "merged_at": "2026-09-06 02:10:21",
+    "merged_at": "2026-09-13 02:22:19",
     "merge_rule": "僅通過park_Id匹配，僅比較weekdays/periodStart/periodEnd判斷規則是否重複"
   },
   "results": [
@@ -5635,7 +5635,7 @@
     },
     {
       "park_Id": "tdc2p1",
-      "name": "機場一號停車埸(時租)",
+      "name": "機場一號停車場(時租)",
       "displayAddress": "新界 離島區 暢順路號",
       "latitude": 22.31322343,
       "longitude": 113.9366562,
@@ -10341,7 +10341,7 @@
     },
     {
       "park_Id": "tdc383p1",
-      "name": "城門谷運動埸停車場",
+      "name": "城門谷運動場停車場",
       "displayAddress": "新界荃灣城門道21號",
       "latitude": 22.376689743514,
       "longitude": 114.12912186165,
@@ -11178,7 +11178,7 @@
     },
     {
       "park_Id": "tdstt65",
-      "name": "科城路停車埸",
+      "name": "科城路停車場",
       "displayAddress": "大埔白石角科城路",
       "latitude": 22.430854039779,
       "longitude": 114.20316760188,
@@ -11212,7 +11212,7 @@
     },
     {
       "park_Id": "tdstt82",
-      "name": "田洲路停車埸",
+      "name": "田洲路停車場",
       "displayAddress": "新界將軍澳第109區田洲路",
       "latitude": 22.31641327,
       "longitude": 114.27081239,
@@ -11721,7 +11721,7 @@
     },
     {
       "park_Id": "tdc115p1",
-      "name": "彩雲(二)邨停車埸",
+      "name": "彩雲(二)邨停車場",
       "displayAddress": "九龍黃大仙區清水灣道55號",
       "latitude": 22.33333463,
       "longitude": 114.21682229,
@@ -16047,6 +16047,114 @@
               "PH"
             ],
             "description": "私家車/電單車：\n星期一至星期五(公眾假期除外) 每小時 $18\n星期六、日及公眾假期 每小時 $16\n日泊\n星期一至星期五(公眾假期除外) (08:00-18:00) $100\n星期六、日及公眾假期 (08:00-18:00) $95\n夜泊\n星期一至星期五(公眾假期除外) (18:00-08:00) $80\n星期六、日及公眾假期 (18:00-08:00) $75",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "tdc402p1",
+      "name": "如心廣場",
+      "displayAddress": "新界荃灣楊屋道8號",
+      "latitude": 22.368469884633,
+      "longitude": 114.113003002,
+      "contactNo": "2439 1618",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 0,
+          "remark": "高度限制:"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "2.4米 (適用於私家車)\n私家車：\n星期一至星期五(公眾假期除外) 每小時 $19\n星期六、日及公眾假期 每小時 $26",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "tdc403p1",
+      "name": "如心廣場二期",
+      "displayAddress": "新界荃灣大河道98號",
+      "latitude": 22.368724538771,
+      "longitude": 114.11140638957,
+      "contactNo": "2439 1618",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 0,
+          "remark": "高度限制:"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "2.4米 (適用於私家車)\n私家車：\n星期一至星期五(公眾假期除外) 每小時 $19\n星期六、日及公眾假期 每小時 $26\n夜泊\n星期一至日及公眾假期 (21:00-08:00) $120",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "tdc404p1",
+      "name": "愉景新城",
+      "displayAddress": "新界荃灣青山道398號",
+      "latitude": 22.375805661264,
+      "longitude": 114.112261392,
+      "contactNo": "2940 3009",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 0,
+          "remark": "高度限制:"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "私家車：\n星期一至星期五(公眾假期除外) 每小時 $20\n星期六、日及公眾假期 每小時 $26\n日泊\n星期一至日及公眾假期 (07:00-20:00) $120\n夜泊\n星期一至日及公眾假期 (21:00-08:00) $120",
             "periodStart": "00:00",
             "periodEnd": "24:00",
             "add_source": "py-auto-fill"
