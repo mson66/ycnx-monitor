@@ -4,7 +4,7 @@
       "data/gov_cleaned.json",
       "data/description-rules.json"
     ],
-    "merged_at": "2026-10-04 03:36:43",
+    "merged_at": "2026-10-11 03:09:55",
     "merge_rule": "僅通過park_Id匹配，僅比較weekdays/periodStart/periodEnd判斷規則是否重複"
   },
   "results": [
@@ -653,6 +653,47 @@
       }
     },
     {
+      "park_Id": "78",
+      "name": "寶光商業中心",
+      "displayAddress": "九龍新蒲崗太子道東698號寶光商業中心",
+      "latitude": 22.33448116,
+      "longitude": 114.1981709,
+      "contactNo": "2350 4501",
+      "website": "",
+      "facilities": [
+        "evCharger"
+      ],
+      "heightLimits": [
+        {
+          "height": 3.8
+        }
+      ],
+      "privateCar": {
+        "hourlyCharges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "excludePublicHoliday": false,
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "price": 30,
+            "usageMinimum": 1,
+            "type": "hourly",
+            "covered": "covered",
+            "billing_unit": "hour"
+          }
+        ]
+      }
+    },
+    {
       "park_Id": "79",
       "name": "綠景",
       "displayAddress": "九龍觀塘海濱道123號NEO",
@@ -1139,7 +1180,7 @@
             "price": 30,
             "periodEnd": "23:00",
             "periodStart": "07:00",
-            "remark": "星期一至五 首2小時 07:00 – 23:00 每半小時$10 , 首2小時以後 每半小時$15",
+            "remark": "星期一至五 首2小時 07:00 – 23:00 每半小���$10 , 首2小時以後 每半小時$15",
             "billing_unit": "hour"
           }
         ]
@@ -16029,6 +16070,78 @@
               "PH"
             ],
             "description": "私家車：\n星期一至星期五(公眾假期除外) 每小時 $20\n星期六、日及公眾假期 每小時 $26\n日泊\n星期一至日及公眾假期 (07:00-20:00) $120\n夜泊\n星期一至日及公眾假期 (21:00-08:00) $120",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "tdc410p1",
+      "name": "啟德醫院B區停車場",
+      "displayAddress": "香港九龍九龍灣承昌道2-3號",
+      "latitude": 22.317389316516,
+      "longitude": 114.20679468515,
+      "contactNo": "3872 7399",
+      "website": "https://www3.ha.org.hk/kth/main/location-and-transport.html?lang=hk",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 2.4,
+          "remark": "高度限制: 2.4米"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "私家車：\n第一小時，每半小時港幣拾伍元 (即一小時共叁拾元)\n第二小時，每半小時港幣貳拾元 (即兩小時共柒拾元)\n第三小時，每半小時港幣叁拾元 (即三小時共壹佰叁拾元)\n由第四小時起，每半小時港幣叁拾元\n泊車不足半小時，亦以半小時計算。\n每小時港幣貳拾元\n泊車不足一小時，亦以一小時計算。\n時租訪客車位僅設於第4座及第5座地庫B2層。",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "tdc154p1",
+      "name": "基督教聯合醫院(S座)",
+      "displayAddress": "觀塘協和街130號",
+      "latitude": 22.322415725666,
+      "longitude": 114.22745365373,
+      "contactNo": "",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 2.0,
+          "remark": "高度限制: 2米"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "首兩小時: 每小時$20 第三小時起: 每小時$30",
             "periodStart": "00:00",
             "periodEnd": "24:00",
             "add_source": "py-auto-fill"
