@@ -4,7 +4,7 @@
       "data/gov_cleaned.json",
       "data/description-rules.json"
     ],
-    "merged_at": "2026-10-11 03:09:55",
+    "merged_at": "2026-10-18 02:22:26",
     "merge_rule": "僅通過park_Id匹配，僅比較weekdays/periodStart/periodEnd判斷規則是否重複"
   },
   "results": [
@@ -13989,7 +13989,26 @@
           "remark": "高度限制:"
         }
       ],
-      "privateCar": {}
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "私家車/電單車：\n每小時 $25\n日泊 (08:00-20:00) $160",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
     },
     {
       "park_Id": "tdstt140",
@@ -16142,6 +16161,150 @@
               "PH"
             ],
             "description": "首兩小時: 每小時$20 第三小時起: 每小時$30",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "tdstt160",
+      "name": "杏花村盛康里停車場",
+      "displayAddress": "香港柴灣盛康里",
+      "latitude": 22.279341596828,
+      "longitude": 114.23847185589,
+      "contactNo": "3105 0596",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 0,
+          "remark": "高度限制:"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "私家車：\n星期一至星期五(公眾假期除外) 每小時 $14\n星期六、日及公眾假期 每小時 $18\n日泊 (08:00-18:00)\n星期一至星期五(公眾假期除外) $80\n星期六、日及公眾假期 $95\n夜泊 (18:00-08:00)\n星期一至星期五(公眾假期除外) $90\n星期六、日及公眾假期 $105",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "tdc417p1",
+      "name": "創紀之城6期",
+      "displayAddress": "觀塘觀塘道392號",
+      "latitude": 22.313353859169,
+      "longitude": 114.22203819525,
+      "contactNo": "2267 0060",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 0,
+          "remark": "高度限制:"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "私家車：\n星期一至星期日及公眾假期 每小時 $20\n日泊 (08:00-18:00) $125",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "tdc416p1",
+      "name": "創紀之城 2 & 3期",
+      "displayAddress": "觀塘觀塘道370號及378號",
+      "latitude": 22.314611145763,
+      "longitude": 114.21977961427,
+      "contactNo": "2267 0100",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 0,
+          "remark": "高度限制:"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "私家車：\n星期一至星期日及公眾假期 每小時 $22\n日泊 (08:00-18:00) $140",
+            "periodStart": "00:00",
+            "periodEnd": "24:00",
+            "add_source": "py-auto-fill"
+          }
+        ]
+      }
+    },
+    {
+      "park_Id": "tdc415p1",
+      "name": "創紀之城1期",
+      "displayAddress": "觀塘觀塘道388號",
+      "latitude": 22.313461784084,
+      "longitude": 114.22137098477,
+      "contactNo": "2267 0000",
+      "website": "",
+      "facilities": [],
+      "heightLimits": [
+        {
+          "height": 0,
+          "remark": "高度限制:"
+        }
+      ],
+      "privateCar": {
+        "privileges": [
+          {
+            "weekdays": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT",
+              "SUN",
+              "PH"
+            ],
+            "description": "私家車：\n星期一至星期日及公眾假期 每小時 $26\n日泊 (08:00-18:00) $165",
             "periodStart": "00:00",
             "periodEnd": "24:00",
             "add_source": "py-auto-fill"
